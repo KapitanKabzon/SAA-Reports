@@ -104,7 +104,7 @@ The next part of the experiment was done to test the potentiometer for repeatabi
 
 The raw data from these experiments can will be presented in the Tables section of the Appendix.
 \section{Results}
-Here, the data from each part of this experiment are analysed and discussed. Important graphs, equations, and tables will be shown directly in these subsections. Complete calculated data will be put into tables, and graphs that be seen in the Appendix.
+Here, the data from each part of this experiment are analysed and discussed. Important graphs, equations, and tables are shown directly in these subsections. Complete calculated data will be put into tables and graphs that can be seen in the Appendix.
 \subsection{Hysteresis}
 In order to calculate the hysteresis, the following equation is used:
 $$H(I)=\lvert O_\downarrow-O_\uparrow\rvert$$
@@ -174,7 +174,7 @@ In order to compare the average actual output equation to that of the ideal stra
 	axis lines=middle,
 	legend style={at={(axis cs:250,1.5)},
 		anchor=south west},
-	xlabel=Angle, ylabel=Voltage]
+	xlabel=Angle \lbrack \degree \rbrack, ylabel=Voltage \lbrack V\rbrack]
 	\addplot[smooth,
 	color=black,
 	mark=*,
@@ -219,7 +219,7 @@ In order to analyse the repeatability of this potentiometer, the data collected 
 	\begin{tikzpicture}
 	\begin{axis}[axis lines=middle,
 	xlabel near ticks,
-	xlabel=Voltage, ylabel=Frequency]
+	xlabel=Voltage \lbrack V\rbrack, ylabel=Frequency]
 	\addplot[ybar,fill=black] coordinates {
 		(4.9, 1)
 		(4.95, 1)
@@ -259,17 +259,18 @@ So, from this, a probability distribution function can be plotted, where each st
 	\begin{tikzpicture}
 	\begin{axis}[
 	axis lines=middle,
-	legend style={at={(axis cs:200,1.5)},
-		anchor=south west},
-	xlabel=Angle, ylabel=Voltage]
+	ylabel style={at={(ticklabel cs:0.99,-25)}},
+	xlabel near ticks,
+	xlabel=Standard Deviations \lbrack $\sigma$\rbrack, ylabel=Voltage \lbrack V\rbrack,
+	xticklabels={,$2\sigma$,$\sigma$,,$\sigma$,$2\sigma$}]
 	\addplot[smooth,color=black,mark=*] coordinates {
-		(-0.1402, 0.6667)
-		(-0.0935, 0.6667)
+		(-0.1462, 0.6667)
+		(-0.0992, 0.6667)
 		(-0.0467, 4)
 		(0, 10)
 		(0.0467, 4)
-		(0.0935, 0)
-		(0.1402, 0.6667)
+		(0.0992, 0)
+		(0.1462, 0.6667)
 	};
 	\end{axis}
 	\end{tikzpicture}
@@ -290,6 +291,7 @@ One noticeable point of error during this part of the experiment is that, while 
 \subsection{Repeatability}
 The behaviour of the repeatability acts as expected, forming a bell curve in the probability density function. The reason for any outliers, and for why the data points are not closer to the ideal centre, can be linked to parallax error and small changes in the configuration of the potentiometer and degree circle. However, overall, any error in this part of the experiment is negligible, and the potentiometer has a decent repeatability.
 \section{Conclusion}
+ This experiment had two main expectations: while recording data for the hysteresis and non-linearity part of the experiment, these results would turn out to follow a linear trend within each set of data; and 
  "The project had so and so expectations, which were met through x y z metric used to analyse the data. Therefore the experiment confirms/doesn't confirm the hypothesis, namely <main part of hypothesis>"
 
 1 - mention result
