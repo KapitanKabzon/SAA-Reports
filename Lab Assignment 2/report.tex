@@ -33,6 +33,10 @@
 
 The NTC thermistors display non-linear resistance characteristics with temperature. The resistance of an NTC will decrease at the temperature increases. This behaviour is related to it's constant value $B$. This phenomenon allows for use of an NTC thermistor as a temperature sensor. In the discussed experiments a Vishay NTCLE100E3 thermistor was used, with $B=3977^{\circ}K$.
 
+Equation for expected intermediate temperatures, taken from the thermistor's datasheet here modified for temperature $T$ in $^{\circ}C$
+$$R_{(T)}=R_{ref}\cdot e^{A+\frac{B}{T+273.15}+\frac{C}{(T+273.15)^2}+\frac{D}{(T+273.15)^3}}$$
+Where $A$, $B$, $C$, and $D$ are constant values which are dependent on the thermistor; $R_{ref}$ is the resistance at a reference temperature---for the thermistor used in the experiment it is $10000\Omega$.
+
 \section{Experiments}
 Two experiments were conducted. First, to determine characteristics of the non-linear response of the NTC: resistance-temperature R-T and temperature-resistance T-R, maximum non-linearity $\hat N$ as \% of full scale deflection $f.s.d$; response of a system linearised by a parallel resistor. Second, to find the time constant $\tau$ of the measurement system. Raw data of all measurements is presented in the Appendix.
 \subsection{R-T Characteristics}
@@ -44,13 +48,21 @@ To determine the parallel resistor value $R_{T_{ctr}}$ was recorded at $T_{ctr}=
 \section{Results}
 Here, the data from each part the experiments are analysed and discussed. Important graphs, equations, and tables are shown directly in these subsections. Complete calculated data will be put into tables, graphs that can be seen in the Appendix.
 \subsection{R-T Characteristics}
-\subsection{Time Constant}
 \subsubsection{Non-Linear}
 
-Equation for expected intermediate temperatures, taken from the thermistor's datasheet here modified for temperature $T$ in $^{\circ}C$
-$$R_{(T)}=R_{ref}\cdot e^{A+\frac{B}{T+273.15}+\frac{C}{(T+273.15)^2}+\frac{D}{(T+273.15)^3}}$$
-Where $A$, $B$, $C$, and $D$ are constant values which are dependent on the thermistor; $R_{ref}$ is the resistance at a reference temperature---for the thermistor used in the experiment it is $10000\Omega$.
-
+To calculate the expected non-linear response equation \ref{nonlinear} was used with values from the datasheet:
+\begin{center}
+  \begin{tabular}{ll}
+    \hline 
+    $R_{ref}$  &  $10000\Omega$  \\
+    $A$  &  $-14.6337$  \\
+    $B$  &  $4791.842$  \\
+    $C$  &  $-115334$  \\
+    $D$  &  $-3.730535*10^6$  \\
+    \hline
+    \end{tabular}
+\end{center}
+The R-T expected output with combined data from all measurement runs is shown in the following figure:
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
@@ -60,7 +72,9 @@ Where $A$, $B$, $C$, and $D$ are constant values which are dependent on the ther
       legend style={
         at={(axis cs:90,3.75)},
         anchor=south west},
-      xlabel=Angle, ylabel=Voltage]
+      xlabel=Temperature \lbrack$^{\circ}C$\rbrack,
+      ylabel=Resistance \lbrack$k\Omega$\rbrack,
+      ]
       \addplot[smooth,
       color=red,
       mark=none,
@@ -112,14 +126,30 @@ Where $A$, $B$, $C$, and $D$ are constant values which are dependent on the ther
       };
       \addlegendentry{\rom{3}}
       \addplot[smooth, black, dashed][domain=45:90]{10*exp(-14.6337+(4791.842/(x+273.15)+(-115334/((273.15 + x)^2))+((-3.730535*1000000)/((273.15 + x)^3)))};
-      \addlegendentry{$R_T$}
+      \addlegendentry{Expected$R_T$}
     \end{axis}
   \end{tikzpicture}
-  \label{fig:actual}
-  without parallel resistor
+  \label{fig:without}
+  Fig.\ref{fig:without} Non-Linear R-T 
 \end{figure}
+From the Fig.\ref{fig:without} it can be seen that the thermistors output is non-linear, and the curve shape is similar to the expected response. However, a static offset can be observed, which will be discussed the Error Discussion~\ref{sec:error}.
+
+The T-R characteristic is shown:
+\begin{center}
+  \begin{tabular}{ll}
+    \hline 
+    $R_{ref}$  &  $10000\Omega$  \\
+    $A$  &  $-14.6337$  \\
+    $B$  &  $4791.842$  \\
+    $C$  &  $-115334$  \\
+    $D$  &  $-3.730535*10^6$  \\
+    \hline
+    \end{tabular}
+\end{center}
+The R-T expected output with combined data from all measurement runs is shown in the following figure:
 \subsubsection{Linear}
 \section{Error Discussion}
+\label{sec:error}
 \section{Tables}
 \section{Equations}
 
@@ -189,7 +219,7 @@ where $R_{T_{ctr}}$ is thermistor resistance at the center temperature $T_{ctr}$
     \end{axis}
   \end{tikzpicture}
   \label{fig:actual}
-  without parallel resistor
+  \ref{fig:without}without parallel resistor
 \end{figure}
 
 \begin{figure}[h]
