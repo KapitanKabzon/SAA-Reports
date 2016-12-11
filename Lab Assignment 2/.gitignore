@@ -1,0 +1,8 @@
+# LaTeX unnecessaries
+*\#*\#
+
+## Ignore LaTeX build results, logs, temporary files, etc.
+
+*.aux
+*.out
+*.synctex.gz
