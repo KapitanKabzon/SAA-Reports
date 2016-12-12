@@ -34,31 +34,60 @@ The NTC thermistors display non-linear resistance characteristics with temperatu
 
 \section{Theory}
 \subsection{Expected Output}
-The output of thermistor is said to be non-linear, for the NTCLE100E3 it can be described with equation for expected intermediate temperatures, taken from the it's datasheet, here modified for temperature $T$ in $^{\circ}C$
-$$R_{(T)}=R_{ref}\cdot e^{A+\frac{B}{T+273.15}+\frac{C}{(T+273.15)^2}+\frac{D}{(T+273.15)^3}}$$
-Where $A$, $B$, $C$, and $D$ are constant values which are dependent on the thermistor; $R_{ref}$ is the resistance at a reference temperature---for the thermistor used in the experiment (Brown, Black, and Orange bands) it is $10000\Omega$. The constant values:
+The output of thermistor is said to be non-linear, for the NTCLE100E3 it can be described with equation for expected intermediate temperatures, taken from the NTC's datasheet:
+\begin{equation}
+  \label{eq:datasheet}
+  R_T(T)=R_{ref}\cdot e^{A+\frac{B}{T}+\frac{C}{T^2}+\frac{D}{T^3}}
+\end{equation}
+where $A$, $B$, $C$, and $D$ are constant values which are dependent on the thermistor; $R_{ref}$ is the resistance at a reference temperature---for the thermistor used in the experiment (Brown, Black, and Orange bands) it is $10000\Omega$,and the constant values:
 \begin{center}
   \begin{tabular}{ll}
     \hline 
     $R_{ref}$  &  $10000\Omega$  \\
     $A$  &  $-14.6337$  \\
-    $B$  &  $4791.842$  \\
+    $B$\footnotemark  &  $4791.842$  \\
     $C$  &  $-115334$  \\
     $D$  &  $-3.730535\cdot10^6$  \\
     \hline
   \end{tabular}
+  \footnotetext{Note that this value is different to the $\beta$ ``$B$'' value of a thermistor, constants from this table should only be used in combination with eqation~\ref{eq:datasheet}}
 \end{center}
-The Siemens Handout describes how the output can be linearised in a range by use of a prallel resistor. The equation for the value of such resistor is
-$$R_p=R_{T_{ctr}}\cdot\frac{B-T_{ctr}}{B+2\cdot T_{ctr}}$$
-where $R_{T_{ctr}}$ and $T_{ctr}$ are thermistor's resistance and temperature at the center of the temperature range, and $B$ is the $B$ ($\beta$) value of the thermistor. From this equation an ideal straight line equation for the linear senso model can be found by calculating Output for $I_{min}$ and $I_{max}$, then sensitivity $K$ is
+Since, the temperature $T$ in the equation~\ref{eq:datasheet} is in $^\circ K$ for measurements in $^\circ C$ conversion is required:
+\begin{equation}
+  \label{eq:ctok}
+T_K=T_C+273.15^\circ
+\end{equation}
+The Siemens Handout describes how the output can be linearised in a range by use of a prallel resistor. The equation for the value of such resistor is:
+\begin{equation}
+  \label{eq:siemens}
+R_p=R_{T_{ctr}}\cdot\frac{B-T_{ctr}}{B+2\cdot T_{ctr}}
+\end{equation}
+where $R_{T_{ctr}}$ and $T_{ctr}$ are thermistor's resistance and temperature at the center of the temperature range, and $B$ is the $B$ ($\beta$) value of the thermistor. From this equation an ideal straight line equation for the linear sensor model can be found by calculating Output for $I_{min}$ and $I_{max}$, then sensitivity $K$ is
 $$K=\frac{O(I_{max})-O(I_{min})}{I_{max}-I_{min}}$$
 and y-intercept is
-$$a=O(I_{min})-KI_{min}$$
-the following experiments all measurements are expected to follow the linear model
-$$O(I)=KI+a$$
-
+\begin{equation}
+  \label{eq:intercept}
+  a=O(I_{min})-KI_{min}
+\end{equation}
+the following experiments all measurements are compared against the linear model
+\begin{equation}
+  O(I)=KI+a
+\end{equation}
+\begin{figure}[H]
+  \label{fig:parallel}
+  \centering
+  \includegraphics[width=0.75\columnwidth]{parallel.png}
+  \caption{
+    Parallel circuit
+  }
+\end{figure}
+The expected output $R_{AB}(T)$ for a linearised thermistor setup shown in Fig.\ref{fig:parallel} can be derived from a basic equation for resistor:
+\begin{equation}
+  \label{eq:Rab}
+  R_{AB}(T)=\frac{R_p\cdot R_T(T)}{R_p+R_T(T)}
+\end{equation}
 \section{Experiments}
-Two experiments were conducted. First, to determine characteristics of the non-linear response of the NTC:\@ resistance-temperature R-T and temperature-resistance T-R, maximum non-linearity $\hat N$ as \% of full scale deflection $f.s.d$; response of a system linearised by a parallel resistor. Second, to find the time constant $\tau$ of the measurement system. Raw data from all measurements is presented in the Appendix.
+Two experiments were conducted. First, to determine characteristics of the non-linear response of the NTC:\@ resistance-temperature R-T and temperature-resistance T-R, maximum non-linearity $\hat N$ as \% of $f.s.d$ (full scale deflection); response of a system linearised by a parallel resistor. Second, to find the time constant $\tau$ of the measurement system. Raw data from all measurements is presented in the Appendix.
 \subsection{R-T Characteristics}
 
 To measure the R-T and T-R characteristics the resistance was measured with an AMPROBE AM-510-EUR multimeter, and recorded over temperature range 90--45$^{\circ}C$. This was achieved by measuring the temperature of water in a cup, which was cooled from$~100^{\circ}$ to$~45^{\circ}$.
@@ -215,9 +244,10 @@ The R-T expected output with combined data from all linear measurement runs is s
         (49.4, 1.18)
       };
       \addlegendentry{\rom{3}}
+      \addplot[smooth, black, dashed][domain=45:90]{-0.01403*x+1.858};
     \end{axis}
   \end{tikzpicture}
-  \label{fig:witht}
+  \label{fig:with}
   Fig.\ref{fig:with} Linear R-T 
 \end{figure}
 \section{Error Discussion}
