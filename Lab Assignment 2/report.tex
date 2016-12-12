@@ -33,8 +33,23 @@
 The NTC thermistors display non-linear resistance characteristics with temperature. The resistance of an NTC will decrease at the temperature increases. This behaviour is related to it's constant value $B$. This phenomenon allows for use of an NTC thermistor as a temperature sensor. In the discussed experiments a Vishay NTCLE100E3 thermistor was used, with $B=3977^{\circ}K$.
 
 \section{Theory}
-\subsection{Expected Output}
-The output of thermistor is said to be non-linear, for the NTCLE100E3 it can be described with equation for expected intermediate temperatures, taken from the NTC's datasheet:
+\subsection{R-T characteristics}
+In the following experiments measurements are compared against the linear sensor model:
+\begin{equation}
+  \label{eq:model}
+  O(I)=KI+a
+\end{equation}
+where $K$ is the sensor's sensitivity, $I$ is the input, $a$ is the y-intercept, and $O(I)$ is the sensor's output at a given input. The sensitivity is calculated by the following equation:
+\begin{equation}
+  \label{eq:sensitivity}
+  K=\frac{O(I_{max})-O(I_{min})}{I_{max}-I_{min}}
+\end{equation}
+where $I_{max}$ and $I_{min}$ are maximum and minimum input in the range of operation. Finally, the  y-intercept can be found:
+\begin{equation}
+  \label{eq:intercept}
+  a=O(I_{min})-KI_{min}
+\end{equation}
+In the case of a NTC thermistor the input is temperature and the output is resistance. However, the relation between temperature is said to be non-linear, for the NTCLE100E3 it can be described with equation for expected intermediate temperatures, taken from the NTC's datasheet:
 \begin{equation}
   \label{eq:datasheet}
   R_T(T)=R_{ref}\cdot e^{A+\frac{B}{T}+\frac{C}{T^2}+\frac{D}{T^3}}
@@ -57,22 +72,12 @@ Since, the temperature $T$ in the equation~\ref{eq:datasheet} is in $^\circ K$ f
   \label{eq:ctok}
 T_K=T_C+273.15^\circ
 \end{equation}
-The Siemens Handout describes how the output can be linearised in a range by use of a prallel resistor. The equation for the value of such resistor is:
+When considering the equation~\ref{eq:datasheet} the thermistor is expected to have significant non-linearity. This error can be reduced, the Siemens Handout describes how the output can be linearised in a range by use of a prallel resistor. The equation for the value of such resistor is given by:
 \begin{equation}
   \label{eq:siemens}
 R_p=R_{T_{ctr}}\cdot\frac{B-T_{ctr}}{B+2\cdot T_{ctr}}
 \end{equation}
-where $R_{T_{ctr}}$ and $T_{ctr}$ are thermistor's resistance and temperature at the center of the temperature range, and $B$ is the $B$ ($\beta$) value of the thermistor. From this equation an ideal straight line equation for the linear sensor model can be found by calculating Output for $I_{min}$ and $I_{max}$, then sensitivity $K$ is
-$$K=\frac{O(I_{max})-O(I_{min})}{I_{max}-I_{min}}$$
-and y-intercept is
-\begin{equation}
-  \label{eq:intercept}
-  a=O(I_{min})-KI_{min}
-\end{equation}
-the following experiments all measurements are compared against the linear model
-\begin{equation}
-  O(I)=KI+a
-\end{equation}
+where $R_{T_{ctr}}$ and $T_{ctr}$ are thermistor's resistance and temperature at the center of the temperature range, and $B$ is the $B$ ($\beta$) value of the thermistor.
 \begin{figure}[H]
   \label{fig:parallel}
   \centering
