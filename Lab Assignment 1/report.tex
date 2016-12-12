@@ -68,12 +68,12 @@ $$O(I)=KI+a$$
 The ideal straight line for this equation can be determined by knowing the slope, K, and the y-intercept, a. It is hard to define the degrees that an ideal potentiometer would be able to turn, so it was assumed that the potentiometer would be able to turn from 0\degree\ to 360\degree. Additionally, it is assumed that ideally, when the potentiometer is set to 0\degree, the multimeter would read a value of 0V, and when it is set to it's maximum, it would read the full value of what was supplied to the circuit. This means that the y-intercept would be 0 in the ideal straight line.
 
 The slope of the ideal straight line is given by the following:
-$$K=\frac{O_{max}-O_{min}}{I_{max}-I_{min}}$$
+$$K=\frac{O(I_{max})-O(I_{min})}{I_{max}-I_{min}}$$
 In this experiment, the maximum voltage output will be 10V, and the minimum will be 0V. Along with the assumed lowest and highest angles of the potentiometer, this gives
 $$K=\frac{10-0}{360-0}$$
-$$K=0.027778$$
+$$K=0.02778$$
 This makes the final ideal straight line equation
-$$O_{ideal}(I)=0.027778(I)$$
+$$O_{ideal}(I)=0.02778(I)$$
 \subsection{Hypothesis}
 The main hypothesis for this experiment is that the potentiometer, when tested, would follow a linear path, and, provided the method of collecting data does not change, there would be consistency any collection error. Further, because of this, it is hypothesised that the test for the repeatability of this sensor will be successful, and that a clear bell curve will be seen from the data collected. It is assumed that there will be some error, both due to the way the data is collected, and the any static error from the manufacturing of the potentiometer.
 \section{Experiments}
@@ -141,20 +141,20 @@ The sensitivity is found by taking the slope of the data, so
 $$K=\frac{dO}{dI}$$
 This was not computed by hand, but rather by Excel. The y-intercept is found by
 $$a=O(I_{min})-KI_{min}$$
-i.e. multiplying the sensitivity of a given set of data by the actual minimum input degree, $30\degree$\ and subtracting it from the output voltage at this input, $0V$. For example, in the first run, the sensitivity is calculated to be $K=0.038841$, so the y-intercept is
-$$a=0-0.038841\times30$$
-$$a=-1.16523$$
+i.e. multiplying the sensitivity of a given set of data by the actual minimum input degree, $30\degree$\ and subtracting it from the output voltage at this input, $0V$. For example, in the first run, the sensitivity is calculated to be $K=0.03884$, so the y-intercept is
+$$a=0-0.03884\times30$$
+$$a=-1.1652$$
 The following table shows the calculated sensitivities and y-intercepts for each set of data:
 \begin{center}
 	\begin{tabular}{c|c|c}
 		Set Number & Sensitivity, $K$ & y-intercept, $a$ \\
 		\hline
-		1 & 0.038841 & -1.16523 \\
-		2 & 0.038801 & -1.16404 \\
-		3 & 0.037929 & -1.13768 \\
-		4 & 0.038517 & -1.1555 \\
-		5 & 0.037717 & -1.13152 \\
-		6 & 0.037762 & -1.13287 \\
+		1 & 0.03884 & -1.1652 \\
+		2 & 0.03880 & -1.1640 \\
+		3 & 0.03793 & -1.1377 \\
+		4 & 0.03852 & -1.1555 \\
+		5 & 0.03772 & -1.1315 \\
+		6 & 0.03776 & -1.1329 \\
 		\hline
 	\end{tabular}
 \end{center}
@@ -204,12 +204,12 @@ In order to compare the average actual output equation to that of the ideal stra
 \end{figure}
 
 The non-linearity is then calculated for each input data point. For example, at $I=150\degree$, the non-linearity is
-$$N(150)=4.556555-4.166667$$
-$$N(150)=0.389889$$
+$$N(150)=4.5566-4.1667$$
+$$N(150)=0.3899$$
 A full table of this data can be seen in Table \ref{idealandact} in the Appendix. From the calculations, the maximum non-linearity, $\hat{N}$, is seen to be 2.530527, and from this, the maximum non-linearity as a percentage of full scale deflection can be calculated as follows:
 $$\hat{N}\ as\ \%\ of\ f.s.d=\frac{\hat{N}}{O_{max}-O_{min}}\cdot 100\%$$
 where $O_{max}$ and $O_{min}$ are taken from the actual data output. So,
-$$\hat{N}\ as\ \%\ of\ f.s.d=\frac{2.530527}{12.53053+1.13914}\cdot 100\%$$
+$$\hat{N}\ as\ \%\ of\ f.s.d=\frac{2.5305}{12.5305+1.1391}\cdot 100\%$$
 $$\hat{N}\ as\ \%\ of\ f.s.d=18.51\%$$
 \subsection{Repeatability}
 In order to analyse the repeatability of this potentiometer, the data collected in the second part of this experiment was separated into intervals between 4.9V and 5.2V, increasing by 0.05V each time, in order to determine the frequency of an occurrence in each interval. In theory, the majority of occurrences would happen closest to the centre, forming a bell curve, known as a probability distribution function. The estimated voltage for the centre value is 5V, as this is what was used to calibrate the potentiometer at the beginning of this experiment, and the potentiometer is being turned to 180\degree, the estimated centre, each time. Figure \ref{fig:histogram}.1 on the following page is a histogram demonstrating the distribution of frequency from this repeatability.
@@ -248,12 +248,11 @@ $$P_n=4$$
 Table \ref{histprob} in the Appendix shows the intervals, frequency, probability, and probability density.
 In order to plot probability density, which is on the y-axis of a graph, the standard deviation of the data is needed. In order to do this, it is first required to find the average of the data.
 $$\bar{x}=\frac{1}{30}\sum_{i}^{n}{x_i}$$
-$$\bar{x}=5.0257$$
+$$\bar{x}=5.02567$$
 and from this, the standard deviation
 $$\sigma=\sum_{i}^n{\sqrt{\frac{(x_i-\bar x)^2}{n}}}$$
-$$\sigma=0.046734$$
+$$\sigma=0.04673$$
 So, from this, a probability distribution function can be plotted, where each step away from the highest probability density is an additional standard deviation on the x-axis. In Figure \ref{fig:probdens}.2, the probability distribution function is shown.
-
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
@@ -394,19 +393,19 @@ For future renditions of this lab experiment, as well as in applications of this
 	\label{idealandact}
 	\begin{tabular}{l|l|l|l}
 		Angle  &  $V_{Ideal}$  &  $V_{Average Actual}$  &  $N(I)$  \\  \hline
-		0  &  0  &  -1.139138804  &  1.139138804  \\
-		30  &  0.833333333  &  0  &  0.833333333  \\
-		60  &  1.666666667  &  1.139138804  &  0.527527863  \\
-		90  &  2.5  &  2.278277607  &  0.221722393  \\
-		120  &  3.333333333  &  3.417416411  &  0.084083078  \\
-		150  &  4.166666667  &  4.556555215  &  0.389888548  \\
-		180  &  5  &  5.695694018  &  0.695694018  \\
-		210  &  5.833333333  &  6.834832822  &  1.001499489  \\
-		240  &  6.666666667  &  7.973971626  &  1.307304959  \\
-		270  &  7.5  &  9.113110429  &  1.613110429  \\
-		300  &  8.333333333  &  10.25224923  &  1.9189159  \\
-		330  &  9.166666667  &  11.39138804  &  2.22472137  \\
-		360  &  10  &  12.53052684  &  2.53052684  \\
+		0  &  0  &  -1.1391  &  1.1391  \\
+		30  &  0.8333  &  0  &  0.8333  \\
+		60  &  1.6667  &  1.1391  &  0.5275  \\
+		90  &  2.5  &  2.2783  &  0.2217  \\
+		120  &  3.3333  &  3.4174  &  0.08408  \\
+		150  &  4.1667  &  4.5566  &  0.3899  \\
+		180  &  5  &  5.6957  &  0.6957  \\
+		210  &  5.8333  &  6.8348  &  1.001499  \\
+		240  &  6.6667  &  7.9740  &  1.3073  \\
+		270  &  7.5  &  9.1131  &  1.6131  \\
+		300  &  8.3333  &  10.2522  &  1.9189  \\
+		330  &  9.1667  &  11.3914  &  2.2247  \\
+		360  &  10  &  12.5305  &  2.5305  \\
 	\end{tabular}
 \end{table}
 
@@ -434,13 +433,13 @@ For future renditions of this lab experiment, as well as in applications of this
 	\label{histprob}
 	\begin{tabular}{l|l||l|l}
 		Interval  &  Freq.  &  $P_x=\frac{f}{30}$  &  $P_n=\frac{P}{0.05}$\\  \hline
-		4.9   &  1  &  0.033333333  &  0.666666667 \\
-		4.95  &  1  &  0.033333333  &  0.666666667 \\
+		4.9   &  1  &  0.03333  &  0.6667 \\
+		4.95  &  1  &  0.03333  &  0.6667 \\
 		5  &  6  &  0.2  &  4 \\
 		5.05  &  15  &  0.5  &  10 \\
 		5.1  &  6   &  0.2  &  4 \\
 		5.15  &  0   &  0  &  0 \\
-		5.2  &  1  &  0.033333333  &  0.666666667 \\
+		5.2  &  1  &  0.03333  &  0.6667 \\
 	\end{tabular}
 \end{table}
 
