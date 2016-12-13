@@ -299,7 +299,58 @@ and here, a table with the expected time, $t_E$, to reach $V_O$ compared to the 
 	\end{tabular}
 \end{center}
 
-An average of the three results have been taken, and put into a graph in order to analyse the nature of response of the thermistor to that shown on Page 59 of J.P. Bentley's Principles and Measurement Systems.
+An average of the three results have been taken, and put into a graph in Fig. \ref{fig:timeresponseresult}.1 in order to analyse the nature of response of the thermistor to that shown on Page 59 of J.P. Bentley's Principles and Measurement Systems, modified in Fig. \ref{fig:timeresponseideal}.2. It can be seen that in the average time response function of the thermistor, it appears to approach 
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis lines=middle,
+	xlabel=$\tau$ \lbrack s\rbrack, ylabel=Voltage \lbrack V\rbrack]
+	\addplot[smooth,
+	color=black,
+	mark=*,
+	error bars/.cd,y dir=both,
+	y explicit
+	] coordinates {
+		(1.59667, 2.16395)
+		(3.19333, 2.18971)
+		(4.79, 2.1983)
+		(6.38667, 2.20152)
+		(7.98333, 2.20259)
+	};
+	\addplot[draw=red, dashed][domain=0:8]{2.20367};
+	\end{axis}
+	\end{tikzpicture}
+	\label{fig:timeresponseresult}
+	Figure 4.2.1: Time Response Function of Thermistor Compared to Average $V_O$
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis lines=middle,
+	xlabel=$\tau$ \lbrack s\rbrack, ylabel=Voltage \lbrack V\rbrack]
+	\addplot[smooth,
+	color=black,
+	mark=*,
+	error bars/.cd,y dir=both,
+	y explicit
+	] coordinates {
+		(1.59667, 2.16395)
+		(3.19333, 2.18971)
+		(4.79, 2.1983)
+		(6.38667, 2.20152)
+		(7.98333, 2.20259)
+	};
+	\addplot[draw=red, dashed][domain=0:8]{2.20367-2.20367*exp(-x)};
+	\end{axis}
+	\end{tikzpicture}
+	\label{fig:timeresponseideal}
+	Figure 4.2.2: Time Response Function of Thermistor Compared to Expected Result
+\end{figure}
+
 \section{Error Discussion}
 \label{sec:error}
 \section{Conclusion}
