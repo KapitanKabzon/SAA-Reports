@@ -9,6 +9,7 @@
 \usepackage{cite} % takes care of citations
 \usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
 %\usepackage{gensymb}
+\usepackage{appendix}
 \hypersetup{
   colorlinks=true,       % false: boxed links; true: colored links
   linkcolor=blue,        % color of internal links
@@ -344,7 +345,7 @@ An average of the three results have been taken, and put into a graph in Fig. \r
 		(6.38667, 2.20152)
 		(7.98333, 2.20259)
 	};
-	\addplot[draw=red, dashed][domain=0:8]{2.20367-2.20367*exp(-x)};
+	\addplot[draw=red, dashed][domain={0:8}]{2.20367-2.20367*exp(-x)};
 	\end{axis}
 	\end{tikzpicture}
 	\label{fig:timeresponseideal}
@@ -354,6 +355,61 @@ An average of the three results have been taken, and put into a graph in Fig. \r
 \section{Error Discussion}
 \label{sec:error}
 \subsection{Time Constant}
-
+The calculated function including the time constant for this part of the lab assignment appears to tend towards $V_O$, however, this may simply be due to the nature of how the function was calculated. It can be seen that the function does not follow that of the expected outcome, and this may be attributed to the fact that there was no accurate way of gathering the data from the time. As the video was not started the exact moment the thermistor was submerged into the iced water, a guess needed to be made towards when exactly the time measurement should stop. Additionally, as the voltage values assumed to be seen at the time of the first time constant $V_\tau$ were never read by the multimeter, there was more guessing that needed to be done in order to determine the time at which this voltage was reached. Additional error can come from the delay that the multimeter has when displaying the voltage, as it is not capable of displaying the voltage accurately in relation to the time that it is reached.
 \section{Conclusion}
+\onecolumn
+\begin{thebibliography}{99}
+	\bibitem{SAA}
+	J.P.\ Bentley, \textit{Principles of Measurement Systems, 4th Edition},
+	(Pearson Education Limited, England, 2005).
+	
+	\bibitem{Datasheet} \emph{AM-510 Digital Multimeter},   available at
+	\texttt{http://content.amprobe.com/DataSheets/AM-510
+		\%20Digital\%20Multimeter.pdf}.	
+\end{thebibliography}
+\appendix
+\section{Tables}
+\begin{table}[H]
+	\centering
+	\caption{Time Constant: Run \rom{1}}
+	\label{const1}
+	\begin{tabular}{l|l}
+		$\tau$, s  &  Expected Voltage, V \\
+		\hline
+		1.382 &  2.164 \\
+		2.764 &  2.191 \\
+		4.146 & 2.196 \\
+		5.528 & 2.203 \\
+		6.91 & 2.204 \\
+	\end{tabular}
+\end{table}
+\begin{table}[H]
+	\centering
+	\caption{Time Constant: Run \rom{2}}
+	\label{const2}
+	\begin{tabular}{l|l}
+		$\tau$, s  &  Expected Voltage, V \\
+		\hline
+		1.91 &  2.164 \\
+		3.82 &  2.191 \\
+		5.73 & 2.196 \\
+		7.64 & 2.203 \\
+		9.55 & 2.204 \\
+	\end{tabular}
+\end{table}
+\begin{table}[H]
+	\centering
+	\caption{Time Constant: Run \rom{3}}
+	\label{const3}
+	\begin{tabular}{l|l}
+		$\tau$, s  &  Expected Voltage, V \\
+		\hline
+		1.498 &  2.164 \\
+		2.996 &  2.190 \\
+		4.494 & 2.198 \\
+		5.992 & 2.202 \\
+		7.49 & 2.203 \\
+	\end{tabular}
+\end{table}
+\section{Graphs}
 \end{document}
