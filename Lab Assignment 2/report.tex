@@ -98,6 +98,8 @@ Next, a parallel resistor was placed in the system, and the same procedure as pr
 As the R-T and T-R characteristics of the thermistor rely on its resistance, it was decided to measure the resistance from the multimeter directly, rather than measure the voltage across as is done in the next experiment.
 \subsection{Time Constant}
 In order to determine the time constant, the thermistor was again subjected to change in environment temperature, however this time the it was placed in iced water. The iced water throughout this experiment remained at a temperature between$~2^{\circ}$ and$~3^{\circ}$, which was as close to the triple point of water as the conditions would allow. This time, a 2k$\Omega$\ resistor was placed in parallel with the thermistor, and, with the same multimeter, the voltage across the thermistor was measured. This process was recorded again by video, and this was done in order to accurately record the near-exact time it took for the voltage across the thermistor to go from the value at ambient room temperature, to the voltage at the first time constant. It was decided to measure the voltage across the thermistor in this part of the lab assignment, rather than the resistance itself, because the multimeter used in this experiment had a better accuracy for voltage (0.8\% Rdg) than it does for resistance (1.0\% Rdg). As the time constant simply relies on the change in the system over time, and since the voltage across the thermistor is anyway proportional to its resistance, it was decided that the higher accuracy of the voltage reading would lead to a better understanding of the time constant of the thermistor.
+
+This was done three times in order to collect an average on the operational time constant, i.e. the time constant of the thermistor during prolonged use.
 \section{Results}
 Here, the data from each part the experiments are analysed and discussed. Important graphs, equations, and tables are shown directly in these subsections. Complete calculated data will be put into tables, graphs that can be seen in the Appendix.
 \subsection{R-T Characteristics}
@@ -254,6 +256,50 @@ The R-T expected output with combined data from all linear measurement runs is s
   \label{fig:with}
   Fig.\ref{fig:with} Linear R-T 
 \end{figure}
+\subsection{Time Constant}
+In order to find the time constant, the voltage across the thermistor was noted at ambient room temperature, $V_A$, and after it has seemingly stabilised in the ice water, $V_O$. Here, these data are shown for the three runs in this part of the lab assignment:
+\begin{center}
+	\begin{tabular}{c|c|c}
+		Run & $V_A$ & $V_O$ \\
+		\hline
+		\rom{1} & 2.095 & 2.204 \\
+		\rom{2} & 2.096 & 2.205 \\
+		\rom{3} & 2.098 & 2.201 \\
+	\end{tabular}
+\end{center}
+The calculation for the time constant of Run \rom{1} will be demonstrated here, following that which is mentioned in Theory \#REFERENCE\#. First, the difference between $V_A$ and $V_O$ is taken to give $V_D$:
+$$V_D=2.205-2.095$$
+$$V_D=0.11$$
+Then, considering that the first time constant, $\tau$ happens at the time at which the change in temperature has reached 63\% of $V_D$,
+$$V_\tau=0.108\times0.63$$
+$$V_\tau=0.068$$
+making $V_t$ to be
+$$V_t=2.095+0.068$$
+$$V_t=2.164$$
+the time constant can then be found by determining the change in time for the voltage across the thermistor to reach $V_t$ from the moment the thermistor had been submerged in the iced water. From the video, this time needs to be estimated, as the value on the multimeter jumps over the desired voltage reading. From estimation (by taking the average time between the voltage read above and below the desired value), the time constant for the first run is 1.382s.
+
+Here, a table is shown with the time constants of the three runs:
+\begin{center}
+	\begin{tabular}{c|c}
+		Run & $\tau$, s \\
+		\hline
+		\rom{1} & 1.382 \\
+		\rom{2} & 1.91 \\
+		\rom{3} & 1.498 \\
+	\end{tabular}
+\end{center}
+and here, a table with the expected time, $t_E$, to reach $V_O$ compared to the actual time, $t_A$:
+\begin{center}
+	\begin{tabular}{c|c|c}
+		Run & $t_E$, s & $t_A$, s \\
+		\hline
+		\rom{1} & 6.91 & 6.025 \\
+		\rom{2} & 9.55 & 61.809 \\
+		\rom{3} & 7.49 & 6.358 \\
+	\end{tabular}
+\end{center}
+
+An average of the three results have been taken, and put into a graph in order to analyse the nature of response of the thermistor to that shown on Page 59 of J.P. Bentley's Principles and Measurement Systems.
 \section{Error Discussion}
 \label{sec:error}
 \section{Conclusion}
