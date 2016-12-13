@@ -81,7 +81,7 @@ Since, the temperature $T$ in the equation~\ref{eq:datasheet} is in $^\circ K$ f
 \label{eq:ctok}
 T_K=T_C+273.15^\circ
 \end{equation}
-When considering the equation~\ref{eq:datasheet} the thermistor is expected to have significant non-linearity. This error can be reduced, the Siemens Handout describes how the output can be linearised in a range by use of a prallel resistor. The equation for the value of such resistor is given by:
+When considering the equation~\ref{eq:datasheet} the thermistor is expected to have significant non-linearity. This error can be reduced, the Siemens Handout describes how the output can be linearised in a range by use of a parallel resistor. The equation for the value of such resistor is given by:
 \begin{equation}
 \label{eq:siemens}
 R_p=R_{T_{ctr}}\cdot\frac{B-T_{ctr}}{B+2\cdot T_{ctr}}
@@ -121,7 +121,7 @@ Next, a parallel resistor was placed in the system, and the same procedure as pr
 
 As the R-T and T-R characteristics of the thermistor rely on its resistance, it was decided to measure the resistance from the multimeter directly, rather than measure the voltage across as is done in the next experiment.
 \subsection{Time Constant}
-In order to determine the time constant, the thermistor was again subjected to change in environment temperature, however this time the it was placed in iced water. The iced water throughout this experiment remained at a temperature between$~2^{\circ}$ and$~3^{\circ}$, which was as close to the triple point of water as the conditions would allow. This time, a 2k$\Omega$\ resistor was placed in parallel with the thermistor, and, with the same multimeter, the voltage across the thermistor was measured. This process was recorded again by video, and this was done in order to accurately record the near-exact time it took for the voltage across the thermistor to go from the value at ambient room temperature, to the voltage at the first time constant. It was decided to measure the voltage across the thermistor in this part of the lab assignment, rather than the resistance itself, because the multimeter used in this experiment had a better accuracy for voltage (0.8\% Rdg) than it does for resistance (1.0\% Rdg). As the time constant simply relies on the change in the system over time, and since the voltage across the thermistor is anyway proportional to its resistance, it was decided that the higher accuracy of the voltage reading would lead to a better understanding of the time constant of the thermistor.
+In order to determine the time constant, the thermistor was again subjected to change in environment temperature, however this time the it was placed in iced water. The iced water throughout this experiment remained at a temperature between$~2^{\circ}$ and$~3^{\circ}$, which was as close to the triple point of water as the conditions would allow. This time, a 2k$\Omega$\ resistor was placed in series with the thermistor, and, with the same multimeter, the voltage across the thermistor was measured. This process was recorded again by video, and this was done in order to accurately record the near-exact time it took for the voltage across the thermistor to go from the value at ambient room temperature, to the voltage at the first time constant. It was decided to measure the voltage across the thermistor in this part of the lab assignment, rather than the resistance itself, because the multimeter used in this experiment had a better accuracy for voltage (0.8\% Rdg) than it does for resistance (1.0\% Rdg). As the time constant simply relies on the change in the system over time, and since the voltage across the thermistor is anyway proportional to its resistance, it was decided that the higher accuracy of the voltage reading would lead to a better understanding of the time constant of the thermistor.
 
 This was done three times in order to collect an average on the operational time constant, i.e. the time constant of the thermistor during prolonged use.
 \section{Results}
@@ -228,7 +228,7 @@ The sensitivity and y-intercept of measured data were found by taking the mean o
 		\hline
 	\end{tabular}
 \end{center}
-Next, the maxium non-linearity $\hat N$ was found by use of equation~\ref{eq:non-linearity}:
+Next, the maximum non-linearity $\hat N$ was found by use of equation~\ref{eq:non-linearity}:
 \begin{equation}
 \begin{aligned}
 \hat N&=\lvert N(60)=O_{actual}(60)-K(60)-a\lvert  \\
@@ -344,7 +344,7 @@ From the Fig.\ref{fig:without} it can be seen that the thermistors output is non
 	\label{fig:with-raw}
 	Fig.\ref{fig:with-raw} Raw linear R-T 
 \end{figure}
-Using the eqation~\ref{eq:linear} $R_{p}$ was calculated for linear range 45--90$^{\circ}C$. $B$ value is given in $^{\circ}K$ in the datasheet, but temperature range and measurements are in $^{\circ}C$, therefore for the calculations it must be converted to Celsius:
+Using the equation~\ref{eq:linear} $R_{p}$ was calculated for linear range 45--90$^{\circ}C$. $B$ value is given in $^{\circ}K$ in the datasheet, but temperature range and measurements are in $^{\circ}C$, therefore for the calculations it must be converted to Celsius:
 \begin{equation}
 \begin{aligned}
 B_C&=B_K+273.15 \\
@@ -545,7 +545,8 @@ There was no significant error in from the R-T characteristics experiment, so th
 \subsection{Time Constant}
 The calculated function including the time constant for this part of the lab assignment appears to tend towards $V_O$, however, this may simply be due to the nature of how the function was calculated. It can be seen that the function does not follow that of the expected outcome, and this may be attributed to the fact that there was no accurate way of gathering the data from the time. As the video was not started the exact moment the thermistor was submerged into the iced water, a guess needed to be made towards when exactly the time measurement should stop. Additionally, as the voltage values assumed to be seen at the time of the first time constant $V_\tau$ were never read by the multimeter, there was more guessing that needed to be done in order to determine the time at which this voltage was reached. Additional error can come from the delay that the multimeter has when displaying the voltage, as it is not capable of displaying the voltage accurately in relation to the time that it is reached. Furthermore, there is some fluctuation in the voltage reading near what is assumed to be $V_O$, and this can mainly be attributed to the temperature of the iced water not being constant, i.e. some parts of the iced water may be colder or warmer than others, and the thermistor moving around in the different temperatures.
 \section{Conclusion}
-\#stirring cup of ice water
+This lab assignment had two main expected outcomes. Firstly, that adding a parallel resistor would decrease the non-linearity of the R-T characteristic of the thermistor. This expected outcome was met with minimal errors.
+However, with the second expected outcome, the error was significant enough to render analysing the data rather difficult. In future renditions of this lab assignment, it should be considered to stir the iced water, in order to try and keep the overall temperature inside the cup more consistent, and thereby limiting the fluctuations in voltage.
 \begin{thebibliography}{99}
 	\bibitem{SAA}
 	J.P.\ Bentley, \textit{Principles of Measurement Systems, 4th Edition},
@@ -586,7 +587,6 @@ The calculated function including the time constant for this part of the lab ass
 		55 & 3.244  \\
 		50 & 3.858  \\
 		45 & 4.75  \\
-		\hline
 	\end{tabular}
 \end{table}
 
@@ -626,7 +626,6 @@ The calculated function including the time constant for this part of the lab ass
 		60 & 2.663  \\
 		55 & 3.192  \\
 		50 & 3.826  \\
-		\hline
 	\end{tabular}
 \end{table}
 
@@ -666,7 +665,6 @@ The calculated function including the time constant for this part of the lab ass
 		55 & 1.103  \\
 		50 & 1.168  \\
 		48.4 & 1.195  \\
-		\hline
 	\end{tabular}
 \end{table}
 
@@ -695,6 +693,7 @@ The calculated function including the time constant for this part of the lab ass
 	\caption{Time Constant: Run \rom{1}}
 	\label{const1}
 	\begin{tabular}{c|c}
+		\hline
 		$\tau$, s  &  Expected Voltage, V \\
 		\hline
 		1.382 &  2.164 \\
@@ -709,6 +708,7 @@ The calculated function including the time constant for this part of the lab ass
 	\caption{Time Constant: Run \rom{2}}
 	\label{const2}
 	\begin{tabular}{c|c}
+		\hline
 		$\tau$, s  &  Expected Voltage, V \\
 		\hline
 		1.91 &  2.164 \\
@@ -723,6 +723,7 @@ The calculated function including the time constant for this part of the lab ass
 	\caption{Time Constant: Run \rom{3}}
 	\label{const3}
 	\begin{tabular}{c|c}
+		\hline
 		$\tau$, s  &  Expected Voltage, V \\
 		\hline
 		1.498 &  2.164 \\
