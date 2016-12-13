@@ -24,68 +24,81 @@
 % ++++++++++++++++++++++++++++++++++++++++
 
 \begin{document}
-\title{NTC Thermistor Sensor}
-\author{Catherine Beryl Basson, Piotr Chromi\'nski}
-\date{13 December 2016}
-\maketitle
 \twocolumn
+\title{\Huge{NTC Thermistor Sensor}\\
+	\Large{Catherine Beryl Basson and Piotr Chromi\'nski}\\
+	\large{13 December 2016}\\
+	\line(1,0){250}}
+\date{}
+\maketitle
 \section{Introduction}
 
 The NTC thermistors display non-linear resistance characteristics with temperature. The resistance of an NTC will decrease at the temperature increases. This behaviour is related to it's constant value $B$. This phenomenon allows for use of an NTC thermistor as a temperature sensor. In the discussed experiments a Vishay NTCLE100E3 thermistor was used, with $B=3977^{\circ}K$.
 
 \section{Theory}
-\subsection{Expected Output}
-The output of thermistor is said to be non-linear, for the NTCLE100E3 it can be described with equation for expected intermediate temperatures, taken from the NTC's datasheet:
+\subsection{R-T characteristics}
+In the following experiments measurements are compared against the linear sensor model:
 \begin{equation}
-  \label{eq:datasheet}
-  R_T(T)=R_{ref}\cdot e^{A+\frac{B}{T}+\frac{C}{T^2}+\frac{D}{T^3}}
+\label{eq:model}
+O(I)=KI+a
+\end{equation}
+where $K$ is the sensor's sensitivity, $I$ is the input, $a$ is the y-intercept, and $O(I)$ is the sensor's output at a given input. The sensitivity is calculated by the following equation:
+\begin{equation}
+\label{eq:sensitivity}
+K=\frac{O(I_{max})-O(I_{min})}{I_{max}-I_{min}}
+\end{equation}
+where $I_{max}$ and $I_{min}$ are maximum and minimum input in the range of operation. Finally, the  y-intercept can be found:
+\begin{equation}
+\label{eq:intercept}
+a=O(I_{min})-KI_{min}
+\end{equation}
+The non-linearity of a measurement is defined by:
+\begin{equation}
+\label{eq:non-linearity}
+N(I)=\lvert O_{actual}(I)-K\cdot I-a\lvert
+\end{equation}
+where $O_{actual}$ is the measured output of a sensor given input $I$.
+In the case of a NTC thermistor the input is temperature and the output is resistance. However, the relation between temperature is said to be non-linear, for the NTCLE100E3 it can be described with equation for expected intermediate temperatures, taken from the NTC's datasheet:
+\begin{equation}
+\label{eq:datasheet}
+R_T(T)=R_{ref}\cdot e^{A+\frac{B}{T}+\frac{C}{T^2}+\frac{D}{T^3}}
 \end{equation}
 where $A$, $B$, $C$, and $D$ are constant values which are dependent on the thermistor; $R_{ref}$ is the resistance at a reference temperature---for the thermistor used in the experiment (Brown, Black, and Orange bands) it is $10000\Omega$,and the constant values:
 \begin{center}
-  \begin{tabular}{ll}
-    \hline 
-    $R_{ref}$  &  $10000\Omega$  \\
-    $A$  &  $-14.6337$  \\
-    $B$\footnotemark  &  $4791.842$  \\
-    $C$  &  $-115334$  \\
-    $D$  &  $-3.730535\cdot10^6$  \\
-    \hline
-  \end{tabular}
-  \footnotetext{Note that this value is different to the $\beta$ ``$B$'' value of a thermistor, constants from this table should only be used in combination with eqation~\ref{eq:datasheet}}
+	\begin{tabular}{ll}
+		\hline 
+		$R_{ref}$  &  $10000\Omega$  \\
+		$A$  &  $-14.6337$  \\
+		$B$\footnotemark  &  $4791.842$  \\
+		$C$  &  $-115334$  \\
+		$D$  &  $-3.730535\cdot10^6$  \\
+		\hline
+	\end{tabular}
+	\footnotetext{Note that this value is different to the $\beta$ ``$B$'' value of a thermistor, constants from this table should only be used in combination with eqation~\ref{eq:datasheet}}
 \end{center}
 Since, the temperature $T$ in the equation~\ref{eq:datasheet} is in $^\circ K$ for measurements in $^\circ C$ conversion is required:
 \begin{equation}
-  \label{eq:ctok}
+\label{eq:ctok}
 T_K=T_C+273.15^\circ
 \end{equation}
-The Siemens Handout describes how the output can be linearised in a range by use of a prallel resistor. The equation for the value of such resistor is:
+When considering the equation~\ref{eq:datasheet} the thermistor is expected to have significant non-linearity. This error can be reduced, the Siemens Handout describes how the output can be linearised in a range by use of a prallel resistor. The equation for the value of such resistor is given by:
 \begin{equation}
-  \label{eq:siemens}
+\label{eq:siemens}
 R_p=R_{T_{ctr}}\cdot\frac{B-T_{ctr}}{B+2\cdot T_{ctr}}
 \end{equation}
-where $R_{T_{ctr}}$ and $T_{ctr}$ are thermistor's resistance and temperature at the center of the temperature range, and $B$ is the $B$ ($\beta$) value of the thermistor. From this equation an ideal straight line equation for the linear sensor model can be found by calculating Output for $I_{min}$ and $I_{max}$, then sensitivity $K$ is
-$$K=\frac{O(I_{max})-O(I_{min})}{I_{max}-I_{min}}$$
-and y-intercept is
-\begin{equation}
-  \label{eq:intercept}
-  a=O(I_{min})-KI_{min}
-\end{equation}
-the following experiments all measurements are compared against the linear model
-\begin{equation}
-  O(I)=KI+a
-\end{equation}
+where $R_{T_{ctr}}$ and $T_{ctr}$ are thermistor's resistance and temperature at the center of the temperature range, and $B$ is the $B$ ($\beta$) value of the thermistor.
 \begin{figure}[H]
-  \label{fig:parallel}
-  \centering
-  \includegraphics[width=0.75\columnwidth]{parallel.png}
-  \caption{
-    Parallel circuit
-  }
+	\label{fig:parallel}
+	\centering
+	\includegraphics[width=0.75\columnwidth]{parallel.png}
+	\caption{
+		Parallel circuit
+	}
 \end{figure}
 The expected output $R_{AB}(T)$ for a linearised thermistor setup shown in Fig.\ref{fig:parallel} can be derived from a basic equation for resistor:
 \begin{equation}
-  \label{eq:Rab}
-  R_{AB}(T)=\frac{R_p\cdot R_T(T)}{R_p+R_T(T)}
+\label{eq:Rab}
+R_{AB}(T)=\frac{R_p\cdot R_T(T)}{R_p+R_T(T)}
 \end{equation}
 \subsection{Time Constant} \label{sub:time}
 A time constant, $\tau$ is defined by the time it takes for an element to respond to the change in the surrounding temperature. For example, in this lab experiment, the time constant will define how long it will take for the thermistor to respond to the change from ambient room temperature, to the temperature of iced water. The method of determining the time constant is as follows.
@@ -115,158 +128,322 @@ This was done three times in order to collect an average on the operational time
 Here, the data from each part the experiments are analysed and discussed. Important graphs, equations, and tables are shown directly in these subsections. Complete calculated data will be put into tables, graphs that can be seen in the Appendix.
 \subsection{R-T Characteristics}
 \subsubsection{Non-Linear}
-The equation for the ideal straight line for input range 45--90$^\circ$ was found using the equation from the datasheet
-$$K=\frac{R_T(90)-R_T(45)}{90-45}=\frac{0.915443-4.37181}{90-45}=-0.07681$$aprox
-$$a=R_T(45)-KI_{min}=4.37181+0.07681\cdot45=7.828$$
-The R-T expected output with combined data from all non-linear measurement runs is shown in the following figure:
 \begin{figure}[H]
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      axis lines=middle,
-      x dir=reverse,
-      legend style={
-        at={(axis cs:90,3.75)},
-        anchor=south west},
-      xlabel=Temperature \lbrack$^{\circ}C$\rbrack,
-      ylabel=Resistance \lbrack$k\Omega$\rbrack,
-      ]
-      \addplot[scatter,
-      only marks,
-      color=red,
-      mark=*
-      ] coordinates {
-        (90, 1.107)
-        (85, 1.228)
-        (80, 1.522)
-        (75, 1.798)
-        (70, 1.998)
-        (65, 2.311)
-        (60, 2.737)
-        (55, 3.244)
-        (50, 3.858)
-        (45, 4.75)
-      };
-      \addlegendentry{\rom{1}}
-      \addplot[scatter,
-      only marks,
-      color=green,
-      mark=*,
-      ] coordinates {
-        (90, 1.058)
-        (85, 1.201)
-        (80, 1.421)
-        (75, 1.621)
-        (70, 1.929)
-        (65, 2.282)
-        (60, 2.721)
-        (55, 3.139)
-        (50, 3.88)
-        (45, 4.67)
-      };
-      \addlegendentry{\rom{2}}
-      \addplot[scatter,
-      only marks,
-      color=blue,
-      mark=*,
-      ] coordinates {
-        (89.2, 1.061)
-        (85, 1.221)
-        (80, 1.401)
-        (75, 1.66)
-        (70, 1.908)
-        (65, 2.286)
-        (60, 2.663)
-        (55, 3.192)
-        (50, 3.826)
-      };
-      \addlegendentry{\rom{3}}
-      \addplot[smooth, black, dashed][domain=45:90]{10*exp(-14.6337+(4791.842/(x+273.15)+(-115334/((x+273.15)^2))+((-3.730535*1000000)/((x+273.15)^3)))};
-      \addlegendentry{Expected$R_T$}
-      \addplot[smooth, black, dashed][domain=45:90]{-0.0768081*x+7.8281};
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis lines=middle,
+	x dir=reverse,
+	legend style={
+		at={(axis cs:90,3.75)},
+		anchor=south west},
+	xlabel=Temperature \lbrack$^{\circ}C$\rbrack,
+	ylabel=Resistance \lbrack$k\Omega$\rbrack,
+	ylabel near ticks,
+	ylabel shift = -40 pt,
+	]
+	\addplot[smooth,
+	only marks,
+	color=red,
+	mark=*,
+	mark options={color=red},
+	] coordinates {
+		(90, 1.107)
+		(85, 1.228)
+		(80, 1.522)
+		(75, 1.798)
+		(70, 1.998)
+		(65, 2.311)
+		(60, 2.737)
+		(55, 3.244)
+		(50, 3.858)
+		(45, 4.75)
+	};
+	\addlegendentry{\rom{1}}
+	\addplot[smooth,
+	only marks,
+	color=green,
+	mark=*,
+	] coordinates {
+		(90, 1.058)
+		(85, 1.201)
+		(80, 1.421)
+		(75, 1.621)
+		(70, 1.929)
+		(65, 2.282)
+		(60, 2.721)
+		(55, 3.139)
+		(50, 3.88)
+		(45, 4.67)
+	};
+	\addlegendentry{\rom{2}}
+	\addplot[smooth,
+	only marks,
+	color=blue,
+	mark=*,
+	] coordinates {
+		(89.2, 1.061)
+		(85, 1.221)
+		(80, 1.401)
+		(75, 1.66)
+		(70, 1.908)
+		(65, 2.286)
+		(60, 2.663)
+		(55, 3.192)
+		(50, 3.826)
+	};
+	\addlegendentry{\rom{3}}
+	\end{axis}
+	\end{tikzpicture}
+	\label{fig:without-raw}
+	Fig.~\ref{fig:without-raw} Raw non-linear R-T 
+\end{figure}
+The equation for the ideal straight line for input range 45--90$^\circ$ was found using the equations~\ref{eq:datasheet} and~\ref{eq:ctok}:
+\begin{equation}
+\begin{aligned}
+K  &  =\frac{R_T(90)-R_T(45)}{90-45} \\
+&  =\frac{0.915443-4.37181}{90-45} \\
+&  =-0.07681\frac{k\Omega}{^\circ C}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+a  &  =R_T(45)-K\cdot45  \\
+&  =4.37181+0.07681\cdot45  \\
+&  =7.828 k\Omega
+\end{aligned}
+\end{equation}
+The sensitivity and y-intercept of measured data were found by taking the mean of sensitivities and y-intercept of all runs. Shown in the table~\ref{tb:non-linear-sensitivities}.
+\begin{center}
+	\begin{tabular}{lll}
+		\hline
+		Run      &  $K$  &  $a$\\
+		\hline
+		\rom{1}  &  -0.07628  &  8.183  \\
+		\rom{2}  &  -0.07697  &  8.134  \\
+		\rom{3}  &  -0.06792  &  7.222  \\
+		\hline
+		\hline
+		Mean  &  -0.07373  &  7.846 \\
+		\hline
+	\end{tabular}
+\end{center}
+Next, the maxium non-linearity $\hat N$ was found by use of equation~\ref{eq:non-linearity}:
+\begin{equation}
+\begin{aligned}
+\hat N&=\lvert N(60)=O_{actual}(60)-K(60)-a\lvert  \\
+& =\lvert 2.663+0.07681\cdot60-7.828\lvert  \\
+& = 0.5564k\Omega\\
+\end{aligned}
+\end{equation}
+So $\hat N$ as a percentage of $f.s.d$ is
+\begin{equation}
+\begin{aligned}
+\hat N\ as\ \%\ of\ f.s.d & = \frac{0.5564}{4.75-1.058} \cdot 100 \% \\
+&=15.1\%
+\end{aligned}
+\end{equation}
 
-    \end{axis}
-  \end{tikzpicture}
-  \label{fig:without}
-  Fig.\ref{fig:without} Non-Linear R-T 
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis lines=middle,
+	x dir=reverse,
+	legend style={
+		at={(axis cs:90,3.5)},
+		anchor=south west},
+	xlabel=Temperature \lbrack$^{\circ}C$\rbrack,
+	ylabel=Resistance \lbrack$k\Omega$\rbrack,
+	ylabel near ticks,
+	ylabel shift = -40 pt
+	]
+	\addplot[smooth, blue][domain=45:90]{10*exp(-14.6337+(4791.842/(x+273.15)+(-115334/((x+273.15)^2))+((-3.730535*1000000)/((x+273.15)^3)))};
+	\addlegendentry{Expected$R_T$}
+	\addplot[smooth, black, dashed][domain=45:90]{-0.0768081*x+7.8281};
+	\addlegendentry{Ideal}
+	\addplot[smooth, black][domain=45:90]{-0.0737296184*x+7.84637789};
+	\addlegendentry{Actual}
+	\addplot[smooth, black, dashed][domain=45:90]{(-0.0768081*x+7.8281)+0.5564};
+	\addplot[smooth, black, dashed][domain=45:90]{(-0.0768081*x+7.8281)-0.5564};
+	\end{axis}
+	\end{tikzpicture}
+	\label{fig:without}
+	Fig.\ref{fig:without} Non-Linear R-T 
 \end{figure}
 From the Fig.\ref{fig:without} it can be seen that the thermistors output is non-linear, and the curve shape is similar to the expected response. However, a static offset can be observed, which will be discussed the Error Discussion~\ref{sec:error}.
 
-The T-R characteristic is shown:
 \subsubsection{Linear}
-Using the eqation~\ref{eq:linear} $R_{p}$ was calculated for linear range 45--90$^{\circ}C$. $B$ value is give in $^{\circ}K$ in the datasheet, but temperature range and measurements are in $^{\circ}C$, therefore it must be converted to Celsius:
-$B_C=B_K+273.15=3977-273.15=3703.85$
-$$T_{ctr}=\frac{90-45}{2}+45=72.5^{\circ}C$$
-$$R_p=1807\cdot\frac{3703.85-72.5}{3703.85+2\cdot72.5}=1.705k\Omega$$
-The R-T expected output with combined data from all linear measurement runs is shown in the following figure:
 \begin{figure}[H]
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      axis lines=middle,
-      x dir=reverse,
-      legend style={
-        at={(axis cs:90,1)},
-        anchor=south west},
-      xlabel=Temperature \lbrack$^{\circ}C$\rbrack,
-      ylabel=Resistance \lbrack$k\Omega$\rbrack,
-      ]
-      \addplot[scatter,
-      only marks,
-      color=red,
-      mark=*,
-      ] coordinates {
-        (90, 0.608)
-        (85, 0.689)
-        (80, 0.749)
-        (75, 0.817)
-        (70, 0.888)
-        (65, 0.958)
-        (60, 1.02)
-        (55, 1.098)
-        (50, 1.167)
-      };
-      \addlegendentry{\rom{1}}
-      \addplot[scatter,
-      only marks,
-      color=green,
-      mark=*,
-      ] coordinates {
-        (90, 0.629)
-        (85, 0.685)
-        (80, 0.746)
-        (75, 0.817)
-        (70, 0.886)
-        (65, 0.959)
-        (60, 1.03)
-        (55, 1.103)
-        (50, 1.168)
-        (48.4, 1.195)
-      };
-      \addlegendentry{\rom{2}}
-      \addplot[scatter,
-      only marks,
-      color=blue,
-      mark=*,
-      ] coordinates {
-        (90.4, 0.617)
-        (85, 0.684)
-        (80, 0.75)
-        (75, 0.819)
-        (70, 0.89)
-        (65, 0.954)
-        (60, 1.034)
-        (55, 1.103)
-        (50, 1.168)
-        (49.4, 1.18)
-      };
-      \addlegendentry{\rom{3}}
-      \addplot[smooth, black, dashed][domain=45:90]{-0.01403*x+1.858};
-    \end{axis}
-  \end{tikzpicture}
-  \label{fig:with}
-  Fig.\ref{fig:with} Linear R-T 
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis lines=middle,
+	x dir=reverse,
+	legend style={
+		at={(axis cs:90,1)},
+		anchor=south west},
+	xlabel=Temperature \lbrack$^{\circ}C$\rbrack,
+	ylabel=Resistance \lbrack$k\Omega$\rbrack,
+	ylabel near ticks,
+	ylabel shift = -45 pt,
+	]
+	\addplot[smooth,
+	only marks,
+	color=red,
+	mark=*,
+	] coordinates {
+		(90, 0.608)
+		(85, 0.689)
+		(80, 0.749)
+		(75, 0.817)
+		(70, 0.888)
+		(65, 0.958)
+		(60, 1.02)
+		(55, 1.098)
+		(50, 1.167)
+	};
+	\addlegendentry{\rom{1}}
+	\addplot[smooth,
+	only marks,
+	color=green,
+	mark=*,
+	] coordinates {
+		(90, 0.629)
+		(85, 0.685)
+		(80, 0.746)
+		(75, 0.817)
+		(70, 0.886)
+		(65, 0.959)
+		(60, 1.03)
+		(55, 1.103)
+		(50, 1.168)
+		(48.4, 1.195)
+	};
+	\addlegendentry{\rom{2}}
+	\addplot[smooth,
+	only marks,
+	color=blue,
+	mark=*,
+	] coordinates {
+		(90.4, 0.617)
+		(85, 0.684)
+		(80, 0.75)
+		(75, 0.819)
+		(70, 0.89)
+		(65, 0.954)
+		(60, 1.034)
+		(55, 1.103)
+		(50, 1.168)
+		(49.4, 1.18)
+	};
+	\addlegendentry{\rom{3}}
+	\addplot[smooth, black, dashed][domain=45:90]{-0.01403*x+1.858};
+	\end{axis}
+	\end{tikzpicture}
+	\label{fig:with-raw}
+	Fig.\ref{fig:with-raw} Raw linear R-T 
 \end{figure}
+Using the eqation~\ref{eq:linear} $R_{p}$ was calculated for linear range 45--90$^{\circ}C$. $B$ value is given in $^{\circ}K$ in the datasheet, but temperature range and measurements are in $^{\circ}C$, therefore for the calculations it must be converted to Celsius:
+\begin{equation}
+\begin{aligned}
+B_C&=B_K+273.15 \\
+&=3977-273.15  \\
+&=3703.85^{\circ}C \\
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+T_{ctr}&=\frac{90-45}{2}+45  \\
+&=72.5^{\circ}C  \\
+\end{aligned}
+\end{equation}
+\begin{equation}
+\label{eq:rp}
+\begin{aligned}
+R_p&=1807\cdot\frac{3703.85-72.5}{3703.85+2\cdot72.5}  \\
+&=1.705k\Omega  \\
+\end{aligned}
+\end{equation}
+this resistance is then used to find $R_{AB}$ at $T_{min}$ and $T_{max}$
+\begin{equation}
+\begin{aligned}
+R_{AB}(45)&=1.227k\Omega  \\
+R_{AB}(90)&=0.5956
+\end{aligned}
+\end{equation}
+which allows finding the sensitivity and the y-intercept for the ideal straight line:
+\begin{equation}
+\begin{aligned}
+K&=\frac{R_{AB}(T_{max})-R_{AB}(T_{min})}{T_{max}-T_{min}} \\
+&=\frac{0.9154-4.372}{90-45} \\
+&=-0.01403
+\end{aligned}
+\end{equation}
+and y-intercept
+\begin{equation}
+\begin{aligned}
+a&=R_{AB}(I_{min})-K\cdot I_{min} \\
+&=1.227+0.01403\cdot45 \\
+&=1.858
+\end{aligned}
+\end{equation}
+The sensitivity and y-intercept of measured data were found by taking the mean of sensitivities and y-intercept of all runs. Shown in the following table:
+\begin{center}
+	\begin{tabular}{lll}
+		\hline
+		Run      &  $K$  &  $a$\\
+		\hline
+		\rom{1}  &  -0.01382  &  1.858  \\
+		\rom{2}  &  -0.01380  &  1.863  \\
+		\rom{3}  &  -0.01384  &  1.864  \\
+		\hline
+		\hline
+		Mean  &  -0.01382  &  1.862 \\
+		\hline
+	\end{tabular}
+\end{center}
+Non-linearity:
+\begin{equation}
+\begin{aligned}
+\hat N&=\lvert N(90)=R_{actual}(90)-K\cdot90-a\lvert  \\
+& =\lvert0.629 +0.01403\cdot90-1.858  \lvert  \\
+& =3.37\Omega \\
+\end{aligned}
+\end{equation}
+and $\hat N$ as a percentage of $f.s.d$:
+\begin{equation}
+\begin{aligned}
+\hat N\ as\ \%\ of\ f.s.d & = \frac{3.37}{1.195-0.608} \cdot 100 \% \\
+&=0.574\%
+\end{aligned}
+\end{equation}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis lines=middle,
+	x dir=reverse,
+	legend style={
+		at={(axis cs:90,1)},
+		anchor=south west},
+	xlabel=Temperature \lbrack$^{\circ}C$\rbrack,
+	ylabel=Resistance \lbrack$k\Omega$\rbrack,
+	ylabel near ticks,
+	ylabel shift = -45 pt,
+	xlabel near ticks,
+	]
+	\addplot[smooth, black, dashed][domain=45:90]{-0.01403*x+1.858};
+	\addlegendentry{Ideal}
+	\addplot[smooth, black][domain=45:90]{-0.01403*x+1.858};
+	\addlegendentry{Actual}      
+	\end{axis}
+	\end{tikzpicture}
+	\label{fig:with-raw}
+	Fig.\ref{fig:with-raw} Linear R-T 
+\end{figure}
+Using the parallel resistor greatly decreased the $\hat N$ of the response.
+
 \subsection{Time Constant}
 In order to find the time constant, the voltage across the thermistor was noted at ambient room temperature, $V_A$, and after it has seemingly stabilised in the ice water, $V_O$. Here, these data are shown for the three runs in this part of the lab assignment:
 \begin{center}
@@ -369,26 +546,150 @@ There was no significant error in from the R-T characteristics experiment, so th
 The calculated function including the time constant for this part of the lab assignment appears to tend towards $V_O$, however, this may simply be due to the nature of how the function was calculated. It can be seen that the function does not follow that of the expected outcome, and this may be attributed to the fact that there was no accurate way of gathering the data from the time. As the video was not started the exact moment the thermistor was submerged into the iced water, a guess needed to be made towards when exactly the time measurement should stop. Additionally, as the voltage values assumed to be seen at the time of the first time constant $V_\tau$ were never read by the multimeter, there was more guessing that needed to be done in order to determine the time at which this voltage was reached. Additional error can come from the delay that the multimeter has when displaying the voltage, as it is not capable of displaying the voltage accurately in relation to the time that it is reached. Furthermore, there is some fluctuation in the voltage reading near what is assumed to be $V_O$, and this can mainly be attributed to the temperature of the iced water not being constant, i.e. some parts of the iced water may be colder or warmer than others, and the thermistor moving around in the different temperatures.
 \section{Conclusion}
 \#stirring cup of ice water
-\onecolumn
 \begin{thebibliography}{99}
 	\bibitem{SAA}
 	J.P.\ Bentley, \textit{Principles of Measurement Systems, 4th Edition},
 	(Pearson Education Limited, England, 2005).
 	
 	\bibitem{Datasheet} \emph{AM-510 Digital Multimeter},   available at
-	\texttt{http://content.amprobe.com/DataSheets/AM-510
-		\%20Digital\%20Multimeter.pdf}.	
+	\texttt{https://content.amprobe.com/
+		DataSheets/AM-510\%20Digital
+		\%20Multimeter.pdf}.	
 	
 	\bibitem{Datasheet} \emph{NTC Thermistors, Radial Leaded, Standard Precision},   available at
-	\texttt{https://e-learn.sdu.dk/bbcswebdav/pid-4633321-dt-content-rid-7067738\_2
-		/courses/MC-DIM-U1-1-E16/ntcle100.pdf}.
+	\texttt{https://e-learn.sdu.dk/bbcswebdav/
+		pid-4633321-dt-content-rid-7067738\_2/
+		courses/MC-DIM-U1-1-E16/ntcle100.pdf}.
 	
 	\bibitem{Datasheet} \emph{Siemens Note, NTC},   available at
-	\texttt{https://e-learn.sdu.dk/bbcswebdav/pid-4623642-dt-
-		content-rid-7043312\_2/courses/MC-DIM-U1-1-E16/Siemens\_note\_NTC.pdf}.
+	\texttt{https://e-learn.sdu.dk/bbcswebdav/
+		pid-4623642-dt-content-rid-7043312\_2/
+		courses/MC-DIM-U1-1-E16/Siemens\_note
+		\_NTC.pdf}.
 \end{thebibliography}
 \appendix
 \section{Tables}
+\begin{table}[H]
+	\centering
+	\caption{Non-Linear R-T Data \rom{1}}
+	\begin{tabular}{l|l}
+		\hline
+		$T, ^{\circ}C$ & $R, k\Omega$ \\
+		\hline
+		90 & 1.107  \\
+		85 & 1.228  \\
+		80 & 1.522  \\
+		75 & 1.798  \\
+		70 & 1.998  \\
+		65 & 2.311  \\
+		60 & 2.737  \\
+		55 & 3.244  \\
+		50 & 3.858  \\
+		45 & 4.75  \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Non-Linear R-T Data \rom{2}}
+	\begin{tabular}{l|l}
+		\hline
+		$T, ^{\circ}C$ & $R, k\Omega$ \\
+		\hline
+		90 & 1.058  \\
+		85 & 1.201  \\
+		80 & 1.421  \\
+		75 & 1.621  \\
+		70 & 1.929  \\
+		65 & 2.282  \\
+		60 & 2.721  \\
+		55 & 3.139  \\
+		50 & 3.88  \\
+		45 & 4.67  \\
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Non-Linear R-T Data \rom{3}}
+	\begin{tabular}{l|l}
+		\hline
+		$T, ^{\circ}C$ & $R, k\Omega$ \\
+		\hline
+		89.2 & 1.061  \\
+		85 & 1.221  \\
+		80 & 1.401  \\
+		75 & 1.66  \\
+		70 & 1.908  \\
+		65 & 2.286  \\
+		60 & 2.663  \\
+		55 & 3.192  \\
+		50 & 3.826  \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Linear R-T Data \rom{1}}
+	\begin{tabular}{l|l}
+		\hline
+		$T, ^{\circ}C$ & $R, k\Omega$ \\
+		\hline
+		90 & 0.608  \\
+		85 & 0.689  \\
+		80 & 0.749  \\
+		75 & 0.817  \\
+		70 & 0.888  \\
+		65 & 0.958  \\
+		60 & 1.02  \\
+		55 & 1.098  \\
+		50 & 1.167  \\
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Linear R-T Data \rom{2}}
+	\begin{tabular}{l|l}
+		\hline
+		$T, ^{\circ}C$ & $R, k\Omega$ \\
+		\hline
+		90 & 0.629  \\
+		85 & 0.685  \\
+		80 & 0.746  \\
+		75 & 0.817  \\
+		70 & 0.886  \\
+		65 & 0.959  \\
+		60 & 1.03  \\
+		55 & 1.103  \\
+		50 & 1.168  \\
+		48.4 & 1.195  \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Linear R-T Data \rom{3}}
+	\begin{tabular}{l|l}
+		\hline
+		$T, ^{\circ}C$ & $R, k\Omega$ \\
+		\hline
+		90.4 & 0.617  \\
+		85 & 0.684  \\
+		80 & 0.75  \\
+		75 & 0.819  \\
+		70 & 0.89  \\
+		65 & 0.954  \\
+		60 & 1.034  \\
+		55 & 1.103  \\
+		50 & 1.168  \\
+		49.4 & 1.18  \\
+		\hline
+	\end{tabular}
+\end{table}
 \begin{table}[H]
 	\centering
 	\caption{Time Constant: Run \rom{1}}
@@ -431,5 +732,4 @@ The calculated function including the time constant for this part of the lab ass
 		7.49 & 2.203 \\
 	\end{tabular}
 \end{table}
-\section{Graphs}
 \end{document}
