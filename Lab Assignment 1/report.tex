@@ -68,12 +68,12 @@ $$O(I)=KI+a$$
 The ideal straight line for this equation can be determined by knowing the slope, K, and the y-intercept, a. It is hard to define the degrees that an ideal potentiometer would be able to turn, so it was assumed that the potentiometer would be able to turn from 0\degree\ to 360\degree. Additionally, it is assumed that ideally, when the potentiometer is set to 0\degree, the multimeter would read a value of 0V, and when it is set to it's maximum, it would read the full value of what was supplied to the circuit. This means that the y-intercept would be 0 in the ideal straight line.
 
 The slope of the ideal straight line is given by the following:
-$$K=\frac{O_{max}-O_{min}}{I_{max}-I_{min}}$$
+$$K=\frac{O(I_{max})-O(I_{min})}{I_{max}-I_{min}}$$
 In this experiment, the maximum voltage output will be 10V, and the minimum will be 0V. Along with the assumed lowest and highest angles of the potentiometer, this gives
 $$K=\frac{10-0}{360-0}$$
-$$K=0.027778$$
+$$K=0.02778$$
 This makes the final ideal straight line equation
-$$O_{ideal}(I)=0.027778(I)$$
+$$O_{ideal}(I)=0.02778(I)$$
 \subsection{Hypothesis}
 The main hypothesis for this experiment is that the potentiometer, when tested, would follow a linear path, and, provided the method of collecting data does not change, there would be consistency any collection error. Further, because of this, it is hypothesised that the test for the repeatability of this sensor will be successful, and that a clear bell curve will be seen from the data collected. It is assumed that there will be some error, both due to the way the data is collected, and the any static error from the manufacturing of the potentiometer.
 \section{Experiments}
@@ -104,7 +104,7 @@ The next part of the experiment was done to test the potentiometer for repeatabi
 
 The raw data from these experiments can will be presented in the Tables section of the Appendix.
 \section{Results}
-Here, the data from each part of this experiment are analysed and discussed. Important graphs, equations, and tables will be shown directly in these subsections. Complete calculated data will be put into tables, and graphs that be seen in the Appendix.
+Here, the data from each part of this experiment are analysed and discussed. Important graphs, equations, and tables are shown directly in these subsections. Complete calculated data will be put into tables and graphs that can be seen in the Appendix.
 \subsection{Hysteresis}
 In order to calculate the hysteresis, the following equation is used:
 $$H(I)=\lvert O_\downarrow-O_\uparrow\rvert$$
@@ -130,7 +130,7 @@ This was done for all three runs, and the full data is presented in Tables \ref{
 \subsection{Non-Linearity}
 Next, the non-linearity of the data was calculated. This was done by looking at each set of data within the run separately, so the data collected when the degrees were increasing is independent from that where they are decreasing.
 Non-linearity can be defined in terms of a function as:
-$$N(I)=O_{actual}(I)-K(I)+a$$
+$$N(I)=O_{actual}(I)-[K(I)+a]$$
 where $O(I)$\ is the actual output at degree $I$\ and the expected output from the ideal straight line, $K(I)+a$\ is subtracted from it. The actual output equation is also written as
 $$O_{actual}=K(I)+a$$
 where, in this case, $K$ is the sensitivity of the potentiometer, and a is the theoretical y-intercept that would be reached if the potentiometer would be able to go to 0\degree, and if the output voltage was not restricted to 0V and 10V.
@@ -141,20 +141,20 @@ The sensitivity is found by taking the slope of the data, so
 $$K=\frac{dO}{dI}$$
 This was not computed by hand, but rather by Excel. The y-intercept is found by
 $$a=O(I_{min})-KI_{min}$$
-i.e. multiplying the sensitivity of a given set of data by the actual minimum input degree, $30\degree$\ and subtracting it from the output voltage at this input, $0V$. For example, in the first run, the sensitivity is calculated to be $K=0.038841$, so the y-intercept is
-$$a=0-0.038841\times30$$
-$$a=-1.16523$$
+i.e. multiplying the sensitivity of a given set of data by the actual minimum input degree, $30\degree$\ and subtracting it from the output voltage at this input, $0V$. For example, in the first run, the sensitivity is calculated to be $K=0.03884$, so the y-intercept is
+$$a=0-0.03884\times30$$
+$$a=-1.1652$$
 The following table shows the calculated sensitivities and y-intercepts for each set of data:
 \begin{center}
 	\begin{tabular}{c|c|c}
 		Set Number & Sensitivity, $K$ & y-intercept, $a$ \\
 		\hline
-		1 & 0.038841 & -1.16523 \\
-		2 & 0.038801 & -1.16404 \\
-		3 & 0.037929 & -1.13768 \\
-		4 & 0.038517 & -1.1555 \\
-		5 & 0.037717 & -1.13152 \\
-		6 & 0.037762 & -1.13287 \\
+		1 & 0.03884 & -1.1652 \\
+		2 & 0.03880 & -1.1640 \\
+		3 & 0.03793 & -1.1377 \\
+		4 & 0.03852 & -1.1555 \\
+		5 & 0.03772 & -1.1315 \\
+		6 & 0.03776 & -1.1329 \\
 		\hline
 	\end{tabular}
 \end{center}
@@ -174,7 +174,7 @@ In order to compare the average actual output equation to that of the ideal stra
 	axis lines=middle,
 	legend style={at={(axis cs:250,1.5)},
 		anchor=south west},
-	xlabel=Angle, ylabel=Voltage]
+	xlabel=Angle \lbrack \degree \rbrack, ylabel=Voltage \lbrack V\rbrack]
 	\addplot[smooth,
 	color=black,
 	mark=*,
@@ -204,12 +204,12 @@ In order to compare the average actual output equation to that of the ideal stra
 \end{figure}
 
 The non-linearity is then calculated for each input data point. For example, at $I=150\degree$, the non-linearity is
-$$N(150)=4.556555-4.166667$$
-$$N(150)=0.389889$$
+$$N(150)=4.5566-4.1667$$
+$$N(150)=0.3899$$
 A full table of this data can be seen in Table \ref{idealandact} in the Appendix. From the calculations, the maximum non-linearity, $\hat{N}$, is seen to be 2.530527, and from this, the maximum non-linearity as a percentage of full scale deflection can be calculated as follows:
 $$\hat{N}\ as\ \%\ of\ f.s.d=\frac{\hat{N}}{O_{max}-O_{min}}\cdot 100\%$$
 where $O_{max}$ and $O_{min}$ are taken from the actual data output. So,
-$$\hat{N}\ as\ \%\ of\ f.s.d=\frac{2.530527}{12.53053+1.13914}\cdot 100\%$$
+$$\hat{N}\ as\ \%\ of\ f.s.d=\frac{2.5305}{12.5305+1.1391}\cdot 100\%$$
 $$\hat{N}\ as\ \%\ of\ f.s.d=18.51\%$$
 \subsection{Repeatability}
 In order to analyse the repeatability of this potentiometer, the data collected in the second part of this experiment was separated into intervals between 4.9V and 5.2V, increasing by 0.05V each time, in order to determine the frequency of an occurrence in each interval. In theory, the majority of occurrences would happen closest to the centre, forming a bell curve, known as a probability distribution function. The estimated voltage for the centre value is 5V, as this is what was used to calibrate the potentiometer at the beginning of this experiment, and the potentiometer is being turned to 180\degree, the estimated centre, each time. Figure \ref{fig:histogram}.1 on the following page is a histogram demonstrating the distribution of frequency from this repeatability.
@@ -219,7 +219,7 @@ In order to analyse the repeatability of this potentiometer, the data collected 
 	\begin{tikzpicture}
 	\begin{axis}[axis lines=middle,
 	xlabel near ticks,
-	xlabel=Voltage, ylabel=Frequency]
+	xlabel=Voltage \lbrack V\rbrack, ylabel=Frequency]
 	\addplot[ybar,fill=black] coordinates {
 		(4.9, 1)
 		(4.95, 1)
@@ -248,28 +248,28 @@ $$P_n=4$$
 Table \ref{histprob} in the Appendix shows the intervals, frequency, probability, and probability density.
 In order to plot probability density, which is on the y-axis of a graph, the standard deviation of the data is needed. In order to do this, it is first required to find the average of the data.
 $$\bar{x}=\frac{1}{30}\sum_{i}^{n}{x_i}$$
-$$\bar{x}=5.0257$$
+$$\bar{x}=5.02567$$
 and from this, the standard deviation
 $$\sigma=\sum_{i}^n{\sqrt{\frac{(x_i-\bar x)^2}{n}}}$$
-$$\sigma=0.046734$$
+$$\sigma=0.04673$$
 So, from this, a probability distribution function can be plotted, where each step away from the highest probability density is an additional standard deviation on the x-axis. In Figure \ref{fig:probdens}.2, the probability distribution function is shown.
-
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
 	\begin{axis}[
 	axis lines=middle,
-	legend style={at={(axis cs:200,1.5)},
-		anchor=south west},
-	xlabel=Angle, ylabel=Voltage]
+	ylabel style={at={(ticklabel cs:0.99,-25)}},
+	xlabel near ticks,
+	xlabel=Standard Deviations \lbrack $\sigma$\rbrack, ylabel=Voltage \lbrack V\rbrack,
+	xticklabels={,$2\sigma$,$\sigma$,,$\sigma$,$2\sigma$}]
 	\addplot[smooth,color=black,mark=*] coordinates {
-		(-0.1402, 0.6667)
-		(-0.0935, 0.6667)
+		(-0.1462, 0.6667)
+		(-0.100, 0.6667)
 		(-0.0467, 4)
 		(0, 10)
 		(0.0467, 4)
-		(0.0935, 0)
-		(0.1402, 0.6667)
+		(0.100, 0)
+		(0.1462, 0.6667)
 	};
 	\end{axis}
 	\end{tikzpicture}
@@ -284,13 +284,19 @@ It is noticed that, for the three runs, there was no similarities in the maximum
 \subsection{Non-Linearity}
 Despite the data not following the slope of the ideal straight line, the potentiometer remains reasonably linear throughout the experiments. Obviously, when comparing the average actual output plot to the ideal straight line plot, the non-linearity will be at its highest the farther away from the intersecting point, and this is the nature of non-parallel lines. However, it is noted that, as this average actual output was calculated as a straight line equation, the non-linearity is taken relative to the ideal straight line, and not in the non-linearity of the equation itself. Another possible way to determine the non-linearity would have been to take an average of the output data collected at each degree, and then found the sensitivity and y-intercept of these averages. From this, another total non-linearity can be determined, and compared to the ideal straight line.	
 
-When determining the error bands, it was decided that they would be given the value of $\pm$\ the maximum non-linearity from the entire set of data. This was found to be at every output point collected at $I=330\degree$. So, the error bands are $\pm1.6466$ from the ideal straight line. The error bars also only are visible between degrees that would allow for the output value to remain between 0V and 10V, as outside this range would not be possible. When the output equation is also limited to the input degrees that would output between this range (30\degree\ and 270\degree), it is seen that this line falls between the error bars. In the experiment and in an application of this potentiometer, error can be lowered by limiting the operational range where a change in angle results in a change in voltage.
+When determining the error bands, it was decided that they would be given the value of $\pm$\ the maximum non-linearity from the entire set of data. This was found to be at every output point collected at $I=330\degree$. So, the error bands are $\pm1.6466$ from the ideal straight line. The error bars also only are visible between degrees that would allow for the output value to remain between 0V and 10V, as outside this range would not be possible. When the output equation is also limited to the input degrees that would output between this range (30\degree\ and 270\degree), it is seen that this line falls between the error bars.
 
-One noticeable point of error during this part of the experiment is that, while it is expected that the voltage value would be constantly changing with the change in degree, however this was not the case. At both extremities of the potentiometer, there was some delay before the multimeter would read a value other than 0V at the lower extremity, and 10V at the higher one. Had this been included in the calculations, this would have affected the line of best fit for the results
+One noticeable point of error during this part of the experiment is that, while it is expected that the voltage value would be constantly changing with the change in degree, however this was not the case. At both extremities of the potentiometer, there was some delay before the multimeter would read a value other than 0V at the lower extremity, and 10V at the higher one. Had this been included in the calculations, this would have affected the line of best fit for the results.
 \subsection{Repeatability}
 The behaviour of the repeatability acts as expected, forming a bell curve in the probability density function. The reason for any outliers, and for why the data points are not closer to the ideal centre, can be linked to parallax error and small changes in the configuration of the potentiometer and degree circle. However, overall, any error in this part of the experiment is negligible, and the potentiometer has a decent repeatability.
 \section{Conclusion}
+ This experiment had two main hypotheses. First, while recording data for the hysteresis and non-linearity part of the experiment, these results would turn out to follow a linear trend within each set of data. Second, while recording data for the repeatability of the potentiometer, the data would form a bell curve on a probability density function. Overall, both of these expectations were met through the methods used to analyse the data, and the experiments have therefore confirmed the hypotheses of this lab assignment.
+ 
+ In the first part of the experiment, both when the sets of data are looked at separately and combined, they showed similar linear trends on a graph. Additionally, namely in Run \rom{1} and Run \rom{2}, they appeared to have similar deviations occurring at the same inputs, for example when analysing hysteresis, pushing the conclusion that some error in the function of this potentiometer may be manufacturer based, or due to a faulty component. If these points are considered to be outliers and thereby negated, then the trend can be seen as fully linear, where any small non-linearity on each individual data set can be attributed to static error or some error in data collection. The non-linearity in relation to the ideal straight line can be related to the nature of the potentiometer, where, for one, the potentiometer does not turn 360\degree, and 
+ 
+ In the second part of the experiment, both the histogram and the probability density function behaved as expected. Any outliers further away from the centre value can be accredited to faults data collection such as parallax error or tolerance in the multimeter.
 
+For future renditions of this lab experiment, as well as in applications of this potentiometer, it is recommended to take more limit the operational range of this potentiometer to be further away from its extremities, for example between 25\degree and 250\degree relative to the start and end points of the potentiometer. Within a range similar to this, it is expected that a change in the angle would result in a noticeable change in voltage, rather than the constant voltage noticed at any changes by the extremities. This will reduce some error caused by gathering data before and after the potentiometer's effective range, for example by making a line of best fit more similar to the ideal straight line.
 \onecolumn
 \begin{thebibliography}{99}
 	
@@ -387,19 +393,19 @@ The behaviour of the repeatability acts as expected, forming a bell curve in the
 	\label{idealandact}
 	\begin{tabular}{l|l|l|l}
 		Angle  &  $V_{Ideal}$  &  $V_{Average Actual}$  &  $N(I)$  \\  \hline
-		0  &  0  &  -1.139138804  &  1.139138804  \\
-		30  &  0.833333333  &  0  &  0.833333333  \\
-		60  &  1.666666667  &  1.139138804  &  0.527527863  \\
-		90  &  2.5  &  2.278277607  &  0.221722393  \\
-		120  &  3.333333333  &  3.417416411  &  0.084083078  \\
-		150  &  4.166666667  &  4.556555215  &  0.389888548  \\
-		180  &  5  &  5.695694018  &  0.695694018  \\
-		210  &  5.833333333  &  6.834832822  &  1.001499489  \\
-		240  &  6.666666667  &  7.973971626  &  1.307304959  \\
-		270  &  7.5  &  9.113110429  &  1.613110429  \\
-		300  &  8.333333333  &  10.25224923  &  1.9189159  \\
-		330  &  9.166666667  &  11.39138804  &  2.22472137  \\
-		360  &  10  &  12.53052684  &  2.53052684  \\
+		0  &  0  &  -1.1391  &  1.1391  \\
+		30  &  0.8333  &  0  &  0.8333  \\
+		60  &  1.6667  &  1.1391  &  0.5275  \\
+		90  &  2.5  &  2.2783  &  0.2217  \\
+		120  &  3.3333  &  3.4174  &  0.08408  \\
+		150  &  4.1667  &  4.5566  &  0.3899  \\
+		180  &  5  &  5.6957  &  0.6957  \\
+		210  &  5.8333  &  6.8348  &  1.001499  \\
+		240  &  6.6667  &  7.9740  &  1.3073  \\
+		270  &  7.5  &  9.1131  &  1.6131  \\
+		300  &  8.3333  &  10.2522  &  1.9189  \\
+		330  &  9.1667  &  11.3914  &  2.2247  \\
+		360  &  10  &  12.5305  &  2.5305  \\
 	\end{tabular}
 \end{table}
 
@@ -427,13 +433,13 @@ The behaviour of the repeatability acts as expected, forming a bell curve in the
 	\label{histprob}
 	\begin{tabular}{l|l||l|l}
 		Interval  &  Freq.  &  $P_x=\frac{f}{30}$  &  $P_n=\frac{P}{0.05}$\\  \hline
-		4.9   &  1  &  0.033333333  &  0.666666667 \\
-		4.95  &  1  &  0.033333333  &  0.666666667 \\
+		4.9   &  1  &  0.03333  &  0.6667 \\
+		4.95  &  1  &  0.03333  &  0.6667 \\
 		5  &  6  &  0.2  &  4 \\
 		5.05  &  15  &  0.5  &  10 \\
 		5.1  &  6   &  0.2  &  4 \\
 		5.15  &  0   &  0  &  0 \\
-		5.2  &  1  &  0.033333333  &  0.666666667 \\
+		5.2  &  1  &  0.03333  &  0.6667 \\
 	\end{tabular}
 \end{table}
 
