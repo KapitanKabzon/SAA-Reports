@@ -236,12 +236,14 @@ So $\hat N$ as a percentage of $f.s.d$ is
       xlabel=Temperature \lbrack$^{\circ}C$\rbrack,
       ylabel=Resistance \lbrack$k\Omega$\rbrack,
       ]
-      \addplot[smooth, blue, dashed][domain=45:90]{10*exp(-14.6337+(4791.842/(x+273.15)+(-115334/((x+273.15)^2))+((-3.730535*1000000)/((x+273.15)^3)))};
+      \addplot[smooth, blue][domain=45:90]{10*exp(-14.6337+(4791.842/(x+273.15)+(-115334/((x+273.15)^2))+((-3.730535*1000000)/((x+273.15)^3)))};
       \addlegendentry{Expected$R_T$}
       \addplot[smooth, black, dashed][domain=45:90]{-0.0768081*x+7.8281};
       \addlegendentry{Ideal}
       \addplot[smooth, black][domain=45:90]{-0.0737296184*x+7.84637789};
       \addlegendentry{Actual}
+      \addplot[smooth, black, dashed][domain=45:90]{(-0.0768081*x+7.8281)+0.5564};
+      \addplot[smooth, black, dashed][domain=45:90]{(-0.0768081*x+7.8281)-0.5564};
     \end{axis}
   \end{tikzpicture}
   \label{fig:without}
@@ -333,17 +335,20 @@ Using the eqation~\ref{eq:linear} $R_{p}$ was calculated for linear range 45--90
   \end{aligned}
 \end{equation}
 \begin{equation}
+  \label{eq:rp}
   \begin{aligned}
     R_p&=1807\cdot\frac{3703.85-72.5}{3703.85+2\cdot72.5}  \\
     &=1.705k\Omega  \\
   \end{aligned}
 \end{equation}
+this resistance is then used to find $R_{AB}$ at $T_{min}$ and $T_{max}$
 \begin{equation}
   \begin{aligned}
-  R_{AB}(45)=1.227k\Omega  \\
-  R_{AB}(90)=0.5956
+  R_{AB}(45)&=1.227k\Omega  \\
+  R_{AB}(90)&=0.5956
   \end{aligned}
 \end{equation}
+which allows finding the sensitivity and the y-intercept for the ideal straight line:
 \begin{equation}
   \begin{aligned}
     K&=\frac{R_{AB}(T_{max})-R_{AB}(T_{min})}{T_{max}-T_{min}} \\
@@ -351,6 +356,7 @@ Using the eqation~\ref{eq:linear} $R_{p}$ was calculated for linear range 45--90
     &=-0.01403
   \end{aligned}
 \end{equation}
+and y-intercept
 \begin{equation}
   \begin{aligned}
     a&=R_{AB}(I_{min})-K\cdot I_{min} \\
@@ -358,6 +364,7 @@ Using the eqation~\ref{eq:linear} $R_{p}$ was calculated for linear range 45--90
     &=1.858
   \end{aligned}
 \end{equation}
+The sensitivity and y-intercept of measured data were found by taking the mean of sensitivities and y-intercept of all runs. Shown in the following table:
 \begin{center}
   \begin{tabular}{lll}
     \hline
@@ -372,6 +379,7 @@ Using the eqation~\ref{eq:linear} $R_{p}$ was calculated for linear range 45--90
     \hline
   \end{tabular}
 \end{center}
+Non-linearity:
 \begin{equation}
   \begin{aligned}
     \hat N&=\lvert N(90)=R_{actual}(90)-K\cdot90-a\lvert  \\
@@ -379,14 +387,159 @@ Using the eqation~\ref{eq:linear} $R_{p}$ was calculated for linear range 45--90
     & =3.37\Omega \\
   \end{aligned}
 \end{equation}
-So $\hat N$ as a percentage of $f.s.d$ is
+and $\hat N$ as a percentage of $f.s.d$:
 \begin{equation}
   \begin{aligned}
     \hat N\ as\ \%\ of\ f.s.d & = \frac{3.37}{1.195-0.608} \cdot 100 \% \\
     &=0.574\%
   \end{aligned}
 \end{equation}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines=middle,
+      x dir=reverse,
+      legend style={
+        at={(axis cs:90,1)},
+        anchor=south west},
+      xlabel=Temperature \lbrack$^{\circ}C$\rbrack,
+      ylabel=Resistance \lbrack$k\Omega$\rbrack,
+      ]
+      \addplot[smooth, black, dashed][domain=45:90]{-0.01403*x+1.858};
+      \addlegendentry{Ideal}
+      \addplot[smooth, black][domain=45:90]{-0.01403*x+1.858};
+      \addlegendentry{Actual}      
+    \end{axis}
+  \end{tikzpicture}
+  \label{fig:with-raw}
+  Fig.\ref{fig:with-raw} Linear R-T 
+\end{figure}
+Using the parallel resistor greatly decreased the $\hat N$ of the response.
 \section{Error Discussion}
-\label{sec:error}
 \section{Conclusion}
+\section{Tables}
+
+\begin{table}
+  \centering
+  \caption{Non-Linear R-T Data \rom{1}}
+  \begin{tabular}{l|l}
+  \hline
+  $T, ^{\circ}C$ & $R, k\Omega$ \\
+  \hline
+  90 & 1.107  \\
+  85 & 1.228  \\
+  80 & 1.522  \\
+  75 & 1.798  \\
+  70 & 1.998  \\
+  65 & 2.311  \\
+  60 & 2.737  \\
+  55 & 3.244  \\
+  50 & 3.858  \\
+  45 & 4.75  \\
+  \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Non-Linear R-T Data \rom{2}}
+\begin{tabular}{l|l}
+  \hline
+  $T, ^{\circ}C$ & $R, k\Omega$ \\
+  \hline
+  90 & 1.058  \\
+  85 & 1.201  \\
+  80 & 1.421  \\
+  75 & 1.621  \\
+  70 & 1.929  \\
+  65 & 2.282  \\
+  60 & 2.721  \\
+  55 & 3.139  \\
+  50 & 3.88  \\
+  45 & 4.67  \\
+\end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Non-Linear R-T Data \rom{3}}
+\begin{tabular}{l|l}
+  \hline
+  $T, ^{\circ}C$ & $R, k\Omega$ \\
+  \hline
+  89.2 & 1.061  \\
+  85 & 1.221  \\
+  80 & 1.401  \\
+  75 & 1.66  \\
+  70 & 1.908  \\
+  65 & 2.286  \\
+  60 & 2.663  \\
+  55 & 3.192  \\
+  50 & 3.826  \\
+  \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Linear R-T Data \rom{1}}
+\begin{tabular}{l|l}
+  \hline
+  $T, ^{\circ}C$ & $R, k\Omega$ \\
+  \hline
+  90 & 0.608  \\
+  85 & 0.689  \\
+  80 & 0.749  \\
+  75 & 0.817  \\
+  70 & 0.888  \\
+  65 & 0.958  \\
+  60 & 1.02  \\
+  55 & 1.098  \\
+  50 & 1.167  \\
+\end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Linear R-T Data \rom{2}}
+\begin{tabular}{l|l}
+  \hline
+  $T, ^{\circ}C$ & $R, k\Omega$ \\
+  \hline
+  90 & 0.629  \\
+  85 & 0.685  \\
+  80 & 0.746  \\
+  75 & 0.817  \\
+  70 & 0.886  \\
+  65 & 0.959  \\
+  60 & 1.03  \\
+  55 & 1.103  \\
+  50 & 1.168  \\
+  48.4 & 1.195  \\
+  \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Linear R-T Data \rom{3}}
+\begin{tabular}{l|l}
+  \hline
+  $T, ^{\circ}C$ & $R, k\Omega$ \\
+  \hline
+  90.4 & 0.617  \\
+  85 & 0.684  \\
+  80 & 0.75  \\
+  75 & 0.819  \\
+  70 & 0.89  \\
+  65 & 0.954  \\
+  60 & 1.034  \\
+  55 & 1.103  \\
+  50 & 1.168  \\
+  49.4 & 1.18  \\
+  \hline
+\end{tabular}
+\end{table}
+
 \end{document}
