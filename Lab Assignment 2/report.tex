@@ -17,6 +17,7 @@
   urlcolor=blue         
 }
 \usepackage{float}
+\usepackage{amsmath}
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
 \makeatother
@@ -49,6 +50,12 @@ where $I_{max}$ and $I_{min}$ are maximum and minimum input in the range of oper
   \label{eq:intercept}
   a=O(I_{min})-KI_{min}
 \end{equation}
+The non-linearity of a measurement is defined by:
+\begin{equation}
+  \label{eq:non-linearity}
+  N(I)=\lvert O_{actual}(I)-K\cdot I-a\lvert
+\end{equation}
+where $O_{actual}$ is the measured output of a sensor given input $I$.
 In the case of a NTC thermistor the input is temperature and the output is resistance. However, the relation between temperature is said to be non-linear, for the NTCLE100E3 it can be described with equation for expected intermediate temperatures, taken from the NTC's datasheet:
 \begin{equation}
   \label{eq:datasheet}
@@ -95,7 +102,7 @@ The expected output $R_{AB}(T)$ for a linearised thermistor setup shown in Fig.\
 Two experiments were conducted. First, to determine characteristics of the non-linear response of the NTC:\@ resistance-temperature R-T and temperature-resistance T-R, maximum non-linearity $\hat N$ as \% of $f.s.d$ (full scale deflection); response of a system linearised by a parallel resistor. Second, to find the time constant $\tau$ of the measurement system. Raw data from all measurements is presented in the Appendix.
 \subsection{R-T Characteristics}
 
-To measure the R-T and T-R characteristics the resistance was measured with an AMPROBE AM-510-EUR multimeter, and recorded over temperature range 90--45$^{\circ}C$. This was achieved by measuring the temperature of water in a cup, which was cooled from$~100^{\circ}$ to$~45^{\circ}$.
+To measure the R-T characteristics the resistance was measured with an AMPROBE AM-510-EUR multimeter, and recorded over temperature range 90--45$^{\circ}C$. This was achieved by measuring the temperature of water in a cup, which was cooled from$~100^{\circ}$ to$~45^{\circ}$.
 
 To determine the parallel resistor value $R_{T_{ctr}}$ was recorded at $T_{ctr}=72.5^{\circ}C$ and calculated using the eqation.
 \subsection{Time Constant}
@@ -103,10 +110,6 @@ To determine the parallel resistor value $R_{T_{ctr}}$ was recorded at $T_{ctr}=
 Here, the data from each part the experiments are analysed and discussed. Important graphs, equations, and tables are shown directly in these subsections. Complete calculated data will be put into tables, graphs that can be seen in the Appendix.
 \subsection{R-T Characteristics}
 \subsubsection{Non-Linear}
-The equation for the ideal straight line for input range 45--90$^\circ$ was found using the equation from the datasheet
-$$K=\frac{R_T(90)-R_T(45)}{90-45}=\frac{0.915443-4.37181}{90-45}=-0.07681$$aprox
-$$a=R_T(45)-KI_{min}=4.37181+0.07681\cdot45=7.828$$
-The R-T expected output with combined data from all non-linear measurement runs is shown in the following figure:
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
@@ -119,10 +122,11 @@ The R-T expected output with combined data from all non-linear measurement runs 
       xlabel=Temperature \lbrack$^{\circ}C$\rbrack,
       ylabel=Resistance \lbrack$k\Omega$\rbrack,
       ]
-      \addplot[scatter,
+      \addplot[smooth,
       only marks,
       color=red,
-      mark=*
+      mark=*,
+      mark options={color=red},
       ] coordinates {
         (90, 1.107)
         (85, 1.228)
@@ -136,7 +140,7 @@ The R-T expected output with combined data from all non-linear measurement runs 
         (45, 4.75)
       };
       \addlegendentry{\rom{1}}
-      \addplot[scatter,
+      \addplot[smooth,
       only marks,
       color=green,
       mark=*,
@@ -153,7 +157,7 @@ The R-T expected output with combined data from all non-linear measurement runs 
         (45, 4.67)
       };
       \addlegendentry{\rom{2}}
-      \addplot[scatter,
+      \addplot[smooth,
       only marks,
       color=blue,
       mark=*,
@@ -169,10 +173,75 @@ The R-T expected output with combined data from all non-linear measurement runs 
         (50, 3.826)
       };
       \addlegendentry{\rom{3}}
-      \addplot[smooth, black, dashed][domain=45:90]{10*exp(-14.6337+(4791.842/(x+273.15)+(-115334/((x+273.15)^2))+((-3.730535*1000000)/((x+273.15)^3)))};
+    \end{axis}
+  \end{tikzpicture}
+  \label{fig:without-raw}
+  Fig.~\ref{fig:without-raw} Raw non-linear R-T 
+\end{figure}
+The equation for the ideal straight line for input range 45--90$^\circ$ was found using the equations~\ref{eq:datasheet} and~\ref{eq:ctok}:
+\begin{equation}
+  \begin{aligned}
+    K  &  =\frac{R_T(90)-R_T(45)}{90-45} \\
+    &  =\frac{0.915443-4.37181}{90-45} \\
+    &  =-0.07681\frac{k\Omega}{^\circ C}
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    a  &  =R_T(45)-K\cdot45  \\
+    &  =4.37181+0.07681\cdot45  \\
+    &  =7.828 k\Omega
+  \end{aligned}
+\end{equation}
+The sensitivity and y-intercept of measured data were found by taking the mean of sensitivities and y-intercept of all runs. Shown in the table~\ref{tb:non-linear-sensitivities}.
+\begin{center}
+  \begin{tabular}{lll}
+    \hline
+    Run      &  $K$  &  $a$\\
+    \hline
+    \rom{1}  &  -0.07628  &  8.183  \\
+    \rom{2}  &  -0.07697  &  8.134  \\
+    \rom{3}  &  -0.06792  &  7.222  \\
+    \hline
+    \hline
+    Mean  &  -0.07373  &  7.846 \\
+    \hline
+  \end{tabular}
+\end{center}
+Next, the maxium non-linearity $\hat N$ was found by use of equation~\ref{eq:non-linearity}:
+\begin{equation}
+  \begin{aligned}
+    \hat N&=\lvert N(60)=O_{actual}(60)-K(60)-a\lvert  \\
+    & =\lvert 2.663+0.07681\cdot60-7.828\lvert  \\
+    & = 0.5564k\Omega\\
+  \end{aligned}
+\end{equation}
+So $\hat N$ as a percentage of $f.s.d$ is
+\begin{equation}
+  \begin{aligned}
+    \hat N\ as\ \%\ of\ f.s.d & = \frac{0.5564}{4.75-1.058} \cdot 100 \% \\
+    &=15.1\%
+  \end{aligned}
+\end{equation}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines=middle,
+      x dir=reverse,
+      legend style={
+        at={(axis cs:90,3.5)},
+        anchor=south west},
+      xlabel=Temperature \lbrack$^{\circ}C$\rbrack,
+      ylabel=Resistance \lbrack$k\Omega$\rbrack,
+      ]
+      \addplot[smooth, blue, dashed][domain=45:90]{10*exp(-14.6337+(4791.842/(x+273.15)+(-115334/((x+273.15)^2))+((-3.730535*1000000)/((x+273.15)^3)))};
       \addlegendentry{Expected$R_T$}
       \addplot[smooth, black, dashed][domain=45:90]{-0.0768081*x+7.8281};
-
+      \addlegendentry{Ideal}
+      \addplot[smooth, black][domain=45:90]{-0.0737296184*x+7.84637789};
+      \addlegendentry{Actual}
     \end{axis}
   \end{tikzpicture}
   \label{fig:without}
@@ -180,13 +249,7 @@ The R-T expected output with combined data from all non-linear measurement runs 
 \end{figure}
 From the Fig.\ref{fig:without} it can be seen that the thermistors output is non-linear, and the curve shape is similar to the expected response. However, a static offset can be observed, which will be discussed the Error Discussion~\ref{sec:error}.
 
-The T-R characteristic is shown:
 \subsubsection{Linear}
-Using the eqation~\ref{eq:linear} $R_{p}$ was calculated for linear range 45--90$^{\circ}C$. $B$ value is give in $^{\circ}K$ in the datasheet, but temperature range and measurements are in $^{\circ}C$, therefore it must be converted to Celsius:
-$B_C=B_K+273.15=3977-273.15=3703.85$
-$$T_{ctr}=\frac{90-45}{2}+45=72.5^{\circ}C$$
-$$R_p=1807\cdot\frac{3703.85-72.5}{3703.85+2\cdot72.5}=1.705k\Omega$$
-The R-T expected output with combined data from all linear measurement runs is shown in the following figure:
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
@@ -199,7 +262,7 @@ The R-T expected output with combined data from all linear measurement runs is s
       xlabel=Temperature \lbrack$^{\circ}C$\rbrack,
       ylabel=Resistance \lbrack$k\Omega$\rbrack,
       ]
-      \addplot[scatter,
+      \addplot[smooth,
       only marks,
       color=red,
       mark=*,
@@ -215,7 +278,7 @@ The R-T expected output with combined data from all linear measurement runs is s
         (50, 1.167)
       };
       \addlegendentry{\rom{1}}
-      \addplot[scatter,
+      \addplot[smooth,
       only marks,
       color=green,
       mark=*,
@@ -232,7 +295,7 @@ The R-T expected output with combined data from all linear measurement runs is s
         (48.4, 1.195)
       };
       \addlegendentry{\rom{2}}
-      \addplot[scatter,
+      \addplot[smooth,
       only marks,
       color=blue,
       mark=*,
@@ -252,9 +315,77 @@ The R-T expected output with combined data from all linear measurement runs is s
       \addplot[smooth, black, dashed][domain=45:90]{-0.01403*x+1.858};
     \end{axis}
   \end{tikzpicture}
-  \label{fig:with}
-  Fig.\ref{fig:with} Linear R-T 
+  \label{fig:with-raw}
+  Fig.\ref{fig:with-raw} Raw linear R-T 
 \end{figure}
+Using the eqation~\ref{eq:linear} $R_{p}$ was calculated for linear range 45--90$^{\circ}C$. $B$ value is given in $^{\circ}K$ in the datasheet, but temperature range and measurements are in $^{\circ}C$, therefore for the calculations it must be converted to Celsius:
+\begin{equation}
+  \begin{aligned}
+    B_C&=B_K+273.15 \\
+    &=3977-273.15  \\
+    &=3703.85^{\circ}C \\
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    T_{ctr}&=\frac{90-45}{2}+45  \\
+    &=72.5^{\circ}C  \\
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    R_p&=1807\cdot\frac{3703.85-72.5}{3703.85+2\cdot72.5}  \\
+    &=1.705k\Omega  \\
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+  R_{AB}(45)=1.227k\Omega  \\
+  R_{AB}(90)=0.5956
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    K&=\frac{R_{AB}(T_{max})-R_{AB}(T_{min})}{T_{max}-T_{min}} \\
+    &=\frac{0.9154-4.372}{90-45} \\
+    &=-0.01403
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    a&=R_{AB}(I_{min})-K\cdot I_{min} \\
+    &=1.227+0.01403\cdot45 \\
+    &=1.858
+  \end{aligned}
+\end{equation}
+\begin{center}
+  \begin{tabular}{lll}
+    \hline
+    Run      &  $K$  &  $a$\\
+    \hline
+    \rom{1}  &  -0.01382  &  1.858  \\
+    \rom{2}  &  -0.01380  &  1.863  \\
+    \rom{3}  &  -0.01384  &  1.864  \\
+    \hline
+    \hline
+    Mean  &  -0.01382  &  1.862 \\
+    \hline
+  \end{tabular}
+\end{center}
+\begin{equation}
+  \begin{aligned}
+    \hat N&=\lvert N(90)=R_{actual}(90)-K\cdot90-a\lvert  \\
+    & =\lvert0.629 +0.01403\cdot90-1.858  \lvert  \\
+    & =3.37\Omega \\
+  \end{aligned}
+\end{equation}
+So $\hat N$ as a percentage of $f.s.d$ is
+\begin{equation}
+  \begin{aligned}
+    \hat N\ as\ \%\ of\ f.s.d & = \frac{3.37}{1.195-0.608} \cdot 100 \% \\
+    &=0.574\%
+  \end{aligned}
+\end{equation}
 \section{Error Discussion}
 \label{sec:error}
 \section{Conclusion}
