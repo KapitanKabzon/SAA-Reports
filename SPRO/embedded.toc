@@ -1,27 +1,31 @@
 \select@language {english}
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
-\contentsline {section}{\numberline {2}Problem Formulation}{3}{section.2}
-\contentsline {paragraph}{Team Integration and Overall Requirements}{4}{section*.2}
-\contentsline {paragraph}{Research and Concept Design}{4}{section*.3}
-\contentsline {paragraph}{Mechanical Development}{4}{section*.4}
-\contentsline {paragraph}{Embedded/Electronic Development}{5}{section*.5}
-\contentsline {paragraph}{Testing and Assembly}{5}{section*.6}
-\contentsline {paragraph}{Documentation}{6}{section*.7}
-\contentsline {paragraph}{Delimitations and Requirements}{6}{section*.8}
-\contentsline {paragraph}{Need-To-Haves}{6}{section*.9}
-\contentsline {paragraph}{Nice-To-Haves and Future Additions}{7}{section*.10}
-\contentsline {section}{\numberline {3}Mechanical Design}{7}{section.3}
-\contentsline {section}{\numberline {4}Electornics}{7}{section.4}
-\contentsline {section}{\numberline {5}USART Communication}{12}{section.5}
-\contentsline {section}{\numberline {6}Network Communication}{13}{section.6}
-\contentsline {section}{\numberline {7}Arduino Nano Microcontrollers}{16}{section.7}
-\contentsline {section}{\numberline {8}Raspberry Pi}{20}{section.8}
-\contentsline {section}{\numberline {9}Division of Work/Responsibilities}{23}{section.9}
-\contentsline {paragraph}{Catherine}{23}{section*.30}
-\contentsline {paragraph}{Vladislav}{23}{section*.31}
-\contentsline {paragraph}{Piotr}{24}{section*.32}
-\contentsline {paragraph}{Mathias}{24}{section*.33}
-\contentsline {paragraph}{Wojciech}{24}{section*.34}
-\contentsline {section}{\numberline {10}Technical Review from a Senior Software Architect}{24}{section.10}
-\contentsline {section}{\numberline {11}Conclusion}{24}{section.11}
-\contentsline {section}{\numberline {12}References}{24}{section.12}
+\contentsline {section}{\numberline {1}Abstract}{i}{section.1}
+\contentsline {section}{\numberline {2}Introduction}{1}{section.2}
+\contentsline {section}{\numberline {3}Project Formulation}{2}{section.3}
+\contentsline {paragraph}{Team Integration and Overall Requirements}{2}{section*.2}
+\contentsline {paragraph}{Research and Concept Design}{2}{section*.3}
+\contentsline {paragraph}{Mechanical Development}{3}{section*.4}
+\contentsline {paragraph}{Embedded/Electronic Development}{3}{section*.5}
+\contentsline {paragraph}{Testing and Assembly}{4}{section*.6}
+\contentsline {paragraph}{Documentation}{4}{section*.7}
+\contentsline {paragraph}{Delimitations and Requirements}{4}{section*.8}
+\contentsline {paragraph}{Need-To-Haves}{5}{section*.9}
+\contentsline {paragraph}{Nice-To-Haves and Future Additions}{5}{section*.10}
+\contentsline {section}{\numberline {4}Risk Management}{6}{section.4}
+\contentsline {section}{\numberline {5}User Requirements}{7}{section.5}
+\contentsline {section}{\numberline {6}Mechanical Design}{8}{section.6}
+\contentsline {section}{\numberline {7}Electronics}{9}{section.7}
+\contentsline {section}{\numberline {8}USART Communication}{14}{section.8}
+\contentsline {section}{\numberline {9}Network Communication}{16}{section.9}
+\contentsline {section}{\numberline {10}Arduino Nano Microcontrollers}{20}{section.10}
+\contentsline {section}{\numberline {11}Raspberry Pi}{24}{section.11}
+\contentsline {section}{\numberline {12}Technical Review from a Senior Software Architect}{28}{section.12}
+\contentsline {section}{\numberline {13}Conclusion}{29}{section.13}
+\contentsline {section}{\numberline {14}Division of Work/Responsibilities}{30}{section.14}
+\contentsline {paragraph}{Catherine}{30}{section*.30}
+\contentsline {paragraph}{Vladislav}{30}{section*.31}
+\contentsline {paragraph}{Piotr}{30}{section*.32}
+\contentsline {paragraph}{Mathias}{30}{section*.33}
+\contentsline {paragraph}{Wojciech}{30}{section*.34}
+\contentsline {section}{\numberline {15}Bill of Materials}{31}{section.15}
+\contentsline {section}{\numberline {16}References}{32}{section.16}

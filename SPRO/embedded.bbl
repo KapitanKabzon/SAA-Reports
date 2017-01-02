@@ -1,0 +1,65 @@
+\begin{thebibliography}{13}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[NXP(2016)]{multiplexer-datasheet}
+\emph{74HC4067; 74HCT4067 16-channel analog multiplexer/demultiplexer}.
+\newblock NXP Semiconductors, 2016.
+
+\bibitem[Tex(1999)]{LM2596-datasheet}
+\emph{LM2596 SIMPLE SWITCHER® Power Converter 150-kHz 3-A Step-Down Voltage
+  Regulator}.
+\newblock Texas Instruments, 11 1999.
+
+\bibitem[Atm(2015)]{ATmega328p-datasheet}
+\emph{ATmega48A/PA/88A/PA/168A/PA/328/P}.
+\newblock Atmel, 5 2015.
+
+\bibitem[tcp(2017{\natexlab{a}})]{tcpcs}
+Tcpclient class, 2017{\natexlab{a}}.
+\newblock URL
+  \url{https://msdn.microsoft.com/en-us/library/system.net.sockets.tcpclient(v=vs.110).aspx}.
+
+\bibitem[tcp(2017{\natexlab{b}})]{tcppy}
+Tcpcommunication - python, 2017{\natexlab{b}}.
+\newblock URL \url{https://wiki.python.org/moin/TcpCommunication}.
+
+\bibitem[ham(2017)]{hamachi}
+Hamachi, 2017.
+\newblock URL \url{https://www.logmeininc.com/}.
+
+\bibitem[ELE(2016)]{ping-datasheet}
+\emph{Ultrasonic Ranging Module HC - SR04}.
+\newblock ELEC Freaks, 2016.
+
+\bibitem[ST(2000)]{hbridge-datasheet}
+\emph{L298}.
+\newblock ST, 2000.
+
+\bibitem[coc(2017)]{cocos2d}
+cocos2d, 1 2017.
+\newblock URL \url{http://python.cocos2d.org/}.
+
+\bibitem[PyS(2017)]{PySDL2}
+pysdl2, 1 2017.
+\newblock URL \url{https://pysdl2.readthedocs.io/}.
+
+\bibitem[cai(2017)]{cairo}
+Pycairo, 1 2017.
+\newblock URL \url{https://cairographics.org/pycairo/}.
+
+\bibitem[Crowley(1989)]{ultrasonicpaper}
+James~L Crowley.
+\newblock World modeling and position estimation for a mobile robot using
+  ultrasonic ranging.
+\newblock In \emph{Robotics and Automation, 1989. Proceedings., 1989 IEEE
+  International Conference on}, pages 674--680. IEEE, 1989.
+
+\bibitem[uni(2017)]{unittest}
+Unit testing framework, 1 2017.
+\newblock URL \url{https://docs.python.org/3.5/library/unittest.html}.
+
+\end{thebibliography}

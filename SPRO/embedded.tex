@@ -54,9 +54,12 @@ Develop Intelligent Dynamic Mechatronic Systems\\Semester Project Report\\[\base
 \vspace*{2\baselineskip} % Whitespace between location/year and editors
 
 by \\[\baselineskip]
-{\Large Catherine Beryl Basson \\ Wojciech Piotr Zapotoczny \\ Mathias Skouman V\"olcker \\ Vladislav Borodich \\ Piotr Chromi\'nski \\\par} % Editor list
+{\Large Catherine Beryl Basson \\ Vladislav Borodic \\ Piotr Chromi\'nski \\ Mathias Skouman V\"olcker \\ Wojciech Piotr Zapotoczny \\\par} % Editor list
 {\vspace{5pt} \itshape Supervised by \\ Kasper Paasch\par} % Editor affiliation
 }
+\newpage
+\pagenumbering{roman}
+\section{Abstract}
 \newpage
 \tableofcontents
 \lstdefinestyle{customc}{
@@ -92,6 +95,8 @@ by \\[\baselineskip]
   numberfirstline=false,
 }
 \lstset{style=customc}
+\newpage
+\pagenumbering{arabic}
 \section{Introduction}
 The main scope of this project is to properly implement user requirements, as well as to improve the group’s understanding of risk management and the overall development of Mechatronic devices. The idea behind this project is to develop autonomous vehicles in order to reduce human error, and improve efficiency. This will include the use of advanced sensors and control strategies in order to provide obstacle/collision avoidance.
 
@@ -104,8 +109,8 @@ This can be seen, for example, in a hotel. Some hotels offer 24hr room service, 
 
 The approach that Group 6 is taking to this project will be to develop an autonomous vehicle that will be able to deliver small items/packages. The main focus of this project is to have a vehicle autonomously move across a floor a building, while avoiding obstacles and following user defined path.  The advantage of the robot is that it can provide cheaper, safer and faster service in indoor delivery industry.
 
-
-\section{Problem Formulation}
+\newpage
+\section{Project Formulation}
 The project will be designed as a multi-purpose robot that easily can be reconfigured to solve other similar tasks, however the focus setting for this design will be hotel room service.  Here the problem we solve is that, originally, someone would need to be ready to deliver room service 24 hours a day, even though there may be no one using room service in the early or late hours. This work results in employees sitting around, which is unsatisfying work for the employee, and too expensive to the employer. If the room service delivery were automated, either a receptionist, or someone from the kitchen (who would need to be working at any hour any way in order to make the food requested in room service), can handle the packaging without leaving their own workstation, and therefore eliminating the use of an extra employee.
 
 
@@ -201,9 +206,22 @@ The safety issues that come with driving an automated robot around people will a
 \item{Camera for some sort of image detection (for avoiding obstacles and/or for interpreting location by use of strategically placed QR codes).}
 \item{Hands-free shelf opening/closing (for goods that are transported).}
 \end{itemize}
+\newpage
+\section{Risk Management}
+TODO
+\newpage
+\section{User Requirements}
+In order to use this product, there should be one employee available at all operating hours in order to start the robot on its journey. This is simply to ensure that the shipment has been placed, and that the robot would be ready to deliver that which it has been asked to do.
+
+Additionally, the user is free to modify the software available on the robot in order to better integrate itself into the setting without changing too much about the existing system. For example, a floor plan of the hotel (or any other location) must be uploaded in order to make use of the map. Usually, an accessible Wi-Fi network is required for successful communication between the customer or user and the robot, and this Wi-Fi network should allow for static IP requests or resolvable hostnames, unless otherwise modified by the user.
+
+This product is not to be used outdoors (unless on pavement) or on rough terrain, as the robot is not made to travel safely in such a setting. Additionally, the robot is not to travel near water (such as in a swimming pool), or in places with elevated humidity or moisture (shower rooms, in the rain, etc.). The robot is not designed to be waterproof, and failure to follow this may result in damage to either the robot, or to an operator.
+TODO
+\newpage
 \section{Mechanical Design}
 TODO WOJCIECH
-\section{Electornics}
+\newpage
+\section{Electronics}
 \begin{figure}[h]
   \centering
   \includegraphics[width=14cm]{block.png}
@@ -214,7 +232,7 @@ TODO WOJCIECH
 The electronic system in the Automated Bellhop is split into six main groups (shown in Fig.~\ref{blockdiagram}):
 \addtokomafont{labelinglabel}{\sffamily}
 \begin{labeling}{usart examples}
-\item [Control] This group contains the processing power of the Bellhop. A Raspberry Pi  and three Arduinos connected via USB cables.
+\item [Control] This group contains the processing power of the Bellhop. A Raspberry Pi  and three Arduino Nano microcontrollers connected via USB cables.
 \item [User Interface] This is the interface between the user and the Bellhop. Containing A LCD Display and a driver for it, as well as a button for User input.
 \item [Ultrasonic] Containing up to 16 ultrasonic sensors, and two high speed multiplexers/demultiplexes to drive these sensors.
 \item [Drawer] The two motors used to move the drawer in and out, as well as the 3 hall-effect sensors used to determine the drawer position.
@@ -226,7 +244,7 @@ The electronic system in the Automated Bellhop is split into six main groups (sh
 The control system consists of one Raspberry Pi and three Arduinos. In the current state of the Bellhop this is not needed, since only the Sensors and Drive Arduinos are used. The reason for the current configuration is that not whole functionality of the robot has been implemented due to time restrictions. The processing power of the Raspberry Pi is needed for the mapping of the hallways the Bellhop drives around.
 
 
-Each of the three Arduinos has a specific task. The decision to use three seperate units was made because they are cheap and allow for fast prototyping. The Sensor Arduino samples data from the ultrasonic sensors upon request from the Raspberry Pi. This Arduino is reserved for this purpose because ultrasonic ranging requires a pause (waiting for the echo) in execution of the code for accurate measurement, which would disrupt other logic that should otherwhise be executed. The Drive Arduino controls the two driving wheels and the corresponding RPM measurements from the encoders. This must always be ready to alter direction or stop if something gets in its way. As a safety measure, all non-drive essential operation has been removed from this Arduino---to be completely sure it is always ready to react. This leaves the user interaction. Communication with the user, as well as controlling the drawer that should only open when delivering to the right person is handled by one last--User Interface Arduino.
+Each of the three Arduino Nano microcontrollers has a specific task. The decision to use three seperate units was made because they are cheap and allow for fast prototyping. The Sensor Arduino samples data from the ultrasonic sensors upon request from the Raspberry Pi. This Arduino is reserved for this purpose because ultrasonic ranging requires a pause (waiting for the echo) in execution of the code for accurate measurement, which would disrupt other logic that should otherwise be executed. The Drive Arduino controls the two driving wheels and the corresponding RPM measurements from the encoders. This must always be ready to alter direction or stop if something gets in its way. As a safety measure, all non-drive essential operation has been removed from this Arduino---to be completely sure it is always ready to react. This leaves the user interaction. Communication with the user, as well as controlling the drawer that should only open when delivering to the right person is handled by one last--User Interface Arduino.
 \subsection*{User Interface}
 
 
@@ -235,35 +253,31 @@ The User interaction on the Bellhop is the simplest of the three. It only contai
 
 The User Interface can be so simplistic because it’s only purpose is simple communication with the recipient about what is delivered, and if it has been removed. All other communicating, such as destinations etc. is done over a Wi-Fi connection.
 \subsection*{Ultrasonic Sensors}
-\begin{wrapfigure}[11]{r}{4cm}
-  \includegraphics[width=4cm]{hc-sr04.jpg}
-  \caption{\textit{HC-SR04} ultrasonic sensor used.}
-  \label{hc-sr04}
-\end{wrapfigure}
 To drive the nine ultrasonic sensors (shown in Fig.~\ref{hc-sr04}) used in the Bellhop two high speed multiplexers/demultiplexes (\textit{74HC4067}) are used.  One for multiplexing the trigger signal to the correct sensor, and the other for demultiplexing the echo to response pin. The sensor is selected using a 4-pin input on \textit{74HC4067} (\texttt{S0}--\texttt{S3} pins~\cite{multiplexer-datasheet}) to set a binary address. The same address pins from the Arduino are connected to both multiplexers, as the relevant response will always be coming from the same sensor that was triggered.
 
+\begin{wrapfigure}[11]{r}{4cm}
+	\includegraphics[width=4cm]{hc-sr04.jpg}
+	\caption{\textit{HC-SR04} ultrasonic sensor used.}
+	\label{hc-sr04}
+\end{wrapfigure}
 
 Using the multiplexers all nine sensors (up to 16 possible with the multiplexer) are driven using only six pins instead of the 18 that would have been needed to drive each sensor directly. A method that was considered to reduce the pin count was to use a common echo or trigger pin, either trigger only one sensor and listen for response on all of them, or trigger all of them and  only listen for response from one at a time. This would be viable in some applications, but could result in crosstalk, where a signal bounces and gets read by a sensor that has not sent out the signal. It would also only bring the pin count down to 10.
 
 \subsection*{Drawer}
-
-
 The drawer uses two DC motors to allow it to open fully on both sides. The DC motors are controlled via a \textit{L294N} bases dual motor control module. This allows the motors to have direction and speed controlled using PWM signals. To determine when the drawer is in the right position, three hall-effect sensors are positioned in the frame, and 3 magnets on the drawer. Two mark the outer positions of both sides, and one marks the centre in the closed position.
+
 \subsection*{Drive}
+The Drive consists of two geared DC motors, connected to a wheel each. On the axle between each motor and wheel there is an encoder disc that together with an optical switch, used to determine RPM of each wheel independently.
 
-
-The Drive consists of two geared DC motors, connected to a wheel each. On the axel between each motor and wheel there is an encoder disc that together with an optical switch, used to determine RMP of each wheel independently.
 \subsection*{Encoders}
-
-
-\begin{wrapfigure}[14]{r}{4cm}
+\begin{wrapfigure}[12]{r}{4cm}
   \includegraphics[width=4cm]{mounted_encoder.jpg}
   \caption{Optical switch PCB mounted on the encoder.}
   \label{mounted-encoder}
 \end{wrapfigure}
 
 
-For measuring RPM of our wheels, a slotted optical switch and a disc with slits along the circumference is used as a rotary encoder for each drive wheel. The optical switch needs an op-amp to convert the Analog output into a square wave signal that the Arduino can read.
+For measuring the RPM of our wheels, a slotted optical switch and a disc with slits along the circumference is used as a rotary encoder for each drive wheel. The optical switch needs an op-amp to convert the analog output into a square wave signal that the Arduino Nano microcontroller can read.
 
 
 Simply measuring time between rising edges on the square wave the Arduino can calculate the RPM only by knowing the number of slits on the disc and the speed by knowing the circumference of the wheel.
@@ -279,7 +293,7 @@ The power distribution system is dependent on a 12V DC input voltage capable of 
 Switching between these two power inputs can be done without power shortage, allowing the Raspberry Pi and Arduinos to keep operating without reset when switching. This is achieved by adding an electrolytic capacitor between the 12V rail and GND to remove the few microseconds of power loss coming from switching between the power sources, and smooth out voltage change that can occur as the battery voltage fluctuates doing a discharge cycle and the AUX power supply will give the same voltage regardless of battery voltage. When the power input is set for AUX power, the battery is disconnected from the circuity, and connected to a charging port, allowing it to be charged without removal, or the machine being shut down.
 
 
-The 12V supply voltage is converted down to the 5V needed for driving the Raspberry Pi, Arduinos, and other logic using a DC-DC switch mode power supply (Buck converter). The Buck converter is unbranded and a datasheet for the module cannot be found. Therefore, the specs are from the datasheet of the main IC. The converter can take an input voltage of 4--40V and output 1.3--37V~\cite{LM2596-datasheet}. Meaning that the 12V to 5V conversion is well within specification. 
+The 12V supply voltage is converted down to the 5V needed for driving the Raspberry Pi, Arduinos, and other logic using a DC-DC switch mode power supply (Buck converter). The Buck converter is unbranded and a datasheet for the module cannot be found. Therefore, the specifications are from the datasheet of the main IC. The converter can take an input voltage of 4--40V and output 1.3--37V~\cite{LM2596-datasheet}. Meaning that the 12V to 5V conversion is well within specification. 
 
 \subsection*{Improvements}
 
@@ -287,7 +301,7 @@ The 12V supply voltage is converted down to the 5V needed for driving the Raspbe
 Turn off 5V for Arduinos doing programming and debugging, to avoid feeding voltage into computer's USB port. Add fan control with temperature measurement to lower noise level when cooling is not necessary. Route communication between Arduino and Raspberry Pi on PCB to reduce cable complexity.
 
 
-To achieve most of the improvements mentioned above a professionally produced 2 or 4 layer PCB should used. The prototyping PCBs manufactured at SDU provide a great opportunity for testing out hardware, shrinking otherwise very large and complex circuits down by a lot, and mounting SMD chips and other components that have other than 0.1 inch pitch. However, they also have some constraints. The minimum track spacing and track thickness as well as pad and drill sizes are a lot higher on the in-house prototypes compared to etched PCBs. The holes and vias are not plated, meaning that the thru-hole components must be soldered on the correct or sometimes both sides, and that vias must be hand soldered. Lastly, there is no solder mask, silkscreen, or surface finishing to assist with proper component placement and soldering, or to help the final product last longer. Overall, the prototypes are great for simple use cases, but for more complex PSBs with many and/or very small components, they are impractical to use.
+To achieve most of the improvements mentioned above a professionally produced 2 or 4 layer PCB should used. The prototyping PCBs manufactured at SDU provide a great opportunity for testing out hardware, shrinking otherwise very large and complex circuits down by a lot, and mounting SMD chips and other components that have other than 0.1 inch pitch. However, they also have some constraints. The minimum track spacing and track thickness as well as pad and drill sizes are a lot higher on the in-house prototypes compared to etched PCBs. The holes and vias are not plated, meaning that the thru-hole components must be soldered on the correct or sometimes both sides, and that vias must be hand soldered. Lastly, there is no solder mask, silkscreen, or surface finishing to assist with proper component placement and soldering, or to help the final product last longer. Overall, the prototypes are great for simple use cases, but for more complex PCBs with many and/or very small components, they are impractical to use.
 
 \begin{table}[h]
   \centering
@@ -300,7 +314,7 @@ To achieve most of the improvements mentioned above a professionally produced 2 
     Min drill size  & 0.6mm  & 0.3mm (0.2 mm)  \\ 
     Surface finishing  & None (exposed copper) & \textit{HASL}\footnote{\textit{HASL} surface finishing refers to Hot Air Surface Levelling which uses a solder bath, and hot air jets to plate all copper connections with solder, this makes soldering easier, and protects the copper from corroding.} lead or lead-free (gold) \\ \hline
     Specific to this PCB & & \\ \hline
-    Size & 140$\times$100mm  & 140$\times$100mm\footnote{As a double-sided PCB optimized for the edging minimum specifications have not been routed, it is impossible to tell the exact size of it. However, as all tracks and vias will be smaller and the routing can be done tighter do to the option of jumping layer a lot easier, it will definitevly not be higher. In the price comparison PCBs of the same size are used.}  \\ 
+    Size & 140$\times$100mm  & 140$\times$100mm\footnote{As a double-sided PCB optimized for the edging minimum specifications have not been routed, it is impossible to tell the exact size of it. However, as all tracks and vias will be smaller and the routing can be done tighter do to the option of jumping layer a lot easier, it will definitely not be higher. In the price comparison PCBs of the same size are used.}  \\ 
     Layers  & 1 & 2  \\
     Price excl. shipping  & 140DKK (1 unit)  & 60USD $\approx$425DKK (5 units) \\ 
     Price incl. shipping  & 140DKK (1 unit)  & 35USD $\approx$250DKK (5 units) \\ 
@@ -308,12 +322,12 @@ To achieve most of the improvements mentioned above a professionally produced 2 
   \caption{PCB comparison.}
   \label{my-label}
 \end{table}
-Values and prices from above table comes from \url{http://www.pcbway.com/} for the Professionally edged PCB and Mathias Skouman Völcker how works with the PCB CNC machine at SDU for the limits on that machine. Price for PCB made at SDU:
+Values and prices from above table comes from \url{http://www.pcbway.com/} for the Professionally edged PCB and Mathias Skouman V\"olcker, who works with the PCB CNC machine at SDU, for the limits on that machine. Price for PCB made at SDU:
 $$\text{Price}=\text{PCB area} \cdot\frac{\text{DKK}}{cm^2}\cdot \text{Layers}$$
 which for the main PCB is
 $$\text{Price}=140cm^2 \cdot\frac{\text{DKK}}{cm^2}\cdot 1=140\text{DKK}$$
 
-
+\newpage
 \section{USART Communication}
 Effective communication between the Raspberry Pi and Arduino slaves means that the reception of commands should not interfere with other logic on the slave. A simple implementation of USART communication on a Arduino uses \texttt{scanf()} for input of data, as shown in Fig.~\ref{flowchart:scanf}.
 \begin{figure}[h]
@@ -333,7 +347,7 @@ Effective communication between the Raspberry Pi and Arduino slaves means that t
   \caption{Flowchart of trivial USART data reception.}
   \label{flowchart:scanf}
 \end{figure}
-This method could not be used because the \texttt{scanf()} function waits until data comes through the \texttt{stdin} stream, which stops the execution of the program. Therefore, the communication needed to be driven by interrupts. The \textit{ATmega328p}'s \texttt{RXCIE0} flag is set when there are unread data in the USART recieve buffer, which is cleared when the \texttt{UDR0} register is accessed~\cite{ATmega328p-datasheet}, this means that incoming data needs to be processed one byte at a time. The commands recieved needed to be longer than one byte because it allows for easier command decomposition. Example program snippet showing use of asynchronous data reception inside the main loop is shown below:
+This method could not be used because the \texttt{scanf()} function waits until data comes through the \texttt{stdin} stream, which stops the execution of the program. Therefore, the communication needed to be driven by interrupts. The \textit{ATmega328p}'s \texttt{RXCIE0} flag is set when there are unread data in the USART receive buffer, which is cleared when the \texttt{UDR0} register is accessed~\cite{ATmega328p-datasheet}, this means that incoming data needs to be processed one byte at a time. The commands received needed to be longer than one byte because it allows for easier command decomposition. Example program snippet showing use of asynchronous data reception inside the main loop is shown below:
 \lstinputlisting[style=customc]{usart.c}
 
 
@@ -341,18 +355,37 @@ This method could not be used because the \texttt{scanf()} function waits until 
 The interrupts are disabled with \texttt{cli()}, and \texttt{strcpy()} is used because the data in \texttt{input\_buffer} can change virtually at any time, which would results in corruption of a command.
 To ensure seamless operation a simple communication protocol was used, each command consists of one line terminated with \texttt{\textbackslash n}. Examples:
 \begin{labeling}{usart examples}
-\item [1] Identify, answer depends on the reciving Arduino
+\item [1] Identify, answer depends on the receiving Arduino
 \item [p1] Ping: Send data from 1st ultrasonic sensor
 \item [m1Hello] UI: Write \texttt{Hello} on the 1st line of the LCD
 \item [m2World] UI: Write \texttt{World} on the 2nd line of the LCD
 \item [L0] Drive: Stop the left motor
-\item [Rp5] Drive: Set the right motor rpm to 5
+\item [Rp5] Drive: Set the right motor RPM to 5
 \end{labeling}
-\subsection*{Error Handling}
-TODO Cat
+\subsection*{Error Handling} \label{errhand}
+As there were multiple microcontrollers with which the Raspberry Pi was communicating at once, for testing purposes it was important to include some form of error handling in the event that there was something unexpected in the data that was given to one of the microcontrollers.
+This was mainly done by incorporating error feedback into the existing switch-cases that existed in the programs on the Arudino Nano microcontrollers. If the microcontroller received an unexpected message from the Raspberry Pi, an appropriate error code was sent back through USART that would indicate the type of error, in order to have an idea on whether or not there is a mistake in the communication setup, and also where this mistake might be. 
+
+The main standard for these error codes is as follows:
+
+\begin{center}
+	\texttt{eAx}
+\end{center}
+
+where A is the Arduino Nano microcontroller ID number, as described in TODO:USART DESCRIBE IT and x is the specific error code that pertains to the type of error detected. For example, the list of possible error codes that the LCD Arduino may return are at follows:
+\begin{labeling}{usart examples}
+\item [e11] An undefined command or no command was sent
+\item [e12] m was sent with no specified line number
+\item [e13] m was sent with an incorrect line number (i.e. higher than 2)
+\item [e14] m was sent with a line number, but with no message
+\end{labeling}
+Every time the switch-case falls into an error, it sets \texttt{error.flag} to 1, and assigns \texttt{error.code} to the appropriate number. After exiting the switch-case, if the error flag is set, it calls the following function:
+\lstinputlisting[style=customc]{error.c}
+and no other response is given back to the Raspberry Pi.
+\newpage
 \section{Network Communication}
 There are two protocols being used to communicate wirelessly with the Raspberry Pi; one of which is SSH and mainly used for development, and the other is TCP, used between the customer and the Raspberry Pi. Both of these protocols communicate over the network, and are used to enable a nearly hands-free control of the robot from both a development and user perspective. Due to the nature of the robot, it was desired that it be able to receive commands wirelessly, and also, in the hotel setting, it is imagined that allowing the customer to send requests to the Bellhop from the comfort of their room would be more practical. SSH was therefore used to login to the Raspberry Pi, whereas TCP was used as the protocol within the user interface that the hotel customer would interact with.
-\subsection*{TCP}
+\subsection*{TCP\cite{tcpcs}\cite{tcppy}}
 \begin{figure}[h]
   \centering
   \begin{tikzpicture}
@@ -372,7 +405,7 @@ There are two protocols being used to communicate wirelessly with the Raspberry 
   \label{user-flowchart}
 \end{figure}
 
-TCP communication was a commonly suggested protocol that allowed for the desired outcome/user interface between a hotel customer and the kitchen/Automated Bellhop. Ideally, the hotel customer would (from a computer, phone, or TV) be able to send a request for room service with their order and their room number, which would then be processed and handled with collaboration between the kitchen and the Automated Bellhop. As it is imagined that high-end hotels would likely be the first to make use of this device, based on personal experiefnce it has been noticed that these hotels typically would have Smart TVs or similar that would be able to run an application in order to fulfil this\footnote{This can be altered based on hotel requirements, and may be modified to allow the hotel customer to call in their order, where an employee would then relay the required information to the kitchen and to the Bellhop through any communication protocol. This, however, would then potentially require an additional employee.}.
+TCP communication was a commonly suggested protocol that allowed for the desired outcome/user interface between a hotel customer and the kitchen/Automated Bellhop. Ideally, the hotel customer would (from a computer, phone, or TV) be able to send a request for room service with their order and their room number, which would then be processed and handled with collaboration between the kitchen and the Automated Bellhop. As it is imagined that high-end hotels would likely be the first to make use of this device, based on personal experience it has been noticed that these hotels typically would have Smart TVs or similar that would be able to run an application in order to fulfil this\footnote{This can be altered based on hotel requirements, and may be modified to allow the hotel customer to call in their order, where an employee would then relay the required information to the kitchen and to the Bellhop through any communication protocol. This, however, would then potentially require an additional employee.}.
 
 
 The TCP communication is set up in the following way\footnote{As this example was demonstrated locally, the IP address stays the same between them}:
@@ -411,12 +444,13 @@ During the development of the robot, the main problem was the loading time for t
        
 Many of the problems that were faced in relation to the communication with the device (both through SSH and TCP) were due to some limitations set by the environment in which the robot was being developed. Though there were workarounds that were used for the purpose of prototyping, the problems shed light on some possible requirements or recommendations that would allow for the device to be setup and run smoothly in a hotel setting -- mainly for the hotel to ensure the network can allow for a device to request a static IP, or for the network to allow for resolvable hostnames.
 
+\newpage
 \section{Arduino Nano Microcontrollers}
 The final of this product would ideally make use of three \textit{Arduino Nano} microcontrollers: one to control the user interface on the device (i.e. LCD and buttons), one to control and collect data from the distance sensors, and one to control the drive of the robot. The three microcontrollers are connected via USB to the Raspberry Pi, in order to send and receive any necessary data in order to function in the desired. Additionally, by having the microcontrollers connected via USB, it is then easy for if the program on any one of them needed to be modified, as this could be done through SSH communication to the Raspberry Pi\footnote{In the current state of the prototype, four Arduino Nano microcontrollers are being used, as one is being used simply to print the IP address of the Raspberry Pi to an LCD.}.
 \subsection*{User Interface Arduino}
 The User Interface includes all interactions with the Bellhop, such as: displaying messages on the two LCD screens, input from the buttons, and controlling the drawer. Currently, it is only used to display Raspberry Pi's ip address on the LCDs.
 \subsection*{Sensors Arduino}
-The robot has been set up with eight ultrasonic sensors (\textit{HC-SR04}) around its perimeter; three in the front, two on either side, and two in the back. Those on the sides would be used in order to determine how close the robot is driving to a wall, for example, which the Raspberry Pi would then interpret and adjust the turning of the robot accordingly. The ultrasonic sensors set up at the front of the device are in order to detect an oncoming collision, which would then cause the robot to stop its movement until the obstruction is out of the way. The ultrasonic sensors at the back are setup for the use with the map, in order to help with determining the space around the device, and distance to any walls or obstructions on turns. Sensors initially were setup in a way where all eight shared a trigger pin on the microcontroller, and then each had a dedicated echo pin. However, it was decided that this may cause some interferance or inconsistencies in measurements, as it may happen that an ultrasonic sensor picks up the echo from a different sensor than itself. Therefore, the setup was changed to make use of two multiplexers; one to handle the trigger pins, and another to handle the echo pins. This setup is done by writing the ID of the ultrasonic sensor in use into the \texttt{PORTB} register, which is done by the \texttt{multiplex()} function:
+The robot has been set up with eight ultrasonic sensors (\textit{HC-SR04}) around its perimeter; three in the front, two on either side, and two in the back. Those on the sides would be used in order to determine how close the robot is driving to a wall, for example, which the Raspberry Pi would then interpret and adjust the turning of the robot accordingly. The ultrasonic sensors set up at the front of the device are in order to detect an oncoming collision, which would then cause the robot to stop its movement until the obstruction is out of the way. The ultrasonic sensors at the back are setup for the use with the map, in order to help with determining the space around the device, and distance to any walls or obstructions on turns. Sensors initially were setup in a way where all eight shared a trigger pin on the microcontroller, and then each had a dedicated echo pin. However, it was decided that this may cause some interference or inconsistencies in measurements, as it may happen that an ultrasonic sensor picks up the echo from a different sensor than itself. Therefore, the setup was changed to make use of two multiplexers; one to handle the trigger pins, and another to handle the echo pins. This setup is done by writing the ID of the ultrasonic sensor in use into the \texttt{PORTB} register, which is done by the \texttt{multiplex()} function:
 \lstinputlisting[style=customc]{multiplex.c}
 
 
@@ -424,13 +458,13 @@ The distance measured by an ultrasonic sensor is determined in the following way
 
 $$\texttt{distance} = \texttt{(double) ping.echo}\cdot\frac{\texttt{US\_PER\_CLK}}{\texttt{US\_PER\_CM\_2}}$$
 
-where \texttt{US\_PER\_CLK} is the amount of microseconds that pass in one clock cycle on the microcontroller (set to 16MHz), \texttt{US\_PER\_CM\_2} is how many microseconds pass per centimeter travelled by sound multiplied by 2, and \texttt{ping.echo} is the number of counts. These macros are defined at the beginning of the program, in case they need to be changed for precision.
+where \texttt{US\_PER\_CLK} is the amount of microseconds that pass in one clock cycle on the microcontroller (set to 16MHz), \texttt{US\_PER\_CM\_2} is how many microseconds pass per centimetre travelled by sound multiplied by 2, and \texttt{ping.echo} is the number of counts. These macros are defined at the beginning of the program, in case they need to be changed for precision.
 
 
-Within the program, it is also determined whether or not the maximum amount of counts have passed before the echo has come back, known as \texttt{PING\_MAX}, which is set to be equivalent to a reading for 400cm, as the datasheet describes this being the maximum accurate reading~\cite{ping-datasheet}. Once the count exceeds \texttt{PING\_MAX}, the time stops, and the program sends back an error. However, later in the development, it was noticed that there is some delay between when the timer exceeds \texttt{PING\_MAX} and when the ultrasonic sensor can be used again---about 200ms. This is due to the nature of the ultrasonic sensor itself, as its internal timeout for having the echo pin go low is 200ms, which is much longer than what it would take for the echo to bounce back from 400cm (about 23ms). This causes a substantial delay if it is desired to read from one ultrasonic sensor multiple times in a short timeframe (where one or some readings, perhaps, does not come back) as the trigger can only send a pulse once the echo pin has toggled down. While this should not be a problem in the final make of the device, it did raise some problems in testing.
+Within the program, it is also determined whether or not the maximum amount of counts have passed before the echo has come back, known as \texttt{PING\_MAX}, which is set to be equivalent to a reading for 400cm, as the datasheet describes this being the maximum accurate reading~\cite{ping-datasheet}. Once the count exceeds \texttt{PING\_MAX}, the time stops, and the program sends back \texttt{-1}\footnote{This is not handled as an error in the same way that is mentioned in \ref{errhand}}. However, later in the development, it was noticed that there is some delay between when the timer exceeds \texttt{PING\_MAX} and when the ultrasonic sensor can be used again---about 200ms. This is due to the nature of the ultrasonic sensor itself, as its internal timeout for having the echo pin go low is 200ms, which is much longer than what it would take for the echo to bounce back from 400cm (about 23ms). This causes a substantial delay if it is desired to read from one ultrasonic sensor multiple times in a short time-frame (where one or some readings, perhaps, does not come back) as the trigger can only send a pulse once the echo pin has toggled down. While this should not be a problem in the final make of the device, it did raise some problems in testing.
 
 
-There are some ways that this problem could be fixed or worked around, firstly to consider the use of different kinds of sensors that can either have the echo pin be manually set down, or that uses a different method to collect data where this problem does not arise\footnote{However, it is possible that another problem that is unforeseeable may arise, as no other distance measurement sensors have been tested in this purpose.}. Alternatively, a work around could be to manually cut power to the ultrasonic sensor after a predetermined amount of time has passed (i.e. that of \texttt{PING\_MAX}), through the use of mosfet transistors to clear the sensor's echo pin, by turning it off and on.
+There are some ways that this problem could be fixed or worked around, firstly to consider the use of different kinds of sensors that can either have the echo pin be manually set down, or that uses a different method to collect data where this problem does not arise\footnote{However, it is possible that another problem that is unforeseeable may arise, as no other distance measurement sensors have been tested in this purpose.}. Alternatively, a work around could be to manually cut power to the ultrasonic sensor after a predetermined amount of time has passed (i.e. that of \texttt{PING\_MAX}), through the use of MOS-FET transistors to clear the sensor's echo pin, by turning it off and on.
 
 
 \subsection*{Drive Arduino}
@@ -448,14 +482,14 @@ Encoders are needed because without them there is no way to gauge how much the B
 
 
 
-Six encoders were designed with varying slit size, As a test encoder 1 and 6 were water-cut out of stainless steel with, as they were on the extremes of each other. The picture of initial test can be seen on the Fig.~\ref{encoder-test}. The 1st encoder is good at being super fast, having a 3$^\circ$ slit and 3$^\circ$ of spacing, with $\approx$60 reading per revolution from it, but as tests have shown it is not stable enough as at idle engine RPM(no load) it varied quite a bit $\approx$4 counts as shown in formula for calculating RPM. This may be attributed to the inaccuracies which are stated below. The 6th encoder has 6$^\circ$ slit and 18$^\circ$ of spacing which proved to be much more consistent, but having only 15 readings per revolution meant that RPM control could not be done very quickly as it had long times in between readings especially at low RPM $\approx$30. The test for the encoder was that for 5 mins I would observe its time data and see the deviation, of which it had none, it was surprising as the 1st encoder was much more inaccurate. Further testing is required to find the best possible one, which has the best accuracy (readings/rev).
+Six encoders were designed with varying slit size, As a test encoder 1 and 6 were water-cut out of stainless steel with, as they were on the extremes of each other. The picture of initial test can be seen on the Fig.~\ref{encoder-test}. The 1st encoder is good at being super fast, having a 3$^\circ$ slit and 3$^\circ$ of spacing, with $\approx$60 reading per revolution from it, but as tests have shown it is not stable enough as at idle engine RPM(no load) it varied quite a bit $\approx$4 counts as shown in formula for calculating RPM. This may be attributed to the inaccuracies which are stated below. The 6th encoder has 6$^\circ$ slit and 18$^\circ$ of spacing which proved to be much more consistent, but having only 15 readings per revolution meant that RPM control could not be done very quickly as it had long times in between readings especially at low RPM $\approx$30. The test for the encoder was that for 5 minutes I would observe its time data and see the deviation, of which it had none, it was surprising as the 1st encoder was much more inaccurate. Further testing is required to find the best possible one, which has the best accuracy (readings/rev).
 
-The formula for caluculating the RPM for the first encoder was:
+The formula for calculating the RPM for the first encoder was:
 $$\text{RPM}=\frac{1}{x\cdot0.5\cdot10^{-4}\cdot60}\cdot60=\frac{20000}{x}$$
-where $x$ is the count of interrups from rising edge to risig edge of the op-amp output, and $0.5\cdot10^{-4}$ is the period between interrupts, and $60$ is the amount of high to high transitions in one revolution. The 2nd encoder had a formula of $\text{RPM}=\frac{80000}{x}$, after simplification.
+where $x$ is the count of interrupts from rising edge to risig edge of the op-amp output, and $0.5\cdot10^{-4}$ is the period between interrupts, and $60$ is the amount of high to high transitions in one revolution. The 2nd encoder had a formula of $\text{RPM}=\frac{80000}{x}$, after simplification.
 
 
-One thing that can not be completely certain is that what is measured the truly the right RPM, as we there is no tachometer in the SDU workshop that works precisely enough, the one tachometer the workshop has is the one which has flickering light at different frequencies, with which confirmed that the RPM meaured by the Arduino is roughly the same ($\approx$140RPM on the tachometer, and 140RPM on the Arduino). Another precision point would be the water-jet machine, as the holes for the Axle to go through are supposed to be 9mm, but in reality after measuring with caliper they were 8.7mm, which leads to question if the encoders are truly what we designed them to be from edge to edge---24$^\circ$.
+One thing that can not be completely certain is that what is measured the truly the right RPM, as we there is no tachometer in the SDU workshop that works precisely enough, the one tachometer the workshop has is the one which has flickering light at different frequencies, with which confirmed that the RPM measured by the Arduino is roughly the same ($\approx$140 RPM on the tachometer, and 140 RPM on the Arduino). Another precision point would be the water-jet machine, as the holes for the axle to go through are supposed to be 9mm, but in reality after measuring with calliper they were 8.7mm, which leads to question if the encoders are truly what we designed them to be from edge to edge---24$^\circ$.
 
 \subsection*{RPM Control}
 For the RPM control a simple formula which adjusts the duty cycle output was implemented:
@@ -465,6 +499,7 @@ Another formula which is much simpler incremented PWM by 1, This one was super s
 
 
 Unfortunately, the RPM control was not implemented in the current program as it was causing problems, and was replaced with direct PWM control. One problem of the engines is that even though they can pull 1.4Nm they draw a lot of current and the \textit{L298N} H-Bridge cannot supply it, even at normal operation with no load, the voltage drop was 0.2V. All in all, maybe it would be even better to have 2 encoders on each wheel, one would reliably count the Revolutions, and the other would be used to control RPM.
+\newpage
 \section{Raspberry Pi}
 The control of the robot as a whole is being done through the use of a Raspberry Pi 3 Model B, which has been set up to communicate through USART with the three Arduino Nano microcontrollers. This allows for the Raspberry Pi to act as a master in this setup by interpreting the data received from one end, and then issue the necessary commands based on this information to the respective microcontroller.
 
@@ -480,88 +515,98 @@ Programming the Arduino microcontrollers is done through the use of a USB cable,
 \texttt{PORT = \$(shell ./usb.py drive 2>/dev/null)}\\
 with \texttt{usb.py} returning \texttt{/dev/ttyUSBn} where n is the device number of the Drive Arduino.
 
-
+\newpage
 \subsection*{Map}
 \begin{wrapfigure}[18]{r}{6cm}
   \label{GUI}
   \includegraphics[width=6cm]{GUI.png}
-  \caption{Tkinter map with a Bellhop object, walls shown in yellow, ultrasonic sensor distances in blue, distance from center of the Bellhop to a sensor in red.}
+  \caption{Tkinter map with a Bellhop object, walls shown in yellow, ultrasonic sensor distances in blue, distance from centre of the Bellhop to a sensor in red.}
 \end{wrapfigure}
-Ideally, the Bellhop would travel with assistance of a built-in map, determine the shortest distance to the destination, and recognise if there is an obstruction in front of itself by comparing expected ultrasonic sensor output with actual readings; combined with set rpms and feedback from the encoders a Kalman filter could be use for accurate position estimation. Considering these criteria it was chosen to use \textit{Python 3.5} and a Raspberry Pi due to the ease of developement, interest, and learning outcomes. The map is represented as a list of line coordinates (\textit{x1, x2, y1, y2}), and stored in a \texttt{.json} format. During the developement of the map logic a simple GUI program was used to simulate simple Bellhop movements and test algorythms. For the GUI different libraries were considered: \textit{cocos2d}~\cite{cocos2d}, \textit{pySDL2}~\cite{PySDL2}, \textit{PyCairo}~\cite{cairo}, and \textit{Tkinter}; out of these \textit{Tkinter} was chosen because it is a standard python module and it is the simplest use out of the four. The source code for this program can be found in the digital appendix\footnote{\texttt{/src/Raspberry/Map/map.py}}.
+Ideally, the Bellhop would travel with assistance of a built-in map, determine the shortest distance to the destination, and recognise if there is an obstruction in front of itself by comparing expected ultrasonic sensor output with actual readings; combined with set RPMs and feedback from the encoders a Kalman filter could be use for accurate position estimation. Considering these criteria it was chosen to use \textit{Python 3.5} and a Raspberry Pi due to the ease of development, interest, and learning outcomes. The map is represented as a list of line coordinates (\textit{x1, x2, y1, y2}), and stored in a \texttt{.json} format. During the development of the map logic a simple GUI program was used to simulate simple Bellhop movements and test algorithms For the GUI different libraries were considered: \textit{cocos2d}~\cite{cocos2d}, \textit{pySDL2}~\cite{PySDL2}, \textit{PyCairo}~\cite{cairo}, and \textit{Tkinter}; out of these \textit{Tkinter} was chosen because it is a standard python module and it is the simplest use out of the four. The source code for this program can be found in the digital appendix\footnote{\texttt{/src/Raspberry/Map/map.py}}.
 
 
 The approach for modeling ultrasonic sensors is a simplified version of James L. Crowley's model~\cite{ultrasonicpaper}. Each sensor is defined by three variables:
 \begin{labeling}{variables}
-\item [r] The distance from the center of the Bellhop to the sensor.
+\item [r] The distance from the centre of the Bellhop to the sensor.
 \item [beta] The orientation of the sensor with respect to the robot's axis.
 \item [gamma] The Angle from the robot axis to the sensor.
 \end{labeling}
-The \texttt{Bellhop} class has it's \texttt{alpha} angle---orientation with respect to the map, \texttt{x} and \texttt{y} which are it's estimated position on the map. Currently, there are working algorythms for estimating readings from ultrasonic sensors based on sensor input. These are implemented as methods the \texttt{Map} class. This logic can be found in the digital appendix\footnote{\texttt{/src/Raspberry/Map/bellhop.py}}.
+The \texttt{Bellhop} class has it's \texttt{alpha} angle---orientation with respect to the map, \texttt{x} and \texttt{y} which are it's estimated position on the map. Currently, there are working algorithms for estimating readings from ultrasonic sensors based on sensor input. These are implemented as methods the \texttt{Map} class. This logic can be found in the digital appendix\footnote{\texttt{/src/Raspberry/Map/bellhop.py}}.
 
 
-In the developement process unit tests were used, using the Python's unittest~\cite{unittest} framework. For each method in \texttt{Bellhop} and \texttt{Map} classes there is an isolated test which ensures that it's output is correct and all exceptions are caught. This has proven very useful and has found bugs that would not have been caught otherwise\footnote{\texttt{/src/Raspberry/Map/tests.py}}.
+In the development process unit tests were used, using the Python's unittest~\cite{unittest} framework. For each method in \texttt{Bellhop} and \texttt{Map} classes there is an isolated test which ensures that it's output is correct and all exceptions are caught. This has proven very useful and has found bugs that would not have been caught otherwise\footnote{\texttt{/src/Raspberry/Map/tests.py}}.
 \subsection*{Brain}
 The main program controling the Bellhop is written in \textit{Python 3.5}, and can be found in the digital appendix\footnote{\texttt{/src/Raspberry/brain.py}}. The logic is divided into several classes responsible for interaction with users, motor control, sensor data, etc. It has been done in a way where each class is specialised in one area. For example, the \texttt{Ping} class can only control the \texttt{Ping} Arduino, or the \texttt{Motor} controls one motor. Overview of the classes is shown below:
 \begin{labeling}{variables}
 \item [Lcd] Controls the \texttt{UI} Arduino. Methods for displaying messages on the LCDs, button input etc.
 \item [Ping] Controls the \texttt{Ping} Arduino. Reads data from the ultrasonic sensors, could possibly be used also for filtering of data.
-\item [Motor] Controls a motor, sets the rpm or gear.
+\item [Motor] Controls a motor, sets the RPM or gear.
 \item [Drive] Controls left and right motor, consists of \texttt{Motor} instances.
 \item [Brain] Controls the Bellhop, has instances of \texttt{Lcd}, \texttt{Ping}, \texttt{Drive}, and \texttt{Map}\footnote{Not implemented in \texttt{brain.py}.}. Makes use of them to perform more intricate tasks. For instance, keeping constant distance to a wall while checking for collisions.
 \end{labeling}
 
 
-This structuring allowed for each of the individual functions of the robot to be developed and tested seperately. However, it was not until the Bellhop was assembled when some issues were found, due to the time constrains they could not have been solved. Namely, the $200ms$ delay when an ultrasonic sensor's reading is out of range and urelaiable control of the motor rpm, which made the control of the Bellhop unreliable.
+This structuring allowed for each of the individual functions of the robot to be developed and tested separately However, it was not until the Bellhop was assembled when some issues were found, due to the time constrains they could not have been solved. Namely, the $200ms$ delay when an ultrasonic sensor's reading is out of range and unreliable control of the motor RPM, which made the control of the Bellhop unreliable.
 
 \subsection*{Safety Distance}
-Safety should be the number one priority for a robot moving where people also walk around. Different types of obstacle avoidance and rerouting of the drive path is preferred over a full stop, but as a last measure if everything else fails, the robot should stop completely before hitting anything or anyone. Therefore, three ultrasonic distance sensors in the front, and 2 in the back are used to detect obstacles in the drive path. If this detect something inside the safety distance of the robot, it stop immidiately, and not move until the situation is analysed, and the obstacle has moved or is determined to be stationary, in which case backing away is an option. The safety distance will after all testing is done be dependent on current velocity, but for now it is set to a static value high enough for the robot to stop safely from maximum velocity. 
-Optimally, the safety distance could be defined in two parts: one where the robot must stop instanteniously to avoid collision, and second where it is able to break gently to protect it's shipment from damages.
-
-
+Safety should be the number one priority for a robot moving where people also walk around. Different types of obstacle avoidance and rerouteing of the drive path is preferred over a full stop, but as a last measure if everything else fails, the robot should stop completely before hitting anything or anyone. Therefore, three ultrasonic distance sensors in the front, and 2 in the back are used to detect obstacles in the drive path. If this detect something inside the safety distance of the robot, it stop immediately, and not move until the situation is analysed, and the obstacle has moved or is determined to be stationary, in which case backing away is an option. The safety distance will after all testing is done be dependent on current velocity, but for now it is set to a static value high enough for the robot to stop safely from maximum velocity. 
+Optimally, the safety distance could be defined in two parts: one where the robot must stop instantaneously to avoid collision, and second where it is able to break gently to protect it's shipment from damages.
+\goodbreak
 Currently, a simple collision avoidance is implemented in a form of a method in the \texttt{Brain} class:
 \lstinputlisting[style=custompython]{check_front.py}
-When the reading on the center front ping sensor is smaller than the acceptable safety distance the Bellhop will stop and wait until the reading is acceptable before continuing. It could easily be extended to include safety distance for each side of the robot. This however does not account for faults to Raspberry, which could result in the motors being stuck in forward gear, and causes collision risk. Therefore, additional system could be implemented where the Drive Arduino would have internal timeout for the motors, which would be reset every time a command is recieved from the Raspberry.
+When the reading on the centre front ping sensor is smaller than the acceptable safety distance the Bellhop will stop and wait until the reading is acceptable before continuing. It could easily be extended to include safety distance for each side of the robot. This however does not account for faults to Raspberry, which could result in the motors being stuck in forward gear, and causes collision risk. Therefore, additional system could be implemented where the Drive Arduino would have internal timeout for the motors, which would be reset every time a command is received from the Raspberry.
 
+\newpage
+\section{Technical Review from a Senior Software Architect}
+At the TekExpo hosted by SDU, the group had the opportunity to discuss with a member from the development field, who provided feedback as to how the project could be improved, as well as some tips for when the project is in the primary stages.
+The technical review was given by TODO reference name or nah? a worker at Siemens Flow Instruments.
+
+TODO PROS
+
+Among the improvements that were mentioned, the main one was that the group should have rather started small, and worked upwards from there. 
+TODO Cat
+Main:start small!!!! i.e. fewer ultrasonic sensors, stepper motors
+\newpage
+\section{Conclusion}
+TODO Cat
+\newpage
 \section{Division of Work/Responsibilities}
 \paragraph{Catherine}
 \begin{itemize}
-\item{TCP Commuication}
-\item{User experience and usability}
-\item{Raspberry Pi usability and control (startup, etc.)}
-\item{Ping Arduino}
+	\item{TCP Commuication}
+	\item{User experience and usability}
+	\item{Raspberry Pi usability and control (startup, etc.)}
+	\item{Ping Arduino}
+	\item{Error handling in USART}
 \end{itemize}
 \paragraph{Vladislav}
 \begin{itemize}
-\item{Drive Arduino}
-\item{Mechanical design}
-\item{Encoders}
-\item{Mechanical Workshop Contact person}
+	\item{Drive Arduino}
+	\item{Mechanical design}
+	\item{Encoders}
+	\item{Mechanical Workshop Contact person}
 \end{itemize}
 \paragraph{Piotr}
 \begin{itemize}
-\item{Map}
-\item{Brain}
-\item{Ping Arduino}
-\item{User Interface Arduino}
-\item{USART communication}
-\item{E-Lab Contact person}
+	\item{Map}
+	\item{Brain}
+	\item{Ping Arduino}
+	\item{User Interface Arduino}
+	\item{USART communication}
+	\item{E-Lab Contact person}
 \end{itemize}
 \paragraph{Mathias}
 \begin{itemize}
-\item{PCB design}
-\item{Electronics handling/design}
+	\item{PCB design}
+	\item{Electronics handling/design}
 \end{itemize}
 \paragraph{Wojciech}
 \begin{itemize}
-\item{Mechanical Design}
+	\item{Mechanical Design}
 \end{itemize}
-\section{Risk Management}
-\section{Technical Review from a Senior Software Architect}
-TODO Cat
-Main:start small!!!! i.e. fewer ultrasonic sensors, stepper motors
-\section{Conclusion}
-TODO Cat
-
+\newpage
+\section{Bill of Materials}
+\newpage
 \let\Section\section 
 \def\section*#1{\Section{#1}}
 \bibliography{a}
