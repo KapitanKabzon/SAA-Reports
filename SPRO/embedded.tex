@@ -213,9 +213,11 @@ TODO
 \section{User Requirements}
 In order to use this product, there should be one employee available at all operating hours in order to start the robot on its journey. This is simply to ensure that the shipment has been placed, and that the robot would be ready to deliver that which it has been asked to do.
 
-Additionally, the user is free to modify the software available on the robot in order to better integrate itself into the setting without changing too much about the existing system. For example, a floor plan of the hotel (or any other location) must be uploaded in order to make use of the map. Usually, an accessible Wi-Fi network is required for successful communication between the customer or user and the robot, and this Wi-Fi network should allow for static IP requests or resolvable hostnames, unless otherwise modified by the user.
+Additionally, the user is free to modify the software available on the robot in order to better integrate itself into the setting without changing too much about the existing system. For example, a floor plan of the hotel (or any other location) must be uploaded in order to make use of the map (when finished and integrated). Usually, an accessible Wi-Fi network is required for successful communication between the customer or user and the robot, and this Wi-Fi network should allow for static IP requests or resolvable hostnames, unless otherwise modified by the user.
 
 This product is not to be used outdoors (unless on pavement) or on rough terrain, as the robot is not made to travel safely in such a setting. Additionally, the robot is not to travel near water (such as in a swimming pool), or in places with elevated humidity or moisture (shower rooms, in the rain, etc.). The robot is not designed to be waterproof, and failure to follow this may result in damage to either the robot, or to an operator.
+
+There is naturally some weight limit to the amount that the device can transport, however as the most recent prototype has not been fully functional, this was not determined.
 TODO
 \newpage
 \section{Mechanical Design}
@@ -557,18 +559,18 @@ Currently, a simple collision avoidance is implemented in a form of a method in 
 When the reading on the centre front ping sensor is smaller than the acceptable safety distance the Bellhop will stop and wait until the reading is acceptable before continuing. It could easily be extended to include safety distance for each side of the robot. This however does not account for faults to Raspberry, which could result in the motors being stuck in forward gear, and causes collision risk. Therefore, additional system could be implemented where the Drive Arduino would have internal timeout for the motors, which would be reset every time a command is received from the Raspberry.
 
 \newpage
-\section{Technical Review from a Senior Software Architect}
-At the TekExpo hosted by SDU, the group had the opportunity to discuss with a member from the development field, who provided feedback as to how the project could be improved, as well as some tips for when the project is in the primary stages.
-The technical review was given by TODO reference name or nah? a worker at Siemens Flow Instruments.
+\section{Technical Review}
+At the TekExpo hosted by SDU, the group had the opportunity to discuss with a member from the engineering field, who provided feedback as to how the project could be improved, as well as some tips for when the project is in the primary stages.
+The technical review was given by TODO reference name or nah? a Senior Software Architect, Head of R\&D at Siemens Flow Instruments.
 
-TODO PROS
+It was said that the product itself was well built, with a decent amount of aesthetic appeal. Additionally, the fact that the robot could be programmed and communicated with without needing to take apart the device was definitely a plus when looking from both a testing perspective and a user perspective. 
 
-Among the improvements that were mentioned, the main one was that the group should have rather started small, and worked upwards from there. 
-TODO Cat
-Main:start small!!!! i.e. fewer ultrasonic sensors, stepper motors
+Among the improvements that were mentioned, the main one was that the group should have rather started small, and worked upwards from there. For example, while the multiple ultrasonic sensors may be useful in future versions of the device, where the map would be implemented, when it was discovered that the map would not be a part of the current prototype, it could have been helpful to step down on the amount of ultrasonic sensors in order to limit the input and focus just on what is in front and to the sides of the device. Further, in terms of RPM control, it was suggested that if this project were to be done again, to use stepper motors, as these are typically easier to control.
+
+Emphasis on referencing the Need-to-Haves and Nice-to-Haves of the project was also commented on: it is important to truly focus on the what the robot needs to have, and only once the basics of these have been achieved, should the group had started to implement some of the bigger ideas/nice-to-haves into the project.
 \newpage
 \section{Conclusion}
-TODO Cat
+TODO Cat REFERENCE TECHNICAL REVIEW
 \newpage
 \section{Division of Work/Responsibilities}
 \paragraph{Catherine}
@@ -606,6 +608,7 @@ TODO Cat
 \end{itemize}
 \newpage
 \section{Bill of Materials}
+TODO
 \newpage
 \let\Section\section 
 \def\section*#1{\Section{#1}}
