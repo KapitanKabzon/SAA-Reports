@@ -262,9 +262,6 @@ There is naturally some weight limit to the amount that the device can transport
 \newpage
 \section{Mechanical Design}
 \subsection*{Frame}
-In the design, the choice of the frame\footnote{For better understanding of the design, please see the presentation of the assembly\texttt{/Mechanical Design Bellhop/Frame Assembly Presentation.wmv}} unquestionably was an important choice upon which the features and the rest of the design would be based on. In order to prepare for this choice, research of automobile projects was done. The results indicated that the most common feature was that the RC cars, which were modified and adjust to the desired options, or vehicle structure-based on aluminium segments were designed to be adjusted to one's needs. Firstly, building upon an RC platform was considered, so that an existing working drive mechanism and include food serving product, nevertheless, no vehicle of desired size could be found. Therefore, platform out of aluminium segments was chosen. Aluminium profiles, which are easily accessible allow to build a stronger frame, keeping the weight of the robot down. To choose the right series of a profile equation supplied by the manufacturer was used to check the strength and deflection of the profile under load. The calculation showed that profile 20$\times$20 with 380mm span deflects 1.1521mm at 2000N load\footnote{Deflection Calculations: \texttt{/Mechanical Design Bellhop/Calculations/Deflection Calculations.xlsx}}. Which is a very good results and acceptable for further development.
-
-$$\delta=\frac{F\times l^3}{192\times E\times l\times 10^4}$$
 
 
 \begin{wrapfigure}[9]{r}{4cm}
@@ -273,6 +270,15 @@ $$\delta=\frac{F\times l^3}{192\times E\times l\times 10^4}$$
   \label{profile}
 \end{wrapfigure}
 
+In the design, the choice of the frame\footnote{For better understanding of the design, please see the presentation of the assembly\texttt{/Mechanical Design Bellhop/Frame Assembly Presentation.wmv}} unquestionably was an important choice upon which the features and the rest of the design would be based on. In order to prepare for this choice, research of automobile projects was done. The results indicated that the most common feature was that the RC cars, which were modified and adjust to the desired options, or vehicle structure-based on aluminium segments were designed to be adjusted to one's needs. Firstly, building upon an RC platform was considered, so that an existing working drive mechanism and include food serving product, nevertheless, no vehicle of desired size could be found. Therefore, platform out of aluminium segments was chosen. Aluminium profiles, which are easily accessible allow to build a stronger frame, keeping the weight of the robot down. To choose the right series of a profile equation supplied by the manufacturer was used to check the strength and deflection of the profile under load. The calculation showed that profile 20$\times$20 with 380mm span deflects 1.1521mm at 2000N load\footnote{Deflection Calculations: \texttt{/Mechanical Design Bellhop/Calculations/Deflection Calculations.xlsx}}. Which is a very good results and acceptable for further development.
+
+$$\delta=\frac{F\times l^3}{192\times E\times l\times 10^4}$$
+
+\begin{wrapfigure}[11]{r}{6cm}
+  \includegraphics[width=6cm]{connection}
+  \caption{Frame connection fastening set.}
+  \label{connection}
+\end{wrapfigure}
 
 The choice of frame was aluminium profile series 5 20$\times$20 which is ideal for the application. It delivers rigidity and allows for very easy re-development and re-construction of the model. In the concept design phase, it was established that robot should be easy to mount. Therefore, it was decided to build the frame with a floor that can be easily disassembled to make necessary changes if needed. A very simple structure was developed: a rectangular box with a square base 420mm$\times$420mm$\times$300mm and floor in the middle. The construction is assembled from 12$\times$380mm and 4$\times$300mm item aluminium profile series 5 20$\times$20.  The span between the floor and base line is 60mm. It was thought to be a ``brain level'', which would contain all the electronics, including PCB, H-Bridges, Arduino Nano microcontrollers, and Raspberry Pi. The span between the drawer level and the top is 180mm, which is enough space to fit in the food container and its drive. In order to screw the frame, the profiles had to be modified. The 380mm profile were tapped from both sides, making a 30mm thread M5. In the 300mm profile the position of the ``brain'', ``drawer'', and ``top'' levels was set, and 6mm hole drilled through for adjustement of the fastening set.
 
@@ -370,17 +376,18 @@ A truly important factor, in this project, was to have a friendly relationship w
 
 
 \subsection*{Appendix}
-In the appendix in Mechanical Design Bellhop folder, contains all the 3d models, assembly, pictures, photos videos, datasheets, calculations, technical drawing and exploded. 
-Assembly Final >> Bellhop Final Assembly ver 1 – Complete assembly of the robot
-Assembly Presentation Video – Presentation of the made assemblies 
-Inventor Constrain presentation – Presentation of constrains made in Inventor. Making constrains helped to check if any connecting elements are missing  
-Pictures – Pictures of robot and components 
-Photos \& Videos – Photos and videos made during the project
-Datasheet – Datasheet used during design       
-Calculations – Motor Calculations, Deflection Calculations, Mass Calculations and part list can be found. 
-CAD model – All the 3d parts used to create final assembly of the robot
-Technical Drawings Exploded view PDF – All the technical drawings and exploded views can be found
-
+In the appendix in the \textit{Mechanical Design Bellhop} folder, contains all the 3d models, assembly, pictures, photos videos, datasheets, calculations, technical drawing and exploded views.
+\begin{labeling}{appendix}
+\item [Assembly Final/Final Assembly ver 1]{Complete assembly of the robot}
+\item [Assembly Presentation Video] Presentation of the made assemblies 
+\item [Inventor Constrain presentation] Presentation of constrains made in Inventor. Making constrains helped to check if any connecting elements are missing  
+Pictures – Pictures of robot and components.
+\item [Photos \& Videos] Photos and videos made during the project
+\item [Datasheet] Datasheet used during design       
+\item [Calculations] Motor Calculations, Deflection Calculations, Mass Calculations and part list can be found. 
+\item [CAD model] All the 3d parts used to create final assembly of the robot
+\item [Technical Drawings Exploded view PDF] All the technical drawings and exploded views can be found
+\end{labeling}
 \newpage
 \section{Electronics}
 \begin{figure}[h]
@@ -390,7 +397,7 @@ Technical Drawings Exploded view PDF – All the technical drawings and exploded
   \label{blockdiagram}
 \end{figure}
 
-The electronic system\footnote{Schematic of the main PCB can be found on the digital appendix: \texttt{TODO path to schematic}} in the Automated Bellhop is split into six main groups (shown in Fig.~\ref{blockdiagram}):
+The electronic system\footnote{Schematic of the main PCB can be found on the digital appendix: \texttt{ path to schematic}} in the Automated Bellhop is split into six main groups (shown in Fig.~\ref{blockdiagram}):
 \addtokomafont{labelinglabel}{\sffamily}
 \begin{labeling}{usart examples}
 \item [Control] This group contains the processing power of the Bellhop. A Raspberry Pi  and three Arduino Nano microcontrollers connected via USB cables.
@@ -516,7 +523,7 @@ This method could not be used because the \texttt{scanf()} function waits until 
 The interrupts are disabled with \texttt{cli()}, and \texttt{strcpy()} is used because the data in \texttt{input\_buffer} can change virtually at any time, which would results in corruption of a command.
 To ensure seamless operation a simple communication protocol was used, each command consists of one line terminated with \texttt{\textbackslash n}. Examples:
 \begin{labeling}{usart examples}
-\item [1] Identify, answer depends on the receiving Arduino
+\item [1] Identify, returns the Arduino's id depends on the receiving Arduino
 \item [p1] Ping: Send data from 1st ultrasonic sensor
 \item [m1Hello] UI: Write \texttt{Hello} on the 1st line of the LCD
 \item [m2World] UI: Write \texttt{World} on the 2nd line of the LCD
