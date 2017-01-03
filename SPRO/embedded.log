@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.10)  3 JAN 2017 19:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.12.10)  3 JAN 2017 19:41
 entering extended mode
 **./embedded.tex
 (embedded.tex
@@ -906,8 +906,22 @@ sign Bellhop/Calculations/Deflection
  []
 
 
-Underfull \hbox (badness 2213) in paragraph at lines 254--254
-[]\OT1/cmr/m/n/10.95 Figure 1: []Aluminum
+! LaTeX Error: File `profile' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.253   \includegraphics[width=4cm]{profile}
+                                            
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 1057) in paragraph at lines 254--254
+[]\OT1/cmr/m/n/10.95 Figure 1: []Aluminium
  []
 
 [8] [9] [10] [11] [12] [13]
@@ -1069,11 +1083,14 @@ Package rerunfilecheck Info: File `embedded.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 786.
  ) 
 Here is how much of TeX's memory you used:
- 22373 strings out of 493333
- 431350 string characters out of 3139166
+ 22385 strings out of 493333
+ 431407 string characters out of 3139166
  575311 words of memory out of 3000000
  25294 multiletter control sequences out of 15000+200000
  12849 words of font info for 47 fonts, out of 3000000 for 9000
@@ -1101,7 +1118,7 @@ am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files
 ublic/amsfonts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmtt9.pfb>
-Output written on embedded.pdf (42 pages, 6811695 bytes).
+Output written on embedded.pdf (42 pages, 6811702 bytes).
 PDF statistics:
  574 PDF objects out of 1000 (max. 8388607)
  190 named destinations out of 1000 (max. 500000)
