@@ -19,9 +19,9 @@
 
 \usetikzlibrary{shapes,arrows,positioning,spy}
 
-\tikzstyle{decision} = [diamond, draw, 
+\tikzstyle{decision} = [diamond, draw,
     text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, 
+\tikzstyle{block} = [rectangle, draw,
     text width=5em, text centered, rounded corners, minimum height=4em]
 \tikzstyle{line} = [draw, -latex']
 \tikzstyle{cloud} = [draw, ellipse, node distance=3cm,
@@ -30,10 +30,10 @@ minimum height=2em]
 \addtokomafont{labelinglabel}{\ttfamily}
 
 \newcommand{\namesigdate}[2][5cm]{%
-	\begin{tabular}{@{}p{#1}@{}}
-		#2 \\[2\normalbaselineskip] \hrule \\[0pt]
-		{\small \textit{Signature}} \\[2\normalbaselineskip] \\[0pt]
-	\end{tabular}
+    \begin{tabular}{@{}p{#1}@{}}
+        #2 \\[2\normalbaselineskip] \hrule \\[0pt]
+        {\small \textit{Signature}} \\[2\normalbaselineskip] \\[0pt]
+    \end{tabular}
 }
 
 \begin{document}
@@ -231,10 +231,10 @@ The safety issues that come with driving an automated robot around people will a
 The final Main PCB was produced late in the process, this mean that a problem with the production here at SDU was a big concern. The timing allowed for some delay in the production, but if the CNC had broken down entirely, or for some other reason the PCB could not be produced on SDU the time left would not have allowed for ordering from an outside manufacturer. Most of the PCB could have been done on veroboard, but some components have footprints that does not fit in the 0.1 inch grid. And a few IC’s are only available in SMD packages. Therefor PCB manufacturing errors would probably mean that the prototype could not be build in time.
 
 \subsection*{Components}
-    Most components used in the Bellhop are standard components, that are in stock in great amounts i e-lab. The risk of this running out is very low, and new could be here within no more than a week if needed. The ultrasonic sensors aæmost became a problem, as even though many are in stock, most groups used a lot of them, and the ones ordered for our group, were picked up in our name, but not by us. This ended up not being a problem as new ones arrived in time. The 74HC4067 multiplexer IC’s however were out of stock from RS-online doing the final stage of our project. One was replaced because of a dead IC. reducing our internal stock to only one extra chip. 
+    Most components used in the Bellhop are standard components, that are in stock in great amounts i e-lab. The risk of this running out is very low, and new could be here within no more than a week if needed. The ultrasonic sensors aæmost became a problem, as even though many are in stock, most groups used a lot of them, and the ones ordered for our group, were picked up in our name, but not by us. This ended up not being a problem as new ones arrived in time. The 74HC4067 multiplexer IC’s however were out of stock from RS-online doing the final stage of our project. One was replaced because of a dead IC. reducing our internal stock to only one extra chip.
 
 \subsection*{Tool Access}
-Getting closer to the expo date the tools both in elab and the workshop is from our experience impossible to get your hands on. This is a big risk to the final state of the product development. It was solved by bringing private tools, multimers and a power supply to at least be able to do some work. 
+Getting closer to the expo date the tools both in elab and the workshop is from our experience impossible to get your hands on. This is a big risk to the final state of the product development. It was solved by bringing private tools, multimers and a power supply to at least be able to do some work.
 
 \subsection*{Mechanical Components}
 Ordering parts for the mechanical part is combined with big risk. Firstly, manufacturing components in the workshop is solely depended on the workshop stuff, which is overwhelmed with the amount of work, therefore waiting time is unknown. The estimated time is always extended by weeks, in order to protect before that kind of situation, the necessary steps have to be taken. At the beginning of the design phase, all the vital components that need to be manufactured are closely looked and given a lot of attention. Before sending the technical drawing and dwg files, the second opinion from the teachers is taken in order to see if some changes are needed.
@@ -305,11 +305,11 @@ On the drawer floor level, two plates are used, placed parallel to the direction
 Please see the animation of the drawer drive\footnote{/Mechanical Design Bellhop/Assembly Presentation Video/Drawer Assembly Presentation.wmv}.
 
 \subsection*{Front Plate}
-The front plate\footnote{For better understanding of the design, please see the presentation of the assembly: \texttt{/Mechanical Design Bellhop/Assembly Presentation Video/Front Plate Assembly Presentation.wmv}} is solely mounted to place the ultrasonic sensors with certain angles, so a bigger area can be covered in front of the automobile. The plate is laser-cut from MDF and have pre-cut holes to plate the L-shaped ultrasonic holders and bore for the wires. The panel is screwed to the profile by means of t-nuts. 
+The front plate\footnote{For better understanding of the design, please see the presentation of the assembly: \texttt{/Mechanical Design Bellhop/Assembly Presentation Video/Front Plate Assembly Presentation.wmv}} is solely mounted to place the ultrasonic sensors with certain angles, so a bigger area can be covered in front of the automobile. The plate is laser-cut from MDF and have pre-cut holes to plate the L-shaped ultrasonic holders and bore for the wires. The panel is screwed to the profile by means of t-nuts.
 
 
 \subsection*{Drawer}
-One of the features of the robot was to deliver ordered food to the guest. An ideal soulution would be to construct some kind of container that is big enough to fit a plate of 230mm and is easy to make it mobile. The simplest idea was to design a drawer\footnote{For better understanding of the design, please see the presentation of the assembly: \texttt{/Mechanical Design Bellhop/Assembly Presentation Video/Drawer Assembly Presentation.wmv}}; a box on which mechanical system can be mounted with no trouble to make it transportable. The biggest problem was to find the rail system which would be smooth and accessible, in terms of ordering or manufacturing in the workshop. The first idea was to create a roller bearings- a bearing fitted on the grinded/ smooth on side threaded rod that can be simply secured to the box. After creating a sample and testing how it behaves, the smoothness was impressive, nevertheless, it is not the solution that can be easily changed and redesigned in the further part of the development and prototyping process. Moreover, some parts could not be found online to order the C-rail in the right size to create a path for it. The additional disadvantage was that it did not offer the required stability, hence idea was abandoned. 
+One of the features of the robot was to deliver ordered food to the guest. An ideal soulution would be to construct some kind of container that is big enough to fit a plate of 230mm and is easy to make it mobile. The simplest idea was to design a drawer\footnote{For better understanding of the design, please see the presentation of the assembly: \texttt{/Mechanical Design Bellhop/Assembly Presentation Video/Drawer Assembly Presentation.wmv}}; a box on which mechanical system can be mounted with no trouble to make it transportable. The biggest problem was to find the rail system which would be smooth and accessible, in terms of ordering or manufacturing in the workshop. The first idea was to create a roller bearings- a bearing fitted on the grinded/ smooth on side threaded rod that can be simply secured to the box. After creating a sample and testing how it behaves, the smoothness was impressive, nevertheless, it is not the solution that can be easily changed and redesigned in the further part of the development and prototyping process. Moreover, some parts could not be found online to order the C-rail in the right size to create a path for it. The additional disadvantage was that it did not offer the required stability, hence idea was abandoned.
 
 
 The model 2 was designed to take advantage of already finished product as sliders that allow for the smooth movement of a drawer and stability not to damage the goods. The idea was to create a box with pre-cut holes for the slider and the drive, mechanical system. The final choice was to use rack and pinion system, however, it was thought of the systems that asserts more stable and levelled travel. The rack and pinion made the decision, since everything can simply be laser-cut in the workshop. One of the criteria of the model 2, was to make the drawer as big as possible and utilize all the space in the frame. Therefore, it was decided to place the drive-train on the bottom of the drawer and place the motor in the vertical position as shown in the assembly\footnote{Assembly: \texttt{/Mechanical Design Bellhop/Motor Drawer Assembly Presentation.wmv}} Motor Mount 944D ver 1 and 2. During the redesign stage, the decision was made on isolating the brain level with electronics and make the drawer very modular, so they can easily be stacked together and make the design more future proof.
@@ -330,7 +330,7 @@ For the drawer drive it was chosen to use \textit{919DLN} which at 12V give 76 R
 
 In the design the differential drive\footnote{For better understanding of the design, please see the presentation of the assembly: \texttt{/Mechanical Design Bellhop/Drive Assembly Presentation.wmv}} was used, a three-wheel-drive mechanism, two independently driven wheel via motors, which are collinear on the axis and third freewheel to maintain the balance. In the design it was decided to go with two 1:100 \textit{919DLN} motor supplied from the university. These are the strongest motor that is available to use. The calculation showed that it is required to have motor producing at least 0.6Nm when 20kg would like to be driven. From the datasheet, it is known that motor supplies 0.588 Nm and runs 76 RPM at 12V which is perfect for the project need considering, restriction about load on the drawer can be lowered. Nevertheless, testing showed that motor is capable of delivering more torque then given in the datasheet.
 
-Testing showed that motor can provide huge momentary torque 1.7 Nm measured. Nevertheless, e-lab is not equipped in weights to perform the test to completion. During the test efficiency was not considered, however the temperature, vibration and noise were increasing, therefore that motor can be damaged when exposed to the bigger load over time.  
+Testing showed that motor can provide huge momentary torque 1.7 Nm measured. Nevertheless, e-lab is not equipped in weights to perform the test to completion. During the test efficiency was not considered, however the temperature, vibration and noise were increasing, therefore that motor can be damaged when exposed to the bigger load over time.
 The drivetrain is constructed from the motor placed on the bottom of the brain floor aluminium plate. Since the wheel has the 8mm bore and motor 6mm shaft was used with the coupling with different size. The decision was made to apply elastic couplings, which were available in stock, 6mm/8mm, which were a perfect fit for the model. The reason behind the elastic coupling was to compensate for small misalignment or vibration going from wheel to motor or vice versa, at least minimize this effect. To secure the 8mm axle pillow block bearing which would take the unnecessary load of the motor gearbox and frame was used. At first, it was desired to use only one mounted on the profile with the T-nuts, however, with the tilting experienced with the first design of the floor, just to prevent any tilt, second one was used right after the coupling. Between two pillow block bearing is placed an encoder which is positioned in the middle of the pre- water-jet-cut-slot. The encoder is screwed to the flange, manufactured in the workshop on the lathe machine, by use of which is locked to the axle. After the second pillow block, there is a wheel screw to the flange, manufactured in the workshop on the lathe machine (the flange was made incorrectly, outer diameter was 10mm to small, so a template had to be created, laser-cut MDF, to place the holes for mounting, since this imprecise technique was used there was small misalignment, and the screw does not fit properly). The motor and pillow block are placed on the spacer to make them levelled with respect of the wheel.
 
 
@@ -372,22 +372,21 @@ Mechanical design phase, in this semester project was an important part, since i
 The acceptable solution takes weeks or month to be delivered.  The 3D CAD design was very important part in the project. To create 3d model the Autodesk Inventor was used which was found to be more intuitional then Siemens NX 10. Thanks to Inventor the extensive work on 3d model was done. The detailed design helped to avoid as many mistakes as possible. A comprehensively made 3d model also gave an opportunity to foreseen room for improvements e.g. seeing if the mounting screw will fit in truly compact spaces. Moreover, by means of constrains, it allowed to recognize if the mechanical solution would work and how the components would interact with each other, hence later decision on continuing development or discarding an idea.
 
 
-A truly important factor, in this project, was to have a friendly relationship with the workshop, laser and 3d-print team. The workshop structure is a bit confusing and slow and if something goes wrong there is a very long way to repair an error. Knowing the inventory beforehand, gives a head start and allows one to see the best available solution. The main focus of the mechanical team, in the project, was to create a design that can be easily upgradable and easy to work with. The saying was established: Just Keep It Simple what meant not to create and design complex part and mechanisms. A small engineer always wants to go for the fancier and ‘cooler’ solutions, however, with accessible parts and tool, it’s almost impossible keep the budget while prototyping. Almost everything what was designed is a compromise, it provides all the required criterion but it is not an optimized solution, hence the budget and accessible parts form previous semester and material in the workshop. Nevertheless, any major failure had been experienced due to planning ahead and 3d cad modeling. At the end mechanical part of the project was a success.  
-
+A truly important factor, in this project, was to have a friendly relationship with the workshop, laser and 3d-print team. The workshop structure is a bit confusing and slow and if something goes wrong there is a very long way to repair an error. Knowing the inventory beforehand, gives a head start and allows one to see the best available solution. The main focus of the mechanical team, in the project, was to create a design that can be easily upgradable and easy to work with. The saying was established: Just Keep It Simple what meant not to create and design complex part and mechanisms. A small engineer always wants to go for the fancier and ‘cooler’ solutions, however, with accessible parts and tool, it’s almost impossible keep the budget while prototyping. Almost everything what was designed is a compromise, it provides all the required criterion but it is not an optimized solution, hence the budget and accessible parts form previous semester and material in the workshop. Nevertheless, any major failure had been experienced due to planning ahead and 3d cad modeling. At the end mechanical part of the project was a success.
 
 \subsection*{Appendix}
-In the appendix in the \textit{Mechanical Design Bellhop} folder, contains all the 3d models, assembly, pictures, photos videos, datasheets, calculations, technical drawing and exploded views.
-\begin{labeling}{appendix}
-\item [Assembly Final/Final Assembly ver 1]{Complete assembly of the robot}
-\item [Assembly Presentation Video] Presentation of the made assemblies 
-\item [Inventor Constrain presentation] Presentation of constrains made in Inventor. Making constrains helped to check if any connecting elements are missing  
-Pictures – Pictures of robot and components.
-\item [Photos \& Videos] Photos and videos made during the project
-\item [Datasheet] Datasheet used during design       
-\item [Calculations] Motor Calculations, Deflection Calculations, Mass Calculations and part list can be found. 
-\item [CAD model] All the 3d parts used to create final assembly of the robot
-\item [Technical Drawings Exploded view PDF] All the technical drawings and exploded views can be found
-\end{labeling}
+In the appendix in the \texttt{Mechanical Design Bellhop} folder, contains all the 3d models, assembly, pictures, photos videos, datasheets, calculations, technical drawing and exploded views.
+\texttt{Model Development}---Pictures of development.
+\texttt{Assembly Final/Final Assembly ver 1}---Complete assembly of the robot.
+\texttt{Assembly Presentation Video}---Presentation of the made assemblies.
+\texttt{Inventor Constrain presentation}---Presentation of constrains made in Inventor. Making constrains helped to check if any connecting elements are missing.
+\texttt{Pictures}---Pictures of robot and components.
+\texttt{Photos \& Videos}---Photos and videos made during the project.
+\texttt{Datasheet}---Datasheets used during design.
+\texttt{Calculations}---Motor Calculations, Deflection Calculations, Mass Calculations and part list can be found.
+\texttt{CAD model}---All the 3d parts used to create final assembly of the robot.
+\texttt{Technical Drawings Exploded view PDF}---All the technical drawings and exploded views can be found.
+
 \newpage
 \section{Electronics}
 \begin{figure}[h]
@@ -397,7 +396,7 @@ Pictures – Pictures of robot and components.
   \label{blockdiagram}
 \end{figure}
 
-The electronic system\footnote{Schematic of the main PCB can be found on the digital appendix: \texttt{ path to schematic}} in the Automated Bellhop is split into six main groups (shown in Fig.~\ref{blockdiagram}):
+The electronic system\footnote{Schematic of the main PCB can be found on the digital appendix: \texttt{/elec/main}} in the Automated Bellhop is split into six main groups (shown in Fig.~\ref{blockdiagram}):
 \addtokomafont{labelinglabel}{\sffamily}
 \begin{labeling}{usart examples}
 \item [Control] This group contains the processing power of the Bellhop. A Raspberry Pi  and three Arduino Nano microcontrollers connected via USB cables.
@@ -424,9 +423,9 @@ The User Interface can be so simplistic because it’s only purpose is simple co
 To drive the nine ultrasonic sensors (shown in Fig.~\ref{hc-sr04}) used in the Bellhop two high speed multiplexers/demultiplexes (\textit{74HC4067}) are used.  One for multiplexing the trigger signal to the correct sensor, and the other for demultiplexing the echo to response pin. The sensor is selected using a 4-pin input on \textit{74HC4067} (\texttt{S0}--\texttt{S3} pins~\cite{multiplexer-datasheet}) to set a binary address. The same address pins from the Arduino are connected to both multiplexers, as the relevant response will always be coming from the same sensor that was triggered.
 
 \begin{wrapfigure}[11]{r}{4cm}
-	\includegraphics[width=4cm]{hc-sr04.jpg}
-	\caption{\textit{HC-SR04} ultrasonic sensor used.}
-	\label{hc-sr04}
+    \includegraphics[width=4cm]{hc-sr04.jpg}
+    \caption{\textit{HC-SR04} ultrasonic sensor used.}
+    \label{hc-sr04}
 \end{wrapfigure}
 
 Using the multiplexers all nine sensors (up to 16 possible with the multiplexer) are driven using only six pins instead of the 18 that would have been needed to drive each sensor directly. A method that was considered to reduce the pin count was to use a common echo or trigger pin, either trigger only one sensor and listen for response on all of them, or trigger all of them and  only listen for response from one at a time. This would be viable in some applications, but could result in crosstalk, where a signal bounces and gets read by a sensor that has not sent out the signal. It would also only bring the pin count down to 10.
@@ -461,7 +460,7 @@ The power distribution system is dependent on a 12V DC input voltage capable of 
 Switching between these two power inputs can be done without power shortage, allowing the Raspberry Pi and Arduinos to keep operating without reset when switching. This is achieved by adding an electrolytic capacitor between the 12V rail and GND to remove the few microseconds of power loss coming from switching between the power sources, and smooth out voltage change that can occur as the battery voltage fluctuates doing a discharge cycle and the AUX power supply will give the same voltage regardless of battery voltage. When the power input is set for AUX power, the battery is disconnected from the circuity, and connected to a charging port, allowing it to be charged without removal, or the machine being shut down.
 
 
-The 12V supply voltage is converted down to the 5V needed for driving the Raspberry Pi, Arduinos, and other logic using a DC-DC switch mode power supply (Buck converter). The Buck converter is unbranded and a datasheet for the module cannot be found. Therefore, the specifications are from the datasheet of the main IC. The converter can take an input voltage of 4--40V and output 1.3--37V~\cite{LM2596-datasheet}. Meaning that the 12V to 5V conversion is well within specification. 
+The 12V supply voltage is converted down to the 5V needed for driving the Raspberry Pi, Arduinos, and other logic using a DC-DC switch mode power supply (Buck converter). The Buck converter is unbranded and a datasheet for the module cannot be found. Therefore, the specifications are from the datasheet of the main IC. The converter can take an input voltage of 4--40V and output 1.3--37V~\cite{LM2596-datasheet}. Meaning that the 12V to 5V conversion is well within specification.
 
 \subsection*{Improvements}
 
@@ -478,14 +477,14 @@ To achieve most of the improvements mentioned above a professionally produced 2 
     Layers & 1--2 & 1--4 or more \\
     Thru-hole & No & Yes \\
     Min track width & 12 mil & 6 mil (4 mil\footnote{The best possible but also more expensive options, these options are not used in the price comparison.})  \\
-    Min track spacing  & 12 mil & 6 mil (4 mil)  \\ 
-    Min drill size  & 0.6mm  & 0.3mm (0.2mm)  \\ 
+    Min track spacing  & 12 mil & 6 mil (4 mil)  \\
+    Min drill size  & 0.6mm  & 0.3mm (0.2mm)  \\
     Surface finishing  & None (exposed copper) & \textit{HASL}\footnote{\textit{HASL} surface finishing refers to Hot Air Surface Levelling which uses a solder bath, and hot air jets to plate all copper connections with solder, this makes soldering easier, and protects the copper from corroding.} lead or lead-free (gold) \\ \hline
     Specific to this PCB & & \\ \hline
-    Size & 140$\times$100mm  & 140$\times$100mm\footnote{As a double-sided PCB optimized for the edging minimum specifications have not been routed, it is impossible to tell the exact size of it. However, as all tracks and vias will be smaller and the routing can be done tighter do to the option of jumping layer a lot easier, it will definitely not be higher. In the price comparison PCBs of the same size are used.}  \\ 
+    Size & 140$\times$100mm  & 140$\times$100mm\footnote{As a double-sided PCB optimized for the edging minimum specifications have not been routed, it is impossible to tell the exact size of it. However, as all tracks and vias will be smaller and the routing can be done tighter do to the option of jumping layer a lot easier, it will definitely not be higher. In the price comparison PCBs of the same size are used.}  \\
     Layers  & 1 & 2  \\
-    Price excl. shipping  & 140DKK (1 unit)  & 60USD $\approx$425DKK (5 units) \\ 
-    Price incl. shipping  & 140DKK (1 unit)  & 35USD $\approx$250DKK (5 units) \\ 
+    Price excl. shipping  & 140DKK (1 unit)  & 60USD $\approx$425DKK (5 units) \\
+    Price incl. shipping  & 140DKK (1 unit)  & 35USD $\approx$250DKK (5 units) \\
   \end{tabular}
   \caption{PCB comparison.}
   \label{my-label}
@@ -532,12 +531,12 @@ To ensure seamless operation a simple communication protocol was used, each comm
 \end{labeling}
 \subsection*{Error Handling} \label{errhand}
 As there were multiple microcontrollers with which the Raspberry Pi was communicating at once, for testing purposes it was important to include some form of error handling in the event that there was something unexpected in the data that was given to one of the microcontrollers.
-This was mainly done by incorporating error feedback into the existing switch-cases that existed in the programs on the Arudino Nano microcontrollers. If the microcontroller received an unexpected message from the Raspberry Pi, an appropriate error code was sent back through USART that would indicate the type of error, in order to have an idea on whether or not there is a mistake in the communication setup, and also where this mistake might be. 
+This was mainly done by incorporating error feedback into the existing switch-cases that existed in the programs on the Arudino Nano microcontrollers. If the microcontroller received an unexpected message from the Raspberry Pi, an appropriate error code was sent back through USART that would indicate the type of error, in order to have an idea on whether or not there is a mistake in the communication setup, and also where this mistake might be.
 
 The main standard for these error codes is as follows:
 
 \begin{center}
-	\texttt{eAx}
+    \texttt{eAx}
 \end{center}
 
 where A is the Arduino ID number and x is the specific error code that pertains to the type of error detected. For example, the list of possible error codes that the LCD (User Interface) Arduino may return are at follows:
@@ -603,13 +602,13 @@ Both TCP and SSH communication require knowing the IP address of the device that
 
 Neither requesting a static IP address nor configuring a resolvable hostname, however, were not successful given the network settings at SDU. Two options were presented: to set up a personal wireless network, or to use a VPN service, such as \textit{Hamachi}~\cite{hamachi}. Setting up a personal wireless network would have been the ideal solution given the situation, as it would then be possible to set a static IP or a resolvable hostname, however using the \textit{Hamachi} VPN service was chosen.
 
-       
+
 In a situation where \textit{Hamachi} is used, it is imagined that both the computer from which the Raspberry Pi is being accessed and the Raspberry Pi itself would be on the same network. Then, a static IP is given within the \textit{Hamachi} network, as well as successful functionality of hostnames, that can be used for SSH and TCP communication. However, there is a limit to the number of devices that can be registered on a network before a subscription service needs to be paid for. This was not a problem during the development of the prototype, however could potentially end up unnecessarily costly if it were to be used in a hotel. Additionally, using a VPN service such as \textit{Hamachi} poses some security risks, as it is then easier for the device to be accessed from outside of the Wi-Fi network. In a hotel setting, this could be a problem, as it would provide the possibility for someone with no relation to the hotel to gain access to the robot device, and thereby potentially some sensitive information that may be stored there. While this is already a potential risk by having the robot run on a network within a hotel, where the guests will in theory be able to access the robot, there is no need to add to this risk by allowing access from essentially all around the world to the robot. This should be considered if a customer should choose to set up a VPN service in order to work with the robot.
 
-       
+
 During the development of the robot, the main problem was the loading time for the Raspberry Pi to be logged in to the \textit{Hamachi} network. While it was set up to log in to \textit{Hamachi} upon boot, it still took up to five minutes before the connection was successful, despite nearly immediately connecting to the Wi-Fi network. In order to keep track of this, a simple LED was set up on the Raspberry Pi GPIO pins that allowed for a visual indication that could display the status of the network connection, using a python script which would also begin at startup, and also continue to run throughout the use of the Raspberry Pi. The LED remained off until the Raspberry Pi had connected to the Wi-Fi, where it would instead start blinking. When the Raspberry Pi has successfully logged in to \textit{Hamachi}, the LED remains on. In the final version of this robot, this would also be implemented in order to indicate when the Automated Bellhop would be ready to serve. However, nearing the final weeks of development, the time delay was detrimental to the development process, as whenever it was required to restart the Raspberry Pi, there would be an unwanted amount of time before development could continue running. Therefore, it was instead set up that upon connection to a Wi-Fi network, the Raspberry Pi (through the use of a connected Arduino Nano microcontroller) would print its IP address on an LCD screen. This was a successful solution during the development of the robot, however should not be used in the final product.
 
-       
+
 Many of the problems that were faced in relation to the communication with the device (both through SSH and TCP) were due to some limitations set by the environment in which the robot was being developed. Though there were workarounds that were used for the purpose of prototyping, the problems shed light on some possible requirements or recommendations that would allow for the device to be setup and run smoothly in a hotel setting -- mainly for the hotel to ensure the network can allow for a device to request a static IP, or for the network to allow for resolvable hostnames.
 
 \newpage
@@ -646,8 +645,7 @@ For driving the Bellhop two \textit{919D501LN} motors are used which are control
 \end{wrapfigure}
 
 
-Encoders are needed because without them there is no way to gauge how much the Bellhop has travelled on each of the wheels. First of all, a sensor is needed that would do the measure rotation of the encoders, available in E-Lab is the \textit{OPB866T55} optical switch. One of the problems of using this switch directly with an Arduino is that the voltage does not rise immediately when the emitter and collector detect each other, which would lead to uncertainty, to correct this problem an op-amp is used to filter out signals below 2V, and get a more stable reading on the Arduino, for schematic of the switch refer to the Appendix\footnote{TODO path to optical-switch-schematic}. On Arduino timer inerrupts are used every 0.05ms(20kHz), as getting the number higher resulted in problems with USART communication, as it was interrupting too much, and slowed down the communication of data.
-
+Encoders are needed because without them there is no way to gauge how much the Bellhop has travelled on each of the wheels. First of all, a sensor is needed that would do the measure rotation of the encoders, available in E-Lab is the \textit{OPB866T55} optical switch. One of the problems of using this switch directly with an Arduino is that the voltage does not rise immediately when the emitter and collector detect each other, which would lead to uncertainty, to correct this problem an op-amp is used to filter out signals below 2V, and get a more stable reading on the Arduino, for schematic of the switch refer to the Appendix\footnote{\texttt{/elec/optical}}. On Arduino timer inerrupts are used every 0.05ms(20kHz), as getting the number higher resulted in problems with USART communication, as it was interrupting too much, and slowed down the communication of data.
 
 
 Six encoders were designed with varying slit size, As a test encoder 1 and 6 were water-cut out of stainless steel with, as they were on the extremes of each other. The picture of initial test can be seen on the table~\ref{encoder-test}. The 1st encoder is good at being super fast, having a 3$^\circ$ slit and 3$^\circ$ of spacing, with $\approx$60 reading per revolution from it, but as tests have shown it is not stable enough as at idle engine RPM(no load) it varied quite a bit $\approx$4 counts as shown in formula for calculating RPM. This may be attributed to the inaccuracies which are stated below. The 6th encoder has 6$^\circ$ slit and 18$^\circ$ of spacing which proved to be much more consistent, but having only 15 readings per revolution meant that RPM control could not be done very quickly as it had long times in between readings especially at low RPM $\approx$30. The test for the encoder was that for 5 minutes I would observe its time data and see the deviation, of which it had none, it was surprising as the 1st encoder was much more inaccurate. Further testing is required to find the best possible one, which has the best accuracy (readings/rev).
@@ -741,7 +739,7 @@ The main program controling the Bellhop is written in \textit{Python 3.5}, and c
 This structuring allowed for each of the individual functions of the robot to be developed and tested separately However, it was not until the Bellhop was assembled when some issues were found, due to the time constrains they could not have been solved. Namely, the $200ms$ delay when an ultrasonic sensor's reading is out of range and unreliable control of the motor RPM, which made the control of the Bellhop unreliable.
 
 \subsection*{Safety Distance}
-Safety should be the number one priority for a robot moving where people also walk around. Different types of obstacle avoidance and rerouteing of the drive path is preferred over a full stop, but as a last measure if everything else fails, the robot should stop completely before hitting anything or anyone. Therefore, three ultrasonic distance sensors in the front, and 2 in the back are used to detect obstacles in the drive path. If this detect something inside the safety distance of the robot, it stop immediately, and not move until the situation is analysed, and the obstacle has moved or is determined to be stationary, in which case backing away is an option. The safety distance will after all testing is done be dependent on current velocity, but for now it is set to a static value high enough for the robot to stop safely from maximum velocity. 
+Safety should be the number one priority for a robot moving where people also walk around. Different types of obstacle avoidance and rerouteing of the drive path is preferred over a full stop, but as a last measure if everything else fails, the robot should stop completely before hitting anything or anyone. Therefore, three ultrasonic distance sensors in the front, and 2 in the back are used to detect obstacles in the drive path. If this detect something inside the safety distance of the robot, it stop immediately, and not move until the situation is analysed, and the obstacle has moved or is determined to be stationary, in which case backing away is an option. The safety distance will after all testing is done be dependent on current velocity, but for now it is set to a static value high enough for the robot to stop safely from maximum velocity.
 Optimally, the safety distance could be defined in two parts: one where the robot must stop instantaneously to avoid collision, and second where it is able to break gently to protect it's shipment from damages.
 \goodbreak
 Currently, a simple collision avoidance is implemented in a form of a method in the \texttt{Brain} class:
@@ -753,7 +751,7 @@ When the reading on the centre front ping sensor is smaller than the acceptable 
 At the TekExpo hosted by SDU, the group had the opportunity to discuss with a member from the engineering field, who provided feedback as to how the project could be improved, as well as some tips for when the project is in the primary stages.
 The technical review was given by Dominique Basson, a Senior Software Architect, Head of R\&D at Siemens Flow Instruments.
 
-It was said that the product itself was well built, with a decent amount of aesthetic appeal. Additionally, the fact that the robot could be programmed and communicated with without needing to take apart the device was definitely a plus when looking from both a testing perspective and a user perspective. 
+It was said that the product itself was well built, with a decent amount of aesthetic appeal. Additionally, the fact that the robot could be programmed and communicated with without needing to take apart the device was definitely a plus when looking from both a testing perspective and a user perspective.
 
 Among the improvements that were mentioned, the main one was that the group should have rather started small, and worked upwards from there. For example, while the multiple ultrasonic sensors may be useful in future versions of the device, where the map would be implemented, when it was discovered that the map would not be a part of the current prototype, it could have been helpful to step down on the amount of ultrasonic sensors in order to limit the input and focus just on what is in front and to the sides of the device. Further, in terms of RPM control, it was suggested that if this project were to be done again, to use stepper motors, as these are typically easier to control.
 
@@ -806,7 +804,7 @@ Overall, despite the project not being fully functional, the team was able to le
 \item{Technical drawings}
 \end{itemize}
 \newpage
-\let\Section\section 
+\let\Section\section
 \def\section*#1{\Section{#1}}
 \bibliography{a}
 \bibliographystyle{unsrtnat}
