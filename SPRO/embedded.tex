@@ -29,6 +29,13 @@ minimum height=2em]
 
 \addtokomafont{labelinglabel}{\ttfamily}
 
+\newcommand{\namesigdate}[2][5cm]{%
+	\begin{tabular}{@{}p{#1}@{}}
+		#2 \\[2\normalbaselineskip] \hrule \\[0pt]
+		{\small \textit{Signature}} \\[2\normalbaselineskip] \\[0pt]
+	\end{tabular}
+}
+
 \begin{document}
 
 {
@@ -57,6 +64,21 @@ by \\[\baselineskip]
 \newpage
 \pagenumbering{roman}
 \section{Abstract}
+The idea behind this project was to develop an automated drive vehicle with obstacle detection and/or collision avoidance. The device was meant to be able to have some application in a user setting, following some user requirements and taking into account risk analysis and management. Being a Mechatronic device, it is expected to seamlessly integrate mechanic, electronic, and embedded design in order to achieve a successful result.
+
+The overall concept of this adaptation of the task is an automated transport vehicle, that can drive from point A to B without human intervention to control it, in order to deliver goods. During the development process, the design was built with a hotel setting in mind, so that the robot would serve as an Automated Bellhop, capable of delivering room service to customers at any time.
+
+Though the current prototype of this project is not successful, and does not accomplish all that is desired, the small successes and maximal effort that contributed to the project shows what can be learnt and understood about developing a Mechatronic device ready to be used both commercially and in industry.
+\newline
+\newline
+\newline
+
+\noindent \namesigdate[6cm]{Catherine Beryl Basson} \hfill \namesigdate[6cm]{Vladislav Borodic}
+
+\noindent \namesigdate[6cm]{Piotr Chromi\'nski} \hfill \namesigdate[6cm]{Mathias Skouman V\"olcker}
+
+
+\noindent \namesigdate[6cm]{Wojciech Zapotoczny} \hfill
 \newpage
 \tableofcontents
 \lstdefinestyle{customc}{
@@ -214,7 +236,7 @@ Additionally, the user is free to modify the software available on the robot in 
 
 This product is not to be used outdoors (unless on pavement) or on rough terrain, as the robot is not made to travel safely in such a setting. Additionally, the robot is not to travel near water (such as in a swimming pool), or in places with elevated humidity or moisture (shower rooms, in the rain, etc.). The robot is not designed to be waterproof, and failure to follow this may result in damage to either the robot, or to an operator.
 
-There is naturally some weight limit to the amount that the device can transport, however as the most recent prototype has not been fully functional, this was not determined.
+There is naturally some weight limit to the amount that the device can transport. During the design, this was decided to be a weight limit of 5kg, and the model was designed with this in mind, however as the most recent prototype has not been fully functional, the legitimacy of this is not tested or verified.
 TODO
 \newpage
 \section{Mechanical Design}
@@ -649,6 +671,8 @@ It was said that the product itself was well built, with a decent amount of aest
 Among the improvements that were mentioned, the main one was that the group should have rather started small, and worked upwards from there. For example, while the multiple ultrasonic sensors may be useful in future versions of the device, where the map would be implemented, when it was discovered that the map would not be a part of the current prototype, it could have been helpful to step down on the amount of ultrasonic sensors in order to limit the input and focus just on what is in front and to the sides of the device. Further, in terms of RPM control, it was suggested that if this project were to be done again, to use stepper motors, as these are typically easier to control.
 
 Emphasis on referencing the Need-to-Haves and Nice-to-Haves of the project was also commented on: it is important to truly focus on the what the robot needs to have, and only once the basics of these have been achieved, should the group had started to implement some of the bigger ideas/nice-to-haves into the project.
+
+Gaining insight from an experienced member of the field was very valuable in order to put the ideas from development in the perspective of an onlooker, as it helped to see what small things could have been changed from an outside perspective, that could have been considered big ideas within the group. However, could have been more beneficial to receive such feedback earlier in the development, in order to backtrack while possible, and potentially achieve a successful product.
 \newpage
 \section{Conclusion}
 Though this project did not meet the end goals that the group had set, there was some valuable feedback and knowledge learnt relating to the prototyping process in developing Mechatronic devices.
@@ -657,7 +681,7 @@ The most important note learnt, that will likely be brought to future projects, 
 
 It is also very important to stay focussed on what the goal of the project is, as well as what the user requirements and delimitations are. Having the idea of an automated hotel bellhop helped to solidify some of the ideas, providing some real-life applications of the parts of the device. In some decisions, it seemed to be paramount to the design to be able to put the project in the perspective of a possible user and setting, as some of the ideas -- such as developing a user application -- would not necessarily be used in another setting, like a warehouse.
 
-Gaining insight from an experienced member of the field was very valuable in order to put the ideas from development in the perspective of an onlooker, as it helped to see what small things could have been changed from an outside perspective, that could have been considered big ideas within the group. However, it
+Overall, despite the project not being fully functional, the team was able to learn a substantial amount about developing moving and automated robots, which can be applied in both future renditions of this project, and future projects otherwise.
 \newpage
 \section{Division of Work/Responsibilities}
 \paragraph{Catherine}
