@@ -108,7 +108,7 @@ The approach that Group 6 is taking to this project will be to develop an autono
 
 \newpage
 \section{Project Formulation}
-The project will be designed as a multi-purpose robot that easily can be reconfigured to solve other similar tasks, however the focus setting for this design will be hotel room service.  Here the problem we solve is that, originally, someone would need to be ready to deliver room service 24 hours a day, even though there may be no one using room service in the early or late hours. This work results in employees sitting around, which is unsatisfying work for the employee, and too expensive to the employer. If the room service delivery were automated, either a receptionist, or someone from the kitchen (who would need to be working at any hour any way in order to make the food requested in room service), can handle the packaging without leaving their own workstation, and therefore eliminating the use of an extra employee.
+The project will be designed as a multi-purpose robot that easily can be reconfigured to solve other similar tasks, however the focus setting for this design will be hotel room service. Here the problem we solve is that, originally, someone would need to be ready to deliver room service 24 hours a day, even though there may be no one using room service in the early or late hours. This work results in employees sitting around, which is unsatisfying work for the employee, and too expensive to the employer. If the room service delivery were automated, either a receptionist, or someone from the kitchen (who would need to be working at any hour any way in order to make the food requested in room service), can handle the packaging without leaving their own workstation, and therefore eliminating the use of an extra employee.
 
 
 For hotels currently not offering 24hr room service, perhaps because it is too expensive to hire someone if the room service demand is too low, this product will be an opportunity to improve the hotel’s service at a relatively low cost.
@@ -282,18 +282,18 @@ In the bellhop automobile, two types of wheel were used; for the drive, we have 
 
 
 \subsection*{Sliders}
-In search of the sliders for the drawer we have selected two-way travel Accuride 2026. The reason for it was that we could find datasheet and CAD model and the specification met our requirements; 283.4 mm extension length and 45 kg load and weight of 740g they promised to provide a smooth travel of the drawer.
+In search of the sliders for the drawer two-way travel Accuride 2026 have been selected. The reason being: datasheet, CAD model, and the specification met our requirements; 283.4mm extension length and 45 kg load and weight of 740g they promised to provide a smooth travel of the drawer.
 
 
 \subsection*{T-nuts}
 T-nuts are made to fit the aluminum profile slot. The threaded bore included in the design provides the connection between built-on part and the aluminum profile via screws.
 
 
-T-nut primarily are supplied by the manufacturer of the aluminum profiles, however the price of the connecting element turned out to be very expensive. With respect to the very high price we have tried to create a CAD model and 3d print it, nevertheless the quality of the first created parts were not sufficient enough. Necessary adjustments were made with the 3d print set up what resulted, in part that could be used to attach something on the aluminum profile. Although, we obtained the desired effect, the concern appeared, that the material used to 3d print is not strong enough to hold our key elements, especially pillow block bearings.
+T-nut primarily are supplied by the manufacturer of the aluminum profiles, however the price of the connecting element turned out to be very expensive. With respect to the very high price, attempt to create a CAD model and 3d print was made. Nevertheless, the quality of the first created parts were not sufficient enough. Necessary adjustments were made with the 3d print set up what resulted, in part that could be used to attach something on the aluminum profile. Although, the desired effect was obtained, the concern appeared, that the material used to 3d print is not strong enough to hold our key elements, especially pillow block bearings.
 
 
 \subsection*{Movement Principle}
-The mechanical drive system we have applied is very simple concept.  Controlling the velocity of the of two motors, their difference, we can drive automobile in any desired path and direction. The built requires two motors, collinear mounted on an axis and additional freewheel. The third wheel keeps the balance. Principles of movement: If the angular velocities are equal, the same rpm and direction on the wheel, robot drives straight or backwards, depending of clockwise or counterclockwise direction. If the velocities are equal, but in the opposite direction, robot spins around its vertical axis, so we turn 㯮 the spot䬠if one wheel is active and second is passive and block the robot will turn around the contact point of the passive wheels, in our case the polypropylene rubber does not have sufficient friction force, grip and tends to create offset to the turn (if the speeds are chosen correctly we can perform a 90 degree turn). If angular velocities are different and motors are spinning in the same direction, then we can turn the automobile left or right, goes curve motion. Combining those motions we can create a full drive and make the robot to follow the path we want. Advantages are that control system is simple and mechanics is robust and sound. The main disadvantage is that nothing is perfect and neither motors or wheels so we can never achieve equal angular velocities. If the robot does not drive as desired, we can make an adjustment and correction factor. We chose to apply the encoder which would control revolutions of the wheel.
+The principle of the mechanical drive is simple. Controlling the velocity of the of two motors, difference in rpm can drive automobile in any desired path and direction. The build requires two motors, collinear mounted on an axis and additional freewheel. The third wheel keeps the balance. Principles of movement: If the angular velocities are equal, the same rpm and direction on the wheel, robot drives straight or backwards, depending of clockwise or counterclockwise direction. If the velocities are equal, but in the opposite direction, robot spins around its vertical axis, so it turns on the spot, if one wheel is active and second is passive and block the robot will turn around the contact point of the passive wheels, the polypropylene rubber does not have sufficient friction force, grip and tends to create offset to the turn (if the speeds are chosen correctly it is possible to perform a 90 degree turn). If angular velocities are different and motors are spinning in the same direction, then the robot can turn left or right, goes in a curve motion. Combining those motions it is possible to create a full drive and make the robot to follow the path desired. Advantages are that control system is simple and mechanics is robust and sound. The main disadvantage is that nothing is perfect and neither motors or wheels can ever achieve equal angular velocities. If the robot does not drive as desired, adjustment can be made by some correction factor. Encoder was chosen to control revolutions of the wheel.
 
 
 \subsection*{Risk Management}
@@ -653,36 +653,37 @@ TODO Cat REFERENCE TECHNICAL REVIEW
 \section{Division of Work/Responsibilities}
 \paragraph{Catherine}
 \begin{itemize}
-	\item{TCP Commuication}
-	\item{User experience and usability}
-	\item{Raspberry Pi usability and control (startup, etc.)}
-	\item{Ping Arduino}
-	\item{Error handling in USART}
+\item{TCP commuication}
+\item{User experience and usability}
+\item{Raspberry Pi usability and control (startup, etc.)}
+\item{Ping Arduino}
+\item{Error handling in USART}
 \end{itemize}
 \paragraph{Vladislav}
 \begin{itemize}
-	\item{Drive Arduino}
-	\item{Mechanical design}
-	\item{Encoders}
-	\item{Mechanical Workshop Contact person}
+\item{Drive Arduino}
+\item{Mechanical design}
+\item{Encoders}
+\item{Mechanical workshop contact person}
 \end{itemize}
 \paragraph{Piotr}
 \begin{itemize}
-	\item{Map}
-	\item{Brain}
-	\item{Ping Arduino}
-	\item{User Interface Arduino}
-	\item{USART communication}
-	\item{E-Lab Contact person}
+\item{Map}
+\item{Brain}
+\item{Ping Arduino}
+\item{User Interface Arduino}
+\item{USART communication}
+\item{E-Lab contact person}
 \end{itemize}
 \paragraph{Mathias}
 \begin{itemize}
-	\item{PCB design}
-	\item{Electronics handling/design}
+\item{PCB design}
+\item{Electronics handling/design}
 \end{itemize}
 \paragraph{Wojciech}
 \begin{itemize}
-	\item{Mechanical Design}
+\item{Mechanical design}
+\item{Technical drawings}
 \end{itemize}
 \newpage
 \section{Bill of Materials}
