@@ -14,18 +14,19 @@
 \contentsline {section}{\numberline {4}Risk Management}{6}{section.4}
 \contentsline {section}{\numberline {5}User Requirements}{7}{section.5}
 \contentsline {section}{\numberline {6}Mechanical Design}{8}{section.6}
-\contentsline {section}{\numberline {7}Electronics}{9}{section.7}
-\contentsline {section}{\numberline {8}USART Communication}{14}{section.8}
-\contentsline {section}{\numberline {9}Network Communication}{16}{section.9}
-\contentsline {section}{\numberline {10}Arduino Nano Microcontrollers}{20}{section.10}
-\contentsline {section}{\numberline {11}Raspberry Pi}{24}{section.11}
-\contentsline {section}{\numberline {12}Technical Review}{28}{section.12}
-\contentsline {section}{\numberline {13}Conclusion}{29}{section.13}
-\contentsline {section}{\numberline {14}Division of Work/Responsibilities}{30}{section.14}
-\contentsline {paragraph}{Catherine}{30}{section*.30}
-\contentsline {paragraph}{Vladislav}{30}{section*.31}
-\contentsline {paragraph}{Piotr}{30}{section*.32}
-\contentsline {paragraph}{Mathias}{30}{section*.33}
-\contentsline {paragraph}{Wojciech}{30}{section*.34}
-\contentsline {section}{\numberline {15}Bill of Materials}{31}{section.15}
-\contentsline {section}{\numberline {16}References}{32}{section.16}
+\contentsline {subsection}{\numberline {6.1}T-nuts}{12}{subsection.6.1}
+\contentsline {section}{\numberline {7}Electronics}{14}{section.7}
+\contentsline {section}{\numberline {8}USART Communication}{19}{section.8}
+\contentsline {section}{\numberline {9}Network Communication}{21}{section.9}
+\contentsline {section}{\numberline {10}Arduino Nano Microcontrollers}{25}{section.10}
+\contentsline {section}{\numberline {11}Raspberry Pi}{29}{section.11}
+\contentsline {section}{\numberline {12}Technical Review}{33}{section.12}
+\contentsline {section}{\numberline {13}Conclusion}{34}{section.13}
+\contentsline {section}{\numberline {14}Division of Work/Responsibilities}{35}{section.14}
+\contentsline {paragraph}{Catherine}{35}{section*.42}
+\contentsline {paragraph}{Vladislav}{35}{section*.43}
+\contentsline {paragraph}{Piotr}{35}{section*.44}
+\contentsline {paragraph}{Mathias}{35}{section*.45}
+\contentsline {paragraph}{Wojciech}{35}{section*.46}
+\contentsline {section}{\numberline {15}Bill of Materials}{36}{section.15}
+\contentsline {section}{\numberline {16}References}{37}{section.16}
