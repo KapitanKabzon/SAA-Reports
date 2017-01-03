@@ -1,46 +1,9 @@
-This is BibTeX, Version 0.99d (TeX Live 2014)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: embedded.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: embedded.aux
 The style file: unsrtnat.bst
 Database file #1: a.bib
-You've used 13 entries,
-            2481 wiz_defined-function locations,
-            609 strings with 5546 characters,
-and the built_in function-call counts, 3046 in all, are:
-= -- 296
-> -- 7
-< -- 2
-+ -- 29
-- -- 2
-* -- 186
-:= -- 340
-add.period$ -- 28
-call.type$ -- 13
-change.case$ -- 21
-chr.to.int$ -- 12
-cite$ -- 20
-duplicate$ -- 209
-empty$ -- 406
-format.name$ -- 3
-if$ -- 724
-int.to.chr$ -- 2
-int.to.str$ -- 14
-missing$ -- 1
-newline$ -- 61
-num.names$ -- 3
-pop$ -- 148
-preamble$ -- 1
-purify$ -- 13
-quote$ -- 0
-skip$ -- 143
-stack$ -- 0
-substring$ -- 70
-swap$ -- 49
-text.length$ -- 1
-text.prefix$ -- 5
-top$ -- 0
-type$ -- 91
-warning$ -- 0
-while$ -- 5
-width$ -- 0
-write$ -- 141
+I was expecting an "="---line 146 of file a.bib
+ : 
+ : },
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+(There was 1 error message)

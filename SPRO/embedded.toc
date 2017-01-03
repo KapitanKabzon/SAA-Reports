@@ -14,7 +14,6 @@
 \contentsline {section}{\numberline {4}Risk Management}{6}{section.4}
 \contentsline {section}{\numberline {5}User Requirements}{7}{section.5}
 \contentsline {section}{\numberline {6}Mechanical Design}{8}{section.6}
-\contentsline {subsection}{\numberline {6.1}T-nuts}{12}{subsection.6.1}
 \contentsline {section}{\numberline {7}Electronics}{14}{section.7}
 \contentsline {section}{\numberline {8}USART Communication}{19}{section.8}
 \contentsline {section}{\numberline {9}Network Communication}{21}{section.9}
@@ -23,10 +22,10 @@
 \contentsline {section}{\numberline {12}Technical Review}{33}{section.12}
 \contentsline {section}{\numberline {13}Conclusion}{34}{section.13}
 \contentsline {section}{\numberline {14}Division of Work/Responsibilities}{35}{section.14}
-\contentsline {paragraph}{Catherine}{35}{section*.42}
-\contentsline {paragraph}{Vladislav}{35}{section*.43}
-\contentsline {paragraph}{Piotr}{35}{section*.44}
-\contentsline {paragraph}{Mathias}{35}{section*.45}
-\contentsline {paragraph}{Wojciech}{35}{section*.46}
+\contentsline {paragraph}{Catherine}{35}{section*.43}
+\contentsline {paragraph}{Vladislav}{35}{section*.44}
+\contentsline {paragraph}{Piotr}{35}{section*.45}
+\contentsline {paragraph}{Mathias}{35}{section*.46}
+\contentsline {paragraph}{Wojciech}{35}{section*.47}
 \contentsline {section}{\numberline {15}Bill of Materials}{36}{section.15}
 \contentsline {section}{\numberline {16}References}{37}{section.16}
