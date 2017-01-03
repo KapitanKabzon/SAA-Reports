@@ -222,20 +222,22 @@ TODO
 \newpage
 \section{Mechanical Design}
 \subsection*{Frame}
-TODO picture of the frame?
-
-
 In the design, the choice of the frame\footnote{For better understanding of the design, please see the presentation of the assembly\texttt{/Mechanical Design Bellhop/Frame Assembly Presentation.wmv}} unquestionably was an important choice upon which the features and the rest of the design would be based on. In order to prepare for this choice, research of automobile projects was done. The results indicated that the most common feature was that the RC cars, which were modified and adjust to the desired options, or vehicle structure-based on aluminium segments were designed to be adjusted to one's needs. Firstly, building upon a RC platform was considered, so that an existing working drive mechanism and include food serving product, nevertheless, no vehicle of desired size could be found. Therefore, platform out of aluminium segments was chosen. Aluminium profiles, which are easily accessible allow to build a stronger frame, keeping the weight of the robot down. To choose the right series of a profile equation supplied by the manufacturer was used to check the strength and deflection of the profile under load. The calculation showed that profile 20$\times$20 with 380mm span deflects 1.1521mm at 2000N load\footnote{Deflection Calculations: \texttt{/Mechanical Design Bellhop/Calculations/Deflection Calculations.xlsx}}. Which is a very good results and acceptable for further development.
 
 $$\delta=\frac{F\times l^3}{192\times E\times l\times 10^4}$$
- 
+
+
+\begin{wrapfigure}[9]{r}{4cm}
+  \includegraphics[width=4cm]{profile}
+  \caption{Aluminum profile used.}
+  \label{profile}
+\end{wrapfigure}
+
+
 The choice of frame was aluminium profile series 5 20$\times$20 which is ideal for the application. It delivers rigidity and allows for very easy re-development and re-construction of the model. In the concept design phase, it was established that robot should be easy to mount. Therefore, it was decided to build the frame with a floor that can be easily disassembled to make necessary changes if needed. A very simple structure was developed: a rectangular box with a square base 420mm$\times$420mm$\times$300mm and floor in the middle. The construction is assembled from 12$\times$380mm and 4$\times$300mm item aluminium profile series 5 20$\times$20.  The span between the floor and base line is 60mm. It was thought to be a ``brain level'', which would contain all the electronics, including PCB, H-Bridges, Arduino Nano microcontrollers, and Raspberry Pi. The span between the drawer level and the top is 180mm, which is enough space to fit in the food container and its drive. In order to screw the frame, the profiles had to be modified. The 380mm profile were tapped from both sides, making a 30mm thread M5. In the 300mm profile the position of the ``brain'', ``drawer'', and ``top'' levels was set, and 6mm hole drilled through for adjustement of the fastening set.
 
-TODO picture
 
-Fastening set is screwed and metal plate which secures the profile in the set position. 24 were used to build the frame. This set could be ordered from workshop and it transpired to be a surprisingly expensive part. The university workshop price was 300 DKK for 30 pieces. To see the frame assembly in detail, refer to the presentation.
-
-TODO picture
+Fastening set is screwed and metal plate which secures the profile in the set position. 24 were used to build the frame. This set could be ordered from workshop and it transpired to be a surprisingly expensive part. The university workshop price was 300 DKK for 30 pieces.
 
 \subsection*{Floor Levels}
 
@@ -251,19 +253,17 @@ The MDF used were sufficient for the needs of the project, nevertheless, it was 
 The second part of the brain level floor was expected to have a free-wheel and hold the electronic components. At the beginning, it was only designed to have a bore for the wires and it was expected to be redesigned at the stage where all the electronics and its placement is known. The additional unforeseen change was integrating a fan into the design. Next step to improve our design is to place two additional free-wheels on the back so more stability is achieved when the drawer is in its furthest deviation.
 
 
-(TODO restructure) On the drawer floor level, two plates are used, placed parallel to the direction of the drawer slides. As a consequence, to use MDF to create a drawer, assuming that the dimensions will not be precise, therefore,  had to align the drawer with drawer drive and later on laser-cut the final version. Nevertheless, the laser cutter was not available for the last days of the projects weeks and the desired, upgraded version of the model could not be delivered in time. On this floor, there was no need to redesign the original idea. The motor was very close to the edge and experienced no wobble or unexpected movement. (TODOmovie)
+(TODO restructure) On the drawer floor level, two plates are used, placed parallel to the direction of the drawer slides. As a consequence, to use MDF to create a drawer, assuming that the dimensions will not be precise, therefore,  had to align the drawer with drawer drive and later on laser-cut the final version. Nevertheless, the laser cutter was not available for the last days of the projects weeks and the desired, upgraded version of the model could not be delivered in time. On this floor, there was no need to redesign the original idea. The motor was very close to the edge and experienced no wobble or unexpected movement.
 
 
-Please see the animation of the drawer drive. (TODO)
-USB stick
-
+Please see the animation of the drawer drive\footnote{/Mechanical Design Bellhop/Assembly Presentation Video/Drawer Assembly Presentation.wmv}.
 
 \subsection*{Front Plate}
 The front plate\footnote{For better understanding of the design, please see the presentation of the assembly: \texttt{/Mechanical Design Bellhop/Assembly Presentation Video/Front Plate Assembly Presentation.wmv}} is solely mounted to place the ultrasonic sensors with certain angles, so a bigger area can be covered in front of the automobile. The plate is laser-cut from MDF and have pre-cut holes to plate the L-shaped ultrasonic holders and bore for the wires. The panel is screwed to the profile by means of t-nuts. 
 
 
 \subsection*{Drawer}
-One of the features of the robot was to deliver ordered food to the guest. An ideal soulution would be to construct some kind of container that is big enough to fit a plate of 230mm and is easy to make it mobile. The simplest idea was to design a drawer\footnote{For better understanding of the design, please see the presentation of the assembly: \texttt{TODO /Mechanical Design Bellhop/Assembly Presentation Video/Drawer Assembly Presentation.wmv}}; a box on which mechanical system can be mounted with no trouble to make it transportable. The biggest problem was to find the rail system which would be smooth and accessible, in terms of ordering or manufacturing in the workshop. The first idea was to create a roller bearings- a bearing fitted on the grinded/ smooth on side threaded rod that can be simply secured to the box. After creating a sample and testing how it behaves, the smoothness was impressive, nevertheless, it is not the solution that can be easily changed and redesigned in the further part of the development and prototyping process. Moreover, some parts could not be found online to order the C-rail in the right size to create a path for it. The additional disadvantage was that it did not offer the required stability, hence idea was abandoned. 
+One of the features of the robot was to deliver ordered food to the guest. An ideal soulution would be to construct some kind of container that is big enough to fit a plate of 230mm and is easy to make it mobile. The simplest idea was to design a drawer\footnote{For better understanding of the design, please see the presentation of the assembly: \texttt{/Mechanical Design Bellhop/Assembly Presentation Video/Drawer Assembly Presentation.wmv}}; a box on which mechanical system can be mounted with no trouble to make it transportable. The biggest problem was to find the rail system which would be smooth and accessible, in terms of ordering or manufacturing in the workshop. The first idea was to create a roller bearings- a bearing fitted on the grinded/ smooth on side threaded rod that can be simply secured to the box. After creating a sample and testing how it behaves, the smoothness was impressive, nevertheless, it is not the solution that can be easily changed and redesigned in the further part of the development and prototyping process. Moreover, some parts could not be found online to order the C-rail in the right size to create a path for it. The additional disadvantage was that it did not offer the required stability, hence idea was abandoned. 
 
 
 The model 2 was designed to take advantage of already finished product as sliders that allow for the smooth movement of a drawer and stability not to damage the goods. The idea was to create a box with pre-cut holes for the slider and the drive, mechanical system. The final choice was to use rack and pinion system, however, it was thought of the systems that asserts more stable and levelled travel. The rack and pinion made our decision, since everything can simply be laser-cut in the workshop. One of the criteria of the model 2, was to make the drawer as big as possible and utilize all the space in the frame. Therefore, it was decided to place the drive-train on the bottom of the drawer and place the motor in the vertical position as shown in the assembly\footnote{Assembly: \texttt{/Mechanical Design Bellhop/Motor Drawer Assembly Presentation.wmv}} Motor Mount 944D ver 1 and 2. During the redesign stage, the decision was made on isolating the brain level with electronics and make the drawer very modular, so they can easily be stacked together and make the design more future proof.
@@ -310,8 +310,7 @@ T-nuts are made to fit the aluminium profile slot. The threaded bore included in
 
 T-nut primarily are supplied by the manufacturer of the aluminium profiles, however the price of the connecting element turned out to be very expensive. With respect to the very high price, attempt to create a CAD model and 3d print was made. Nevertheless, the quality of the first created parts were not sufficient enough. Necessary adjustments were made with the 3d print set up what resulted, in part that could be used to attach something on the aluminium profile. Although, the desired effect was obtained, the concern appeared, that the material used to 3d print is not strong enough to hold our key elements, especially pillow block bearings.
 
-The full assembly of the Bellhop robot can be found on the USB-stick\footnote{ 
-Mechanical Design Bellhop >> Assembly Final >> Bellhop Final Assembly ver 1}
+The full assembly of the Bellhop robot can be found on the USB-stick\footnote{\texttt{Mechanical Design Bellhop/Assembly Final/Bellhop Final Assembly ver 1.iam}}
 
 
 \subsection*{Movement Principle}
@@ -602,7 +601,7 @@ Encoders are needed because without them there is no way to gauge how much the B
 
 
 
-Six encoders were designed with varying slit size, As a test encoder 1 and 6 were water-cut out of stainless steel with, as they were on the extremes of each other. The picture of initial test can be seen on the Fig.~\ref{encoder-test}. The 1st encoder is good at being super fast, having a 3$^\circ$ slit and 3$^\circ$ of spacing, with $\approx$60 reading per revolution from it, but as tests have shown it is not stable enough as at idle engine RPM(no load) it varied quite a bit $\approx$4 counts as shown in formula for calculating RPM. This may be attributed to the inaccuracies which are stated below. The 6th encoder has 6$^\circ$ slit and 18$^\circ$ of spacing which proved to be much more consistent, but having only 15 readings per revolution meant that RPM control could not be done very quickly as it had long times in between readings especially at low RPM $\approx$30. The test for the encoder was that for 5 minutes I would observe its time data and see the deviation, of which it had none, it was surprising as the 1st encoder was much more inaccurate. Further testing is required to find the best possible one, which has the best accuracy (readings/rev).
+Six encoders were designed with varying slit size, As a test encoder 1 and 6 were water-cut out of stainless steel with, as they were on the extremes of each other. The picture of initial test can be seen on the table~\ref{encoder-test}. The 1st encoder is good at being super fast, having a 3$^\circ$ slit and 3$^\circ$ of spacing, with $\approx$60 reading per revolution from it, but as tests have shown it is not stable enough as at idle engine RPM(no load) it varied quite a bit $\approx$4 counts as shown in formula for calculating RPM. This may be attributed to the inaccuracies which are stated below. The 6th encoder has 6$^\circ$ slit and 18$^\circ$ of spacing which proved to be much more consistent, but having only 15 readings per revolution meant that RPM control could not be done very quickly as it had long times in between readings especially at low RPM $\approx$30. The test for the encoder was that for 5 minutes I would observe its time data and see the deviation, of which it had none, it was surprising as the 1st encoder was much more inaccurate. Further testing is required to find the best possible one, which has the best accuracy (readings/rev).
 
 The formula for calculating the RPM for the first encoder was:
 $$\text{RPM}=\frac{1}{x\cdot0.5\cdot10^{-4}\cdot60}\cdot60=\frac{20000}{x}$$
